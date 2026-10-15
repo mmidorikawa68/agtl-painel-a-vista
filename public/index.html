@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102d45">
+    <title>Pátio de Triagem</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel" aria-label="Painel de dashboards">
+        <p id="panel-error" class="message error" role="alert">Carregando dashboards…</p>
+        <div id="carousel" class="carousel" hidden>
+          <iframe id="dashboard-frame" title="Dashboard atual"></iframe>
+          <footer class="carousel-footer">
+            <button id="previous-button" class="icon-button" type="button" aria-label="Dashboard anterior">‹</button>
+            <span id="carousel-position" aria-live="polite"></span>
+            <span id="api-status" class="api-status" role="status"></span>
+            <button id="next-button" class="icon-button" type="button" aria-label="Próximo dashboard">›</button>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

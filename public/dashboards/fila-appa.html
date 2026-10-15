@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f6fa">
+    <title>Pátio de Triagem</title>
+    <link rel="stylesheet" href="/assets/fila-dashboard.css">
+    <script src="/assets/fila-dashboard.js" defer></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="dashboard-header">
+        <h1>PÁTIO DE TRIAGEM</h1>
+        <p class="updated">Atualizado em <strong id="updated-at">Aguardando dados</strong></p>
+      </header>
+
+      <section class="overview-grid" aria-label="Situação e ofertas">
+        <article class="status-card via-status">
+          <div class="status-heading">
+            <h2>VIA</h2>
+            <strong id="via-total" class="heading-total">---</strong>
+          </div>
+          <div id="via-counts" class="status-counts"></div>
+        </article>
+        <article class="status-card patio-status">
+          <div class="status-heading">
+            <h2>PÁTIO</h2>
+            <strong id="yard-total" class="heading-total">---</strong>
+          </div>
+          <div id="yard-counts" class="status-counts"></div>
+        </article>
+        <article class="offer-card">
+          <div class="section-heading">
+            <div class="heading-with-total">
+              <h2>Ofertas D</h2>
+              <strong id="today-offers-total" class="heading-total">---</strong>
+            </div>
+            <span id="today-date" class="date-chip">--/--</span>
+          </div>
+          <div id="today-offers" class="product-grid"></div>
+        </article>
+        <article class="offer-card">
+          <div class="section-heading">
+            <div class="heading-with-total">
+              <h2>Ofertas D+1</h2>
+              <strong id="tomorrow-offers-total" class="heading-total">---</strong>
+            </div>
+            <span id="tomorrow-date" class="date-chip">--/--</span>
+          </div>
+          <div id="tomorrow-offers" class="product-grid"></div>
+        </article>
+      </section>
+
+      <section class="operations-grid" aria-label="Situação operacional">
+        <article class="stay-card">
+          <h2>Tempo de Permanência</h2>
+          <div class="stay-highlight">
+            <p id="stay-time" class="stay-time">---</p>
+            <span id="stay-vehicle" class="stay-vehicle">---</span>
+          </div>
+          <ol id="oldest-list" class="oldest-list"></ol>
+        </article>
+        <article class="transit-card">
+          <h2>Em Trânsito</h2>
+          <ul id="transit-list" class="transit-list"></ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

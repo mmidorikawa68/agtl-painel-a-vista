@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102d45">
+    <title>Descargas - Exportação</title>
+    <link rel="stylesheet" href="/assets/descargas-dashboard.css">
+    <script src="/assets/descargas-dashboard.js" defer></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="dashboard-header">
+        <h1>DESCARGAS - EXPORTAÇÃO</h1>
+        <div class="updated-card">
+          <span>Atualizado em</span>
+          <strong id="updated-at">---</strong>
+        </div>
+      </header>
+
+      <section class="current-shift" aria-label="Descarga do turno atual">
+        <h2>DESCARGA TURNO ATUAL: <span id="current-shift">---</span></h2>
+        <article class="metric-card quantity-card">
+          <h3>QTDE</h3>
+          <div class="product-quantities">
+            <span>Soja <strong id="current-soja">---</strong></span>
+            <span>Milho <strong id="current-milho">---</strong></span>
+          </div>
+        </article>
+        <article class="metric-card weight-card">
+          <h3>PESO KG</h3>
+          <strong id="current-weight">---</strong>
+        </article>
+      </section>
+
+      <form class="period-filter" id="period-filter">
+        <label>
+          Ano
+          <input id="year" name="ano" type="number" min="2000" max="2100" required>
+        </label>
+        <label>
+          Mês
+          <select id="month" name="mes" required>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+        </label>
+        <button type="submit">Consultar</button>
+        <span id="load-error" role="alert" hidden></span>
+      </form>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">Data</th>
+              <th class="shift-a" scope="col">Turno A</th>
+              <th class="shift-b" scope="col">Turno B</th>
+              <th class="shift-c" scope="col">Turno C</th>
+              <th class="shift-f" scope="col">Turno F</th>
+              <th class="daily-total" scope="col" colspan="2">Total do Dia</th>
+            </tr>
+            <tr>
+              <th class="shift-a" scope="col">Qtde</th>
+              <th class="shift-b" scope="col">Qtde</th>
+              <th class="shift-c" scope="col">Qtde</th>
+              <th class="shift-f" scope="col">Qtde</th>
+              <th class="daily-total" scope="col">Qtde</th>
+              <th class="daily-total" scope="col">Peso KG</th>
+            </tr>
+          </thead>
+          <tbody id="daily-rows"></tbody>
+          <tfoot id="monthly-totals"></tfoot>
+        </table>
+      </div>
+      <section class="product-totals" aria-live="polite">
+        <h2>Totalizadores por Produto</h2>
+        <div id="product-totals" class="product-total-list"></div>
+      </section>
+    </main>
+  </body>
+</html>

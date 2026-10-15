@@ -1,0 +1,4 @@
+$env:PGUSER = "admin_painel"
+$env:PGPASSWORD=Read-Host "Senha do PostgreSQL" -AsSecureString | ForEach-Object { [System.Net.NetworkCredential]::new("",$_).Password }
+$env:DASHBOARD_API_URL = "https://www.infoger.appa.pr.gov.br/appa-ade02/rest/col/fila/consulta/34918BD3C2E528CF46FD682187D6FA51?status="
+npm start

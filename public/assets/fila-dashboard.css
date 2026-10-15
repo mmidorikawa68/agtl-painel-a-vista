@@ -1,0 +1,361 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #17354b;
+  background: #f2f6fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 90% 0%, rgb(31 123 159 / 9%), transparent 28rem),
+    #f2f6fa;
+}
+
+.dashboard {
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: clamp(8px, 1.15vh, 14px);
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: clamp(10px, 1.4vh, 16px) clamp(14px, 1.6vw, 24px);
+}
+
+.dashboard-header {
+  display: grid;
+  min-height: 48px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #102d45;
+  font-size: clamp(28px, 3.3vw, 46px);
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-align: center;
+}
+
+.updated {
+  justify-self: end;
+  margin: 0;
+  padding: 7px 12px;
+  border: 1px solid #dce7ee;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 7px 20px rgb(22 55 78 / 5%);
+  color: #567184;
+  font-size: clamp(11px, 0.9vw, 14px);
+  white-space: nowrap;
+}
+
+.updated strong {
+  display: block;
+  margin-top: 4px;
+  color: #173c54;
+  font-size: clamp(13px, 1.05vw, 16px);
+  font-variant-numeric: tabular-nums;
+}
+
+h2 {
+  margin: 0;
+  color: #17354b;
+  font-size: clamp(17px, 1.5vw, 22px);
+  letter-spacing: -0.02em;
+}
+
+.overview-grid,
+.operations-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 14px);
+}
+
+.operations-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.status-card,
+.offer-card,
+.stay-card,
+.transit-card {
+  min-width: 0;
+  padding: clamp(10px, 1.1vw, 16px);
+  border: 1px solid #e0e9ef;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 9px 28px rgb(22 55 78 / 5%);
+}
+
+.status-card {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+}
+
+.status-card h2 {
+  font-size: clamp(17px, 1.6vw, 23px);
+}
+
+.status-heading,
+.heading-with-total {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-heading {
+  justify-content: space-between;
+}
+
+.heading-with-total {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.heading-with-total h2 {
+  justify-self: start;
+}
+
+.heading-with-total .heading-total {
+  justify-self: center;
+}
+
+.heading-total {
+  flex: 0 0 auto;
+  color: #102d45;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.via-status {
+  border-left: 5px solid #179a78;
+}
+
+.patio-status {
+  border-left: 5px solid #e29a37;
+}
+
+.via-status .heading-total {
+  color: #137b61;
+}
+
+.patio-status .heading-total {
+  color: #b76b19;
+}
+
+.status-counts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.status-count {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 6px 3px;
+  border-radius: 9px;
+  background: #f5f8fa;
+}
+
+.status-count .product-name {
+  color: #61798b;
+  font-size: clamp(10px, 0.85vw, 13px);
+}
+
+.status-count strong {
+  color: #173c54;
+  font-size: clamp(21px, 2vw, 29px);
+  line-height: 1;
+}
+
+.via-status .status-count strong {
+  color: #137b61;
+}
+
+.patio-status .status-count strong {
+  color: #b76b19;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.date-chip {
+  padding: 5px 8px;
+  border-radius: 20px;
+  background: #eaf4f8;
+  color: #277293;
+  font-size: clamp(11px, 0.8vw, 13px);
+  font-weight: 700;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.product-tile {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border: 1px solid #eaf0f4;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.product-name {
+  color: #536e81;
+  font-size: clamp(12px, 1vw, 15px);
+}
+
+.product-tile strong {
+  color: #173c54;
+  font-size: clamp(22px, 2.1vw, 31px);
+  line-height: 1;
+}
+
+.stay-card,
+.transit-card {
+  display: grid;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.stay-card {
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+
+.transit-card {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.stay-highlight {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: clamp(8px, 1.3vw, 20px);
+  margin: 7px 0 10px;
+}
+
+.stay-time {
+  margin: 0;
+  color: #bd602e;
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  transition: color 400ms ease, font-size 400ms ease;
+}
+
+.stay-vehicle {
+  overflow: hidden;
+  color: #536e81;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stay-time.stay-critical {
+  font-size: clamp(58px, 7vw, 98px);
+}
+
+@media (max-width: 520px) {
+  .stay-highlight {
+    flex-wrap: wrap;
+  }
+}
+
+.oldest-list,
+.transit-list {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oldest-list li,
+.transit-list li {
+  padding: 7px 4px;
+  border-top: 1px solid #e9eef2;
+  color: #264a60;
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 600;
+}
+
+.oldest-list .oldest-empty,
+.transit-list .oldest-empty {
+  color: #8193a0;
+  font-weight: 400;
+}
+
+.transit-card h2 {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 760px) {
+  .dashboard-header {
+    min-height: auto;
+    gap: 8px;
+  }
+
+  .operations-grid {
+    gap: 10px;
+  }
+
+  .status-card {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard {
+    overflow-y: auto;
+    grid-template-rows: auto auto auto;
+  }
+
+  .overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .operations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stay-card,
+  .transit-card {
+    min-height: 200px;
+  }
+}

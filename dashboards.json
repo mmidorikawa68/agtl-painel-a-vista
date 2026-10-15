@@ -1,0 +1,14 @@
+[
+  {
+    "id": "fila-appa",
+    "titulo": "Fila de Veículos · APPA",
+    "duracaoSegundos": 30,
+    "arquivo": "fila-appa.html"
+  },
+  {
+    "id": "descargas-exportacao",
+    "titulo": "Descargas - Exportação",
+    "duracaoSegundos": 30,
+    "arquivo": "descargas-exportacao.html"
+  }
+]
