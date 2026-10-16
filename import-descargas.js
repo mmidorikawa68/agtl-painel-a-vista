@@ -2,6 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const { Pool } = require("pg");
 const { parseCargaFileName, parseDescargaXml } = require("./xml-import");
+const { businessDateKey } = require("./business-time");
 
 const xmlBasePath = process.env.XML_BASE_PATH || "\\\\srvportal";
 const initialXmlScanDate = "2026-01-01";
@@ -19,54 +20,34 @@ const pool = new Pool({
 });
 
 async function importXmlFiles() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const yearDirectory = path.join(xmlBasePath, String(today.getFullYear()));
   try {
-    const yearDirectoryStat = await fs.stat(yearDirectory);
-    if (!yearDirectoryStat.isDirectory()) {
-      throw new Error(`A pasta de importação XML não é um diretório: ${yearDirectory}`);
+    const baseDirectoryStat = await fs.stat(xmlBasePath);
+    if (!baseDirectoryStat.isDirectory()) {
+      throw new Error(`A pasta de importação XML não é um diretório: ${xmlBasePath}`);
     }
   } catch (error) {
     if (error.code === "ENOENT") {
-      throw new Error(`Pasta de importação XML não encontrada: ${yearDirectory}`);
+      throw new Error(`Pasta de importação XML não encontrada: ${xmlBasePath}`);
     }
     throw error;
   }
 
   const client = await pool.connect();
   try {
-    await client.query(
-      `INSERT INTO painel_importacao_controle (fonte, ultima_data_processada)
-       VALUES ('descargas', $1::date)
-       ON CONFLICT (fonte) DO NOTHING`,
-      [initialXmlScanDate],
+    const importedIds = new Set(
+      (await client.query("SELECT idcarga FROM descargas")).rows.map(({ idcarga }) => String(idcarga)),
     );
-    const checkpoint = await client.query(
-      `SELECT to_char(ultima_data_processada, 'YYYY-MM-DD') AS ultima_data_processada
-       FROM painel_importacao_controle
-       WHERE fonte = 'descargas'`,
-    );
-    if (checkpoint.rowCount !== 1) {
-      throw new Error("Não foi possível ler o checkpoint da importação de descargas.");
-    }
+    const todayKey = businessDateKey(new Date());
+    const [startYear, startMonth, startDay] = initialXmlScanDate.split("-").map(Number);
+    const [endYear, endMonth, endDay] = todayKey.split("-").map(Number);
+    const scanDate = new Date(Date.UTC(startYear, startMonth - 1, startDay));
+    const endDate = new Date(Date.UTC(endYear, endMonth - 1, endDay));
+    let importErrors = 0;
 
-    const reconciliation = await client.query(
-      `SELECT 1
-       FROM painel_importacao_controle
-       WHERE fonte = 'descargas_reconciliacao_inicial'`,
-    );
-    const backfillRequired = reconciliation.rowCount === 0;
-    const scanStartDate = backfillRequired
-      ? initialXmlScanDate
-      : checkpoint.rows[0].ultima_data_processada;
-    const [startYear, startMonth, startDay] = scanStartDate.split("-").map(Number);
-    const scanDate = new Date(startYear, startMonth - 1, startDay);
-
-    while (scanDate <= today) {
-      const year = String(scanDate.getFullYear());
-      const month = String(scanDate.getMonth() + 1).padStart(2, "0");
-      const day = String(scanDate.getDate()).padStart(2, "0");
+    while (scanDate <= endDate) {
+      const year = String(scanDate.getUTCFullYear());
+      const month = String(scanDate.getUTCMonth() + 1).padStart(2, "0");
+      const day = String(scanDate.getUTCDate()).padStart(2, "0");
       const dateKey = `${year}-${month}-${day}`;
       const dateDirectory = path.join(xmlBasePath, year, month, day, "SendRest");
 
@@ -74,21 +55,35 @@ async function importXmlFiles() {
       try {
         entries = await fs.readdir(dateDirectory, { withFileTypes: true });
       } catch (error) {
-        if (error.code !== "ENOENT") {
-          throw error;
+        if (error.code === "ENOENT") {
+          entries = [];
+        } else {
+          importErrors += 1;
+          console.error(`Falha ao listar a pasta ${dateDirectory}:`, error);
+          entries = [];
         }
-        entries = [];
       }
 
-      const files = entries
-        .filter((entry) => {
-          if (!entry.isFile()) {
-            return false;
-          }
+      const files = [];
+      for (const entry of entries) {
+        if (!entry.isFile()) {
+          continue;
+        }
+        try {
           const idcarga = parseCargaFileName(entry.name);
-          return idcarga !== null && !ignoredXmlCargaIds.has(idcarga);
-        })
-        .sort((first, second) => first.name.localeCompare(second.name, "en"));
+          if (
+            idcarga !== null &&
+            !ignoredXmlCargaIds.has(idcarga) &&
+            !importedIds.has(String(idcarga))
+          ) {
+            files.push(entry);
+          }
+        } catch (error) {
+          importErrors += 1;
+          console.error(`Falha ao interpretar o nome do arquivo ${entry.name}:`, error);
+        }
+      }
+      files.sort((first, second) => first.name.localeCompare(second.name, "en"));
 
       for (const entry of files) {
         const idcarga = parseCargaFileName(entry.name);
@@ -104,6 +99,7 @@ async function importXmlFiles() {
             [idcarga],
           );
           if (existing.rowCount > 0) {
+            importedIds.add(String(idcarga));
             await client.query("COMMIT");
             continue;
           }
@@ -140,30 +136,23 @@ async function importXmlFiles() {
             ],
           );
           await client.query("COMMIT");
+          importedIds.add(String(idcarga));
           console.info(`Carga ${descarga.idcarga} importada em descargas.`);
         } catch (error) {
           await client.query("ROLLBACK");
-          throw new Error(`Falha ao importar ${entry.name}: ${error.message}`, { cause: error });
+          importErrors += 1;
+          console.error(`Falha ao importar ${entry.name}; nova tentativa no próximo ciclo:`, error);
         }
       }
 
-      await client.query(
-        `UPDATE painel_importacao_controle
-         SET ultima_data_processada = $1::date
-         WHERE fonte = 'descargas'`,
-        [dateKey],
-      );
-      scanDate.setDate(scanDate.getDate() + 1);
+      scanDate.setUTCDate(scanDate.getUTCDate() + 1);
     }
-
-    if (backfillRequired) {
-      await client.query(
-        `INSERT INTO painel_importacao_controle (fonte, ultima_data_processada)
-         VALUES ('descargas_reconciliacao_inicial', $1::date)
-         ON CONFLICT (fonte) DO NOTHING`,
-        [initialXmlScanDate],
+    if (importErrors) {
+      console.warn(
+        `Varredura de XML concluída até ${todayKey} com ${importErrors} erro(s); os itens serão tentados novamente no próximo ciclo.`,
       );
-      console.info("Reconciliação histórica de descargas concluída.");
+    } else {
+      console.info(`Varredura completa de XML concluída até ${todayKey}.`);
     }
   } finally {
     client.release();

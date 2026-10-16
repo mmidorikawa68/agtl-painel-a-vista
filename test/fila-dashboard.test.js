@@ -2,7 +2,7 @@ const assert = require("node:assert/strict");
 const test = require("node:test");
 const { FilaXmlError, parseFilaResponse } = require("../fila-dashboard");
 
-const now = new Date(2026, 9, 9, 12, 0, 0);
+const now = new Date("2026-10-09T15:00:00.000Z");
 
 function createRastro(codigo, data) {
   return `<rastro><dataRastreamento>${data}</dataRastreamento><rastro>${codigo}</rastro></rastro>`;
@@ -38,6 +38,29 @@ test("resposta vazia produz indicadores zerados e data de atualização", async 
   assert.deepEqual(result.via, { Milho: 0, Sorgo: 0, Trigo: 0, Soja: 0 });
   assert.deepEqual(result.maisAntigos, []);
   assert.equal(result.permanencia, null);
+});
+
+test("usa a data de São Paulo mesmo quando o servidor está em UTC", async () => {
+  const result = await parseFilaResponse(
+    createResponse(createCarga({ previsao: "2026-10-09 00:00:00.0" })),
+    new Date("2026-10-10T01:30:00.000Z"),
+  );
+
+  assert.equal(result.ofertas.dataHoje, "2026-10-09");
+  assert.equal(result.ofertas.dataAmanha, "2026-10-10");
+  assert.equal(result.ofertas.hoje.Milho, 1);
+  assert.equal(result.ofertas.amanha.Milho, 0);
+});
+
+test("calcula a permanência com o horário de São Paulo quando o servidor está em UTC", async () => {
+  const result = await parseFilaResponse(
+    createResponse(createCarga({
+      rastros: createRastro("C60", "2026-10-09 07:00:00"),
+    })),
+    new Date("2026-10-09T14:16:00.000Z"),
+  );
+
+  assert.equal(result.permanencia.texto, "4h 16min");
 });
 
 test("agrega ofertas, PÁTIO, VIA e os cinco C60 mais antigos", async () => {
@@ -83,13 +106,13 @@ test("agrega ofertas, PÁTIO, VIA e os cinco C60 mais antigos", async () => {
   assert.deepEqual(result.viaVeiculos, [{
     placa: "VIA-0001",
     produto: "Sorgo",
-    dataRastreamento: new Date(2026, 9, 9, 10, 0, 0).toISOString(),
+    dataRastreamento: "2026-10-09T13:00:00.000Z",
   }]);
   assert.equal(
     Math.floor((now.getTime() - new Date(result.viaVeiculos[0].dataRastreamento).getTime()) / 60000),
     120,
   );
-  assert.equal(result.permanencia.desde, new Date(2026, 9, 9, 6, 0, 30, 800).toISOString());
+  assert.equal(result.permanencia.desde, "2026-10-09T09:00:30.800Z");
   assert.equal(result.permanencia.texto, "5h 59min");
   assert.equal(result.permanencia.placa, "PAT-0001");
   assert.equal(result.permanencia.produto, "Milho");

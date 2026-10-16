@@ -5,20 +5,21 @@ const shiftDefinitions = [
 ];
 
 function dateKey(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
 
 function getOperationalShift(date) {
-  const minuteOfDay = date.getHours() * 60 + date.getMinutes();
+  const { year, month, day, hour, minute } = getBusinessDateParts(date);
+  const minuteOfDay = hour * 60 + minute;
   let shift;
-  let operationalDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const operationalDate = new Date(Date.UTC(year, month - 1, day));
 
   if (minuteOfDay < 7 * 60) {
     shift = "C";
-    operationalDate.setDate(operationalDate.getDate() - 1);
+    operationalDate.setUTCDate(operationalDate.getUTCDate() - 1);
   } else {
     shift = shiftDefinitions.find(
       (definition) => minuteOfDay >= definition.start && minuteOfDay < definition.end,
@@ -74,9 +75,9 @@ function addProductMetric(products, product, weight) {
 }
 
 function buildDescargasDashboard(rows, year, month, now = new Date(), currentTurnofolga) {
-  const dayCount = new Date(year, month, 0).getDate();
+  const dayCount = new Date(Date.UTC(year, month, 0)).getUTCDate();
   const days = Array.from({ length: dayCount }, (_, index) => {
-    const day = new Date(year, month - 1, index + 1);
+    const day = new Date(Date.UTC(year, month - 1, index + 1));
     return emptyDay(dateKey(day));
   });
   const daysByDate = new Map(days.map((day) => [day.data, day]));
@@ -144,3 +145,4 @@ function buildDescargasDashboard(rows, year, month, now = new Date(), currentTur
 }
 
 module.exports = { buildDescargasDashboard, getOperationalShift };
+const { getBusinessDateParts } = require("./business-time");

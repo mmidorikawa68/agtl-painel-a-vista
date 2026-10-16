@@ -27,6 +27,11 @@ function formatWeight(value) {
   return value === null || value === undefined ? "---" : weightFormat.format(value);
 }
 
+function formatMonth(year, month) {
+  const name = monthNames[month - 1];
+  return `${name.charAt(0).toLocaleUpperCase("pt-BR")}${name.slice(1)} ${year}`;
+}
+
 function keepCurrentDateVisible() {
   const tableContainer = document.querySelector(".table-container");
   const currentDate = new Date();
@@ -70,7 +75,8 @@ function appendCell(row, value, header = false) {
 
 function render(data) {
   document.querySelector("#updated-at").textContent = new Date(data.atualizadoEm)
-    .toLocaleString("pt-BR");
+    .toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+  document.querySelector("#mobile-month-label").textContent = formatMonth(data.ano, data.mes);
   const current = data.turnoAtual;
   document.querySelector("#current-shift").textContent =
     current.turno === "F" ? `F (horário do Turno ${current.turnoBase})` : current.turno;
@@ -98,6 +104,8 @@ function render(data) {
   appendCell(totalRow, "TOTAL DO MÊS", true);
   for (const shift of ["A", "B", "C", "F"]) {
     appendCell(totalRow, formatQuantity(data.totais.turnos[shift]));
+    document.querySelector(`#month-shift-${shift.toLowerCase()}`).textContent =
+      formatQuantity(data.totais.turnos[shift]);
   }
   appendCell(totalRow, formatQuantity(data.totais.quantidade));
   appendCell(totalRow, formatWeight(data.totais.pesoKg));
@@ -123,6 +131,11 @@ function render(data) {
       productTotals.append(item);
     }
   }
+  document.querySelector("#month-soja").textContent =
+    formatQuantity(data.totais.produtos.Soja?.quantidade || 0);
+  document.querySelector("#month-milho").textContent =
+    formatQuantity(data.totais.produtos.Milho?.quantidade || 0);
+  document.querySelector("#month-quantity").textContent = formatQuantity(data.totais.quantidade);
 
   keepCurrentDateVisible();
 }
@@ -147,8 +160,13 @@ async function loadData() {
 }
 
 const now = new Date();
-yearInput.value = String(now.getFullYear());
-monthInput.value = String(now.getMonth() + 1);
+const saoPauloDate = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Sao_Paulo",
+  year: "numeric",
+  month: "numeric",
+}).formatToParts(now);
+yearInput.value = saoPauloDate.find(({ type }) => type === "year").value;
+monthInput.value = saoPauloDate.find(({ type }) => type === "month").value;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   void loadData();

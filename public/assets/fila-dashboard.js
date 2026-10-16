@@ -10,6 +10,7 @@ const dateTimeFormatter = new Intl.DateTimeFormat("pt-BR", {
   year: "numeric",
   hour: "2-digit",
   minute: "2-digit",
+  timeZone: "America/Sao_Paulo",
 });
 let currentDashboardData;
 

@@ -45,24 +45,7 @@ npm run import:descargas
 
 O processo importa imediatamente e repete a varredura a cada 15 minutos. A máquina precisa acessar as pastas `\\srvportal\AAAA\MM\DD\SendRest` e o endpoint externo do PostgreSQL.
 
-A tabela `painel_importacao_controle` deve existir no banco. Se ainda não foi criada, execute como proprietário do banco; em seguida crie um usuário importador com as permissões necessárias:
-
-```sql
-CREATE TABLE IF NOT EXISTS public.painel_importacao_controle (
-  fonte TEXT PRIMARY KEY,
-  ultima_data_processada DATE NOT NULL
-);
-
-CREATE ROLE agtl_painel_importador LOGIN PASSWORD 'use-outra-senha-forte';
-GRANT CONNECT ON DATABASE agtl_painel_a_vista TO agtl_painel_importador;
-GRANT USAGE ON SCHEMA public TO agtl_painel_importador;
-GRANT SELECT, INSERT, UPDATE
-  ON TABLE public.painel_importacao_controle TO agtl_painel_importador;
-GRANT SELECT, INSERT ON TABLE public.descargas TO agtl_painel_importador;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO agtl_painel_importador;
-```
-
-Na primeira execução sem marca de reconciliação, o importador varre desde 01/01/2026; depois usa o checkpoint e reexamina o último dia em cada ciclo. Considera nomes `SendRest_<idcarga>.xml`, ignora o ID `381006` e verifica o ID em `descargas` antes de inserir, sem exigir que as datas do XML coincidam com a pasta. Falhas de leitura ou XML são registradas e permitem nova tentativa no próximo ciclo. O limite é 10 MB por arquivo.
+A tabela `painel_importacao_controle` deve existir no banco. O usuário do importador precisa de `SELECT`, `INSERT` e `UPDATE` nessa tabela e de `SELECT` e `INSERT` em `descargas`. Na primeira execução, o importador faz uma reconciliação desde 01/01/2026; depois usa o checkpoint e reexamina o último dia em cada ciclo. Considera nomes `SendRest_<idcarga>.xml`, ignora o ID `381006` e verifica o ID em `descargas` antes de inserir, sem exigir que as datas do XML coincidam com a pasta. Falhas de leitura ou XML são registradas e permitem nova tentativa no próximo ciclo. O limite é 10 MB por arquivo.
 
 O parser aceita SOAP com o XML de negócio dentro de `PostData` em CDATA. O `iddescarga` é gerado pelo banco e `pesoliquido` é calculado como `pesoentrada - pesosaida`. Mapeamento: `idCarga` → `idcarga`; datas e horas de pesagem → `dataentrada`/`datasaida`; pesos → `pesoentrada`/`pesosaida`; `ncmProduto` → `produto`; `nomeCliente` e placas → colunas correspondentes.
 
@@ -85,14 +68,18 @@ Cadastre os dashboards em `dashboards.json`:
 ]
 ```
 
-Crie o arquivo HTML correspondente em `public/dashboards/`. O conteúdo é público, assim como o restante do painel. O carrossel respeita `duracaoSegundos` por dashboard, que deve ser um inteiro de pelo menos 1 segundo. Ao detectar movimento, clique/toque ou interação pelo teclado, o carrossel pausa e só retoma após 5 segundos sem interação, inclusive quando a interação ocorre dentro do dashboard.
+Crie o arquivo HTML correspondente em `public/dashboards/`. O conteúdo é público, assim como o restante do painel. O carrossel respeita `duracaoSegundos` por dashboard. O tempo deve ser um inteiro de pelo menos 1 segundo.
+Ao detectar movimento ou clique/toque, ou interação pelo teclado, o carrossel pausa e só retoma após 5 segundos sem interação. Essa pausa também é aplicada quando a interação ocorre dentro do dashboard exibido.
 
 O navegador consulta `/api/dashboard-data` ao abrir cada dashboard e a cada 15 minutos; os indicadores calculados no servidor são enviados à página ativa por `postMessage` com `tipo: "dados-dashboard"`. Os dados da API não são gravados no PostgreSQL. Quando a API não estiver configurada ou falhar, o painel exibe o erro e não substitui os dados por valores simulados.
 
-O dashboard `PÁTIO DE TRIAGEM` agrupa ofertas D e D+1 por produto (contagem de cargas) e veículos em PÁTIO/VIA por placas distintas. NCMs iniciados por `1005`, `1070`, `1104` e `1201` são classificados como Milho, Sorgo, Trigo e Soja; a interface destaca Soja e Milho. Cargas com `classCarAnalise=refugado` não entram nos indicadores. Oferta considera cargas sem C60; PÁTIO considera C60 sem C80; VIA considera rastro C80 ou `cargaSaiuPatio=true`. A permanência e a lista dos cinco mais antigos usam o C60 mais antigo da carga. “Em Trânsito” mostra placa, produto e tempo desde o rastro C80; quando o horário não está disponível, exibe `---`. Indicadores sem dados mostram `---`.
+O dashboard `PÁTIO DE TRIAGEM` agrupa ofertas D e D+1 por produto (contagem de cargas) e veículos em PÁTIO/VIA por placas distintas. NCMs iniciados por `1005`, `1070`, `1104` e `1201` são classificados como Milho, Sorgo, Trigo e Soja; a interface de gestão à vista destaca Soja e Milho. Cargas com `classCarAnalise=refugado` não entram nos indicadores. Oferta considera cargas sem C60; PÁTIO considera C60 sem C80; VIA considera rastro C80 ou `cargaSaiuPatio=true`. A permanência e a lista dos cinco mais antigos usam o C60 mais antigo da carga. A lista “Em Trânsito” mostra placa, produto e tempo desde a data/hora do rastro C80; quando o horário não está disponível, exibe `---`.
 
-O dashboard `DESCARGAS - EXPORTAÇÃO` consulta `descargas` por mês e usa `datasaida` para contabilizar veículos e `pesoliquido` para pesos. Turnos A, B e C são 07:00–15:20, 15:20–23:28 e 23:28–07:00 do dia seguinte. Descargas entre meia-noite e 07:00 pertencem à data operacional do turno C iniciado no dia anterior. Quando `turnodescarga.turnofolga` da data operacional coincide com o turno-base, a descarga aparece em F. O indicador superior mostra contagem de Soja e Milho e peso combinado do turno atual; a tabela mostra quantidades por turno, totais diários e totalizadores mensais por produto. No mês atual, a listagem posiciona automaticamente o dia corrente na área visível. O cabeçalho, total mensal e totalizadores permanecem visíveis durante a rolagem. O servidor web detecta novas descargas no banco a cada 30 segundos e notifica o dashboard; há também uma atualização de segurança a cada 15 minutos.
+Quando um indicador não tiver dados, o dashboard mostra `---` no lugar de zero ou de uma mensagem de lista vazia.
+
+O dashboard `DESCARGAS - EXPORTAÇÃO` consulta `descargas` por mês e usa `datasaida` para contabilizar cada veículo e `pesoliquido` para os pesos. Turnos A, B e C são 07:00–15:20, 15:20–23:28 e 23:28–07:00 do dia seguinte. As descargas entre meia-noite e 07:00 pertencem à data operacional do turno C iniciado no dia anterior. Quando `turnodescarga.turnofolga` da data operacional coincide com o turno-base, a descarga aparece em F. O indicador superior mostra a contagem de Soja e Milho e o peso combinado do turno atual; a tabela mostra quantidades por turno, totais diários e totalizadores mensais por produto. No mês atual, a listagem posiciona automaticamente o dia corrente na área visível: do dia 1 até o 10, mostra desde o dia 1; do dia 11 ao 20, desde o dia 8; e do dia 21 em diante, desde o dia 18. O cabeçalho, total mensal e totalizadores permanecem visíveis durante a rolagem da listagem. Após a importação de uma ou mais cargas, o servidor envia um evento ao dashboard para atualizar os dados sem recarregar a página; há também uma atualização de segurança a cada 15 minutos.
 
 ## Segurança
 
-Mantenha `DATABASE_URL`, `IMPORT_DATABASE_URL`, `DASHBOARD_API_TOKEN` e a URL com a chave da fila somente nas variáveis de ambiente dos respectivos serviços, nunca no código-fonte ou em arquivos versionados. Credenciais do Render que estavam neste README foram removidas; troque a senha da conta e a senha do banco antes de voltar a utilizá-las.
+Mantenha `PGPASSWORD`, `DASHBOARD_API_TOKEN` e a URL com a chave da fila somente no ambiente do servidor, nunca no código-fonte. Como o painel não tem autenticação, use-o somente em rede confiável e restrinja a porta do servidor a essa rede.
+

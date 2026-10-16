@@ -1,4 +1,10 @@
 const xml2js = require("xml2js");
+const {
+  addDaysToDateKey,
+  businessDateKey,
+  businessDateTime,
+  getBusinessDateParts,
+} = require("./business-time");
 
 const products = [
   { prefix: "1005", name: "Milho" },
@@ -72,14 +78,37 @@ function parseLocalDateTime(value) {
   const [, yearText, monthText, dayText, hourText = "00", minuteText = "00", secondText = "00", fraction = "0"] = match;
   const components = [yearText, monthText, dayText, hourText, minuteText, secondText].map(Number);
   const [year, month, day, hour, minute, second] = components;
-  const date = new Date(year, month - 1, day, hour, minute, second, Number(`0.${fraction}`) * 1000);
+  const millisecond = Math.floor(Number(`0.${fraction}`) * 1000);
+  const check = new Date(Date.UTC(year, month - 1, day, hour, minute, second, millisecond));
   if (
-    date.getFullYear() !== year ||
-    date.getMonth() !== month - 1 ||
-    date.getDate() !== day ||
-    date.getHours() !== hour ||
-    date.getMinutes() !== minute ||
-    date.getSeconds() !== second
+    year < 1000 ||
+    check.getUTCFullYear() !== year ||
+    check.getUTCMonth() !== month - 1 ||
+    check.getUTCDate() !== day ||
+    check.getUTCHours() !== hour ||
+    check.getUTCMinutes() !== minute ||
+    check.getUTCSeconds() !== second
+  ) {
+    return null;
+  }
+
+  let date;
+  try {
+    date = businessDateTime(year, month, day, hour, minute, second, millisecond);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      return null;
+    }
+    throw error;
+  }
+  const businessParts = getBusinessDateParts(date);
+  if (
+    businessParts.year !== year ||
+    businessParts.month !== month ||
+    businessParts.day !== day ||
+    businessParts.hour !== hour ||
+    businessParts.minute !== minute ||
+    businessParts.second !== second
   ) {
     return null;
   }
@@ -87,7 +116,7 @@ function parseLocalDateTime(value) {
 }
 
 function dateKey(date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  return businessDateKey(date);
 }
 
 function productFor(ncm) {
@@ -104,7 +133,7 @@ function emptyDashboard(now) {
     atualizadoEm: now.toISOString(),
     ofertas: {
       dataHoje: dateKey(now),
-      dataAmanha: dateKey(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)),
+      dataAmanha: addDaysToDateKey(dateKey(now), 1),
       hoje: productTotals(),
       amanha: productTotals(),
     },
@@ -170,7 +199,7 @@ function oldestTracking(rastros, codigo) {
 function makeDashboard(cargas, now) {
   const dashboard = emptyDashboard(now);
   const hoje = dateKey(now);
-  const amanha = dateKey(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
+  const amanha = addDaysToDateKey(hoje, 1);
   const patio = [];
   const via = [];
 

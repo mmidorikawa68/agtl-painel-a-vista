@@ -33,6 +33,11 @@
         </article>
       </section>
 
+      <section class="mobile-month-heading" aria-label="Mês consultado">
+        <h2>Totais Mês</h2>
+        <strong id="mobile-month-label">---</strong>
+      </section>
+
       <form class="period-filter" id="period-filter">
         <label>
           Ano
@@ -59,6 +64,16 @@
         <span id="load-error" role="alert" hidden></span>
       </form>
 
+      <section class="mobile-shift-totals" aria-label="Veículos por turno no mês">
+        <h2>Veículos por Turno no Mês</h2>
+        <div class="mobile-shift-grid">
+          <div class="mobile-shift-item shift-a"><span>Turno A</span><strong id="month-shift-a">---</strong></div>
+          <div class="mobile-shift-item shift-b"><span>Turno B</span><strong id="month-shift-b">---</strong></div>
+          <div class="mobile-shift-item shift-c"><span>Turno C</span><strong id="month-shift-c">---</strong></div>
+          <div class="mobile-shift-item shift-f"><span>Turno F</span><strong id="month-shift-f">---</strong></div>
+        </div>
+      </section>
+
       <div class="table-container">
         <table>
           <thead>
@@ -84,8 +99,14 @@
         </table>
       </div>
       <section class="product-totals" aria-live="polite">
-        <h2>Totalizadores por Produto</h2>
+        <h2 class="desktop-product-heading">Totalizadores por Produto</h2>
+        <h2 class="mobile-product-heading">Totais do Mês</h2>
         <div id="product-totals" class="product-total-list"></div>
+        <div class="mobile-product-totals">
+          <span>Soja <strong id="month-soja">---</strong></span>
+          <span>Milho <strong id="month-milho">---</strong></span>
+          <span>Qtde Total <strong id="month-quantity">---</strong></span>
+        </div>
       </section>
     </main>
   </body>
