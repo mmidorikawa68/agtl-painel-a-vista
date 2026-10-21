@@ -84,19 +84,49 @@ iframe {
 }
 
 .carousel-footer {
-  display: flex;
-  min-height: 42px;
+  display: grid;
+  min-height: 58px;
+  grid-template-columns: 36px auto minmax(0, 1fr) 36px;
+  grid-template-rows: 8px auto;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 8px 16px;
+  gap: 4px 20px;
+  padding: 7px 16px;
   border-top: 1px solid #e4ebf0;
   color: #526b7d;
   font-size: 13px;
 }
 
+.carousel-progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  grid-column: 1 / -1;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  background: #e5edf2;
+  cursor: pointer;
+}
+
+.carousel-progress:focus-visible {
+  outline: 2px solid #1378a5;
+  outline-offset: 2px;
+}
+
+.carousel-progress-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #1378a5;
+}
+
+.carousel-progress.is-paused .carousel-progress-fill {
+  background: #d08b31;
+}
+
 .api-status {
-  flex: 1;
   overflow: hidden;
   text-align: right;
   text-overflow: ellipsis;
@@ -118,6 +148,6 @@ iframe {
 
 @media (max-width: 620px) {
   .carousel-footer {
-    gap: 10px;
+    column-gap: 10px;
   }
 }

@@ -70,6 +70,38 @@ test("retorna todos os dias do mês, mesmo quando não há descargas", () => {
   assert.equal(result.turnoAtual.pesoKg, null);
 });
 
+test("agrega todos os dias e descargas do ano quando o mês é todos", () => {
+  const result = buildDescargasDashboard(
+    [
+      {
+        data_turno: "2024-01-02",
+        turno_base: "A",
+        turnofolga: null,
+        produto: "Soja",
+        pesoliquido: 1200,
+      },
+      {
+        data_turno: "2024-12-31",
+        turno_base: "B",
+        turnofolga: null,
+        produto: "Milho",
+        pesoliquido: 800,
+      },
+    ],
+    2024,
+    0,
+    new Date("2024-01-01T11:00:00.000Z"),
+  );
+
+  assert.equal(result.dias.length, 366);
+  assert.equal(result.dias[0].data, "2024-01-01");
+  assert.equal(result.dias[365].data, "2024-12-31");
+  assert.equal(result.dias[1].quantidade, 1);
+  assert.equal(result.dias[365].quantidade, 1);
+  assert.equal(result.totais.quantidade, 2);
+  assert.equal(result.totais.pesoKg, 2000);
+});
+
 test("usa turnofolga para identificar o turno F atual mesmo sem descargas", () => {
   const result = buildDescargasDashboard(
     [],

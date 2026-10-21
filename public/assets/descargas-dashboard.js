@@ -28,6 +28,9 @@ function formatWeight(value) {
 }
 
 function formatMonth(year, month) {
+  if (month === 0) {
+    return `Todos ${year}`;
+  }
   const name = monthNames[month - 1];
   return `${name.charAt(0).toLocaleUpperCase("pt-BR")}${name.slice(1)} ${year}`;
 }
@@ -40,7 +43,7 @@ function keepCurrentDateVisible() {
 
   if (
     selectedYear !== currentDate.getFullYear()
-    || selectedMonth !== currentDate.getMonth() + 1
+    || (selectedMonth !== 0 && selectedMonth !== currentDate.getMonth() + 1)
   ) {
     tableContainer.scrollTop = 0;
     return;
@@ -48,7 +51,8 @@ function keepCurrentDateVisible() {
 
   const currentDay = currentDate.getDate();
   const firstVisibleDay = currentDay <= 10 ? 1 : currentDay <= 20 ? 8 : 18;
-  const targetDate = `${selectedYear}-${String(selectedMonth).padStart(2, "0")}-${String(firstVisibleDay).padStart(2, "0")}`;
+  const visibleMonth = selectedMonth === 0 ? currentDate.getMonth() + 1 : selectedMonth;
+  const targetDate = `${selectedYear}-${String(visibleMonth).padStart(2, "0")}-${String(firstVisibleDay).padStart(2, "0")}`;
   const row = document.querySelector(`#daily-rows tr[data-date="${targetDate}"]`);
   const tableHeader = tableContainer.querySelector("thead");
 
@@ -77,6 +81,16 @@ function render(data) {
   document.querySelector("#updated-at").textContent = new Date(data.atualizadoEm)
     .toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
   document.querySelector("#mobile-month-label").textContent = formatMonth(data.ano, data.mes);
+  const periodLabel = data.mes === 0 ? "Ano" : "Mês";
+  const totalLabel = data.mes === 0 ? "Totais do Ano" : "Totais do Mês";
+  document.querySelector("#mobile-period-heading").textContent = totalLabel;
+  document.querySelector("#mobile-shift-heading").textContent =
+    `Veículos por Turno no ${periodLabel}`;
+  document.querySelector("#mobile-shift-totals").setAttribute(
+    "aria-label",
+    `Veículos por turno no ${periodLabel.toLocaleLowerCase("pt-BR")}`,
+  );
+  document.querySelector("#mobile-product-heading").textContent = totalLabel;
   const current = data.turnoAtual;
   document.querySelector("#current-shift").textContent =
     current.turno === "F" ? `F (horário do Turno ${current.turnoBase})` : current.turno;
@@ -101,7 +115,7 @@ function render(data) {
   }
 
   const totalRow = document.createElement("tr");
-  appendCell(totalRow, "TOTAL DO MÊS", true);
+  appendCell(totalRow, `TOTAL DO ${data.mes === 0 ? "ANO" : "MÊS"}`, true);
   for (const shift of ["A", "B", "C", "F"]) {
     appendCell(totalRow, formatQuantity(data.totais.turnos[shift]));
     document.querySelector(`#month-shift-${shift.toLowerCase()}`).textContent =

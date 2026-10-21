@@ -33,8 +33,8 @@
         </article>
       </section>
 
-      <section class="mobile-month-heading" aria-label="Mês consultado">
-        <h2>Totais Mês</h2>
+      <section class="mobile-month-heading" aria-label="Período consultado">
+        <h2 id="mobile-period-heading">Totais Mês</h2>
         <strong id="mobile-month-label">---</strong>
       </section>
 
@@ -46,6 +46,7 @@
         <label>
           Mês
           <select id="month" name="mes" required>
+            <option value="0">Todos</option>
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
             <option value="3">Março</option>
@@ -64,8 +65,8 @@
         <span id="load-error" role="alert" hidden></span>
       </form>
 
-      <section class="mobile-shift-totals" aria-label="Veículos por turno no mês">
-        <h2>Veículos por Turno no Mês</h2>
+      <section id="mobile-shift-totals" class="mobile-shift-totals" aria-label="Veículos por turno no mês">
+        <h2 id="mobile-shift-heading">Veículos por Turno no Mês</h2>
         <div class="mobile-shift-grid">
           <div class="mobile-shift-item shift-a"><span>Turno A</span><strong id="month-shift-a">---</strong></div>
           <div class="mobile-shift-item shift-b"><span>Turno B</span><strong id="month-shift-b">---</strong></div>
@@ -100,7 +101,7 @@
       </div>
       <section class="product-totals" aria-live="polite">
         <h2 class="desktop-product-heading">Totalizadores por Produto</h2>
-        <h2 class="mobile-product-heading">Totais do Mês</h2>
+        <h2 id="mobile-product-heading" class="mobile-product-heading">Totais do Mês</h2>
         <div id="product-totals" class="product-total-list"></div>
         <div class="mobile-product-totals">
           <span>Soja <strong id="month-soja">---</strong></span>

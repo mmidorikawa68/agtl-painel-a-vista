@@ -19,25 +19,64 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: process.env.PGSSL_REJECT_UNAUTHORIZED !== "false" },
 });
 
-async function importXmlFiles() {
+async function synchronizeDescargaIdSequence(client) {
+  await client.query("BEGIN");
   try {
-    const baseDirectoryStat = await fs.stat(xmlBasePath);
-    if (!baseDirectoryStat.isDirectory()) {
-      throw new Error(`A pasta de importação XML não é um diretório: ${xmlBasePath}`);
+    await client.query("LOCK TABLE descargas IN SHARE MODE");
+    await client.query(`
+      DO $$
+      DECLARE
+        sequence_name text;
+        sequence_last_value bigint;
+        sequence_is_called boolean;
+        max_id bigint;
+      BEGIN
+        sequence_name := pg_get_serial_sequence('public.descargas', 'iddescarga');
+        IF sequence_name IS NULL THEN
+          RAISE EXCEPTION 'Não foi encontrada uma sequência associada a descargas.iddescarga.';
+        END IF;
+
+        EXECUTE format(
+          'SELECT last_value, is_called FROM %s',
+          sequence_name::regclass
+        ) INTO sequence_last_value, sequence_is_called;
+        SELECT COALESCE(MAX(iddescarga), 0) INTO max_id FROM public.descargas;
+
+        IF max_id > sequence_last_value
+          OR (max_id = sequence_last_value AND NOT sequence_is_called) THEN
+          PERFORM setval(sequence_name::regclass, max_id, true);
+        END IF;
+      END $$;
+    `);
+    await client.query("COMMIT");
+  } catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
+  }
+}
+
+async function importXmlFiles() {
+  const todayKey = businessDateKey(new Date());
+  const currentYear = todayKey.slice(0, 4);
+  const yearDirectory = path.join(xmlBasePath, currentYear);
+  try {
+    const yearDirectoryStat = await fs.stat(yearDirectory);
+    if (!yearDirectoryStat.isDirectory()) {
+      throw new Error(`A pasta de importação XML não é um diretório: ${yearDirectory}`);
     }
   } catch (error) {
     if (error.code === "ENOENT") {
-      throw new Error(`Pasta de importação XML não encontrada: ${xmlBasePath}`);
+      throw new Error(`Pasta de importação XML não encontrada: ${yearDirectory}`);
     }
     throw error;
   }
 
   const client = await pool.connect();
   try {
+    await synchronizeDescargaIdSequence(client);
     const importedIds = new Set(
       (await client.query("SELECT idcarga FROM descargas")).rows.map(({ idcarga }) => String(idcarga)),
     );
-    const todayKey = businessDateKey(new Date());
     const [startYear, startMonth, startDay] = initialXmlScanDate.split("-").map(Number);
     const [endYear, endMonth, endDay] = todayKey.split("-").map(Number);
     const scanDate = new Date(Date.UTC(startYear, startMonth - 1, startDay));

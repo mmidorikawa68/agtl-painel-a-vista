@@ -45,7 +45,7 @@ npm run import:descargas
 
 O processo importa imediatamente e repete a varredura a cada 15 minutos. A máquina precisa acessar as pastas `\\srvportal\AAAA\MM\DD\SendRest` e o endpoint externo do PostgreSQL.
 
-A tabela `painel_importacao_controle` deve existir no banco. O usuário do importador precisa de `SELECT`, `INSERT` e `UPDATE` nessa tabela e de `SELECT` e `INSERT` em `descargas`. Na primeira execução, o importador faz uma reconciliação desde 01/01/2026; depois usa o checkpoint e reexamina o último dia em cada ciclo. Considera nomes `SendRest_<idcarga>.xml`, ignora o ID `381006` e verifica o ID em `descargas` antes de inserir, sem exigir que as datas do XML coincidam com a pasta. Falhas de leitura ou XML são registradas e permitem nova tentativa no próximo ciclo. O limite é 10 MB por arquivo.
+A tabela `painel_importacao_controle` deve existir no banco. O usuário do importador precisa de `SELECT`, `INSERT` e `UPDATE` nessa tabela; de `SELECT` e `INSERT` em `descargas`; e de permissão `UPDATE` na sequência associada a `descargas.iddescarga`. No início de cada varredura, o importador compara essa sequência com o maior `iddescarga` e a avança se estiver atrasada. Na primeira execução, o importador faz uma reconciliação desde 01/01/2026; depois usa o checkpoint e reexamina o último dia em cada ciclo. Considera nomes `SendRest_<idcarga>.xml`, ignora o ID `381006` e verifica o ID em `descargas` antes de inserir, sem exigir que as datas do XML coincidam com a pasta. Falhas de leitura ou XML são registradas e permitem nova tentativa no próximo ciclo. O limite é 10 MB por arquivo.
 
 O parser aceita SOAP com o XML de negócio dentro de `PostData` em CDATA. O `iddescarga` é gerado pelo banco e `pesoliquido` é calculado como `pesoentrada - pesosaida`. Mapeamento: `idCarga` → `idcarga`; datas e horas de pesagem → `dataentrada`/`datasaida`; pesos → `pesoentrada`/`pesosaida`; `ncmProduto` → `produto`; `nomeCliente` e placas → colunas correspondentes.
 
@@ -82,4 +82,3 @@ O dashboard `DESCARGAS - EXPORTAÇÃO` consulta `descargas` por mês e usa `data
 ## Segurança
 
 Mantenha `PGPASSWORD`, `DASHBOARD_API_TOKEN` e a URL com a chave da fila somente no ambiente do servidor, nunca no código-fonte. Como o painel não tem autenticação, use-o somente em rede confiável e restrinja a porta do servidor a essa rede.
-

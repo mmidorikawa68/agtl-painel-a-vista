@@ -179,17 +179,19 @@ app.get("/api/descargas-dashboard", async (req, res, next) => {
     year < 2000 ||
     year > 2100 ||
     !Number.isInteger(month) ||
-    month < 1 ||
+    month < 0 ||
     month > 12
   ) {
-    return res.status(400).json({ erro: "Informe um ano e mês válidos." });
+    return res.status(400).json({ erro: "Informe um ano e mês válidos, ou selecione todos os meses." });
   }
 
   try {
     const now = new Date();
     const currentShiftDate = getOperationalShift(now).data;
-    const monthStart = `${year}-${String(month).padStart(2, "0")}-01`;
-    const monthEndDate = new Date(year, month, 1);
+    const monthStart = month === 0
+      ? `${year}-01-01`
+      : `${year}-${String(month).padStart(2, "0")}-01`;
+    const monthEndDate = month === 0 ? new Date(year + 1, 0, 1) : new Date(year, month, 1);
     const monthEnd = `${monthEndDate.getFullYear()}-${String(monthEndDate.getMonth() + 1).padStart(2, "0")}-01`;
     const result = await pool.query(
       `WITH descarga_com_turno AS (

@@ -5,14 +5,61 @@ const carousel = document.querySelector("#carousel");
 const dashboardFrame = document.querySelector("#dashboard-frame");
 const carouselPosition = document.querySelector("#carousel-position");
 const apiStatus = document.querySelector("#api-status");
+const carouselProgress = document.querySelector("#carousel-progress");
+const carouselProgressFill = document.querySelector("#carousel-progress-fill");
 
 let dashboards = [];
 let currentIndex = 0;
 let rotationTimer;
+let progressTimer;
 let interactionTimer;
 let apiRefreshTimer;
 let currentApiData;
 let interactionPaused = false;
+let manuallyPaused = false;
+let durationMs = 0;
+let elapsedMs = 0;
+let rotationStartedAt;
+
+function updateProgress() {
+  const elapsed = elapsedMs + (
+    rotationStartedAt === undefined ? 0 : performance.now() - rotationStartedAt
+  );
+  const progress = durationMs > 0 ? Math.min(elapsed / durationMs, 1) : 0;
+  carouselProgressFill.style.width = `${progress * 100}%`;
+}
+
+function stopRotation(preserveProgress) {
+  window.clearTimeout(rotationTimer);
+  window.clearInterval(progressTimer);
+  if (preserveProgress && rotationStartedAt !== undefined) {
+    elapsedMs += performance.now() - rotationStartedAt;
+  }
+  rotationStartedAt = undefined;
+  updateProgress();
+}
+
+function startRotation() {
+  if (dashboards.length < 2 || interactionPaused || manuallyPaused) {
+    return;
+  }
+
+  rotationStartedAt = performance.now();
+  rotationTimer = window.setTimeout(
+    () => moveCarousel(1),
+    Math.max(durationMs - elapsedMs, 0),
+  );
+  progressTimer = window.setInterval(updateProgress, 50);
+}
+
+function updatePauseButton() {
+  carouselProgress.setAttribute(
+    "aria-label",
+    manuallyPaused ? "Continuar carrossel" : "Pausar carrossel",
+  );
+  carouselProgress.setAttribute("aria-pressed", String(manuallyPaused));
+  carouselProgress.classList.toggle("is-paused", manuallyPaused);
+}
 
 async function request(url, options = {}) {
   const response = await fetch(url, {
@@ -34,17 +81,16 @@ function updateCarousel() {
   if (!dashboards.length) {
     return;
   }
+  stopRotation(false);
   const dashboard = dashboards[currentIndex];
+  durationMs = dashboard.duracaoSegundos * 1000;
+  elapsedMs = 0;
   carouselPosition.textContent = `${currentIndex + 1} / ${dashboards.length}`;
   dashboardFrame.title = dashboard.titulo;
   dashboardFrame.src = `/api/dashboards/${encodeURIComponent(dashboard.id)}/content`;
-  window.clearTimeout(rotationTimer);
-  if (dashboards.length > 1 && !interactionPaused) {
-    rotationTimer = window.setTimeout(
-      () => moveCarousel(1),
-      dashboard.duracaoSegundos * 1000,
-    );
-  }
+  updatePauseButton();
+  updateProgress();
+  startRotation();
 }
 
 function moveCarousel(direction) {
@@ -52,17 +98,21 @@ function moveCarousel(direction) {
   updateCarousel();
 }
 
-function pauseCarouselForInteraction() {
-  if (dashboards.length < 2) {
+function pauseCarouselForInteraction(event) {
+  if (
+    dashboards.length < 2
+    || manuallyPaused
+    || event.target?.closest?.("#carousel-progress")
+  ) {
     return;
   }
 
   interactionPaused = true;
-  window.clearTimeout(rotationTimer);
+  stopRotation(true);
   window.clearTimeout(interactionTimer);
   interactionTimer = window.setTimeout(() => {
     interactionPaused = false;
-    updateCarousel();
+    startRotation();
   }, interactionResumeDelayMs);
 }
 
@@ -118,6 +168,17 @@ async function loadPanel() {
 
 document.querySelector("#previous-button").addEventListener("click", () => moveCarousel(-1));
 document.querySelector("#next-button").addEventListener("click", () => moveCarousel(1));
+carouselProgress.addEventListener("click", () => {
+  manuallyPaused = !manuallyPaused;
+  interactionPaused = false;
+  window.clearTimeout(interactionTimer);
+  if (manuallyPaused) {
+    stopRotation(true);
+  } else {
+    startRotation();
+  }
+  updatePauseButton();
+});
 listenForInteraction(document);
 
 void loadPanel();

@@ -15,6 +15,15 @@
         <div id="carousel" class="carousel" hidden>
           <iframe id="dashboard-frame" title="Dashboard atual"></iframe>
           <footer class="carousel-footer">
+            <button
+              id="carousel-progress"
+              class="carousel-progress"
+              type="button"
+              aria-label="Pausar carrossel"
+              aria-pressed="false"
+            >
+              <span id="carousel-progress-fill" class="carousel-progress-fill"></span>
+            </button>
             <button id="previous-button" class="icon-button" type="button" aria-label="Dashboard anterior">‹</button>
             <span id="carousel-position" aria-live="polite"></span>
             <span id="api-status" class="api-status" role="status"></span>

@@ -75,9 +75,12 @@ function addProductMetric(products, product, weight) {
 }
 
 function buildDescargasDashboard(rows, year, month, now = new Date(), currentTurnofolga) {
-  const dayCount = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const firstMonth = month === 0 ? 0 : month - 1;
+  const dayCount = month === 0
+    ? (Date.UTC(year + 1, 0, 1) - Date.UTC(year, 0, 1)) / 86400000
+    : new Date(Date.UTC(year, month, 0)).getUTCDate();
   const days = Array.from({ length: dayCount }, (_, index) => {
-    const day = new Date(Date.UTC(year, month - 1, index + 1));
+    const day = new Date(Date.UTC(year, firstMonth, index + 1));
     return emptyDay(dateKey(day));
   });
   const daysByDate = new Map(days.map((day) => [day.data, day]));
