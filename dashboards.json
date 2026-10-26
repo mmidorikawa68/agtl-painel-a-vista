@@ -10,5 +10,17 @@
     "titulo": "Descargas - Exportação",
     "duracaoSegundos": 30,
     "arquivo": "descargas-exportacao.html"
+  },
+  {
+    "id": "estoque-silos",
+    "titulo": "Estoque por Silo",
+    "duracaoSegundos": 30,
+    "arquivo": "estoque-silos.html"
+  },
+  {
+    "id": "balanca-fluxo",
+    "titulo": "Embarque - Balança de Fluxo",
+    "duracaoSegundos": 30,
+    "arquivo": "balanca-fluxo.html"
   }
 ]

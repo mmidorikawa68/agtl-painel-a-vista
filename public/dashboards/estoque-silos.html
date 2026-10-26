@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102d45">
+    <title>Estoque por Silo</title>
+    <link rel="stylesheet" href="/assets/estoque-silos/estoque-silos.css">
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="dashboard-header">
+        <h1>ESTOQUE POR SILO</h1>
+        <div class="updated-card">
+          <span>Atualização em</span>
+          <strong>---</strong>
+        </div>
+      </header>
+
+      <section class="silo-grid" aria-label="Estoque nos silos">
+        <article class="silo-card" aria-labelledby="silo-a-title" data-capacity-tonnes="22000">
+          <figure class="silo-visual" aria-label="Representação do nível de estoque do Silo A">
+            <img src="/assets/estoque-silos/Armazem.png" alt="">
+            <div class="grain-fill" aria-hidden="true"></div>
+            <figcaption class="stock-overlay">--- ton (--%)</figcaption>
+          </figure>
+          <div class="silo-details">
+            <h2 id="silo-a-title">SILO A</h2>
+            <p class="cleaning-info">Última limpeza: <strong>---</strong> - <strong>---</strong> dias</p>
+            <div class="exporters">
+              <h3>Exportador</h3>
+              <p>Aguardando dados</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="silo-card" aria-labelledby="silo-b-title" data-capacity-tonnes="22000">
+          <figure class="silo-visual" aria-label="Representação do nível de estoque do Silo B">
+            <img src="/assets/estoque-silos/Armazem.png" alt="">
+            <div class="grain-fill" aria-hidden="true"></div>
+            <figcaption class="stock-overlay">--- ton (--%)</figcaption>
+          </figure>
+          <div class="silo-details">
+            <h2 id="silo-b-title">SILO B</h2>
+            <p class="cleaning-info">Última limpeza: <strong>---</strong> - <strong>---</strong> dias</p>
+            <div class="exporters">
+              <h3>Exportador</h3>
+              <p>Aguardando dados</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="silo-card" aria-labelledby="silo-c-title" data-capacity-tonnes="22000">
+          <figure class="silo-visual" aria-label="Representação do nível de estoque do Silo C">
+            <img src="/assets/estoque-silos/Armazem.png" alt="">
+            <div class="grain-fill" aria-hidden="true"></div>
+            <figcaption class="stock-overlay">--- ton (--%)</figcaption>
+          </figure>
+          <div class="silo-details">
+            <h2 id="silo-c-title">SILO C</h2>
+            <p class="cleaning-info">Última limpeza: <strong>---</strong> - <strong>---</strong> dias</p>
+            <div class="exporters">
+              <h3>Exportador</h3>
+              <p>Aguardando dados</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="product-legend" aria-label="Legenda de produtos">
+        <span><i class="legend-swatch maize" aria-hidden="true"></i> Milho em grãos</span>
+        <span><i class="legend-swatch soybean" aria-hidden="true"></i> Soja em grãos</span>
+      </footer>
+    </main>
+  </body>
+</html>

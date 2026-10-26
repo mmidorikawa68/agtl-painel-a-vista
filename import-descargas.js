@@ -9,6 +9,15 @@ const initialXmlScanDate = "2026-01-01";
 const ignoredXmlCargaIds = new Set([381006]);
 const refreshIntervalMs = 15 * 60 * 1000;
 const databaseUrl = process.env.IMPORT_DATABASE_URL;
+const eventTimestampFormatter = new Intl.DateTimeFormat("pt-BR", {
+  timeZone: "America/Sao_Paulo",
+  dateStyle: "short",
+  timeStyle: "medium",
+});
+
+function timestamped(message) {
+  return `[${eventTimestampFormatter.format(new Date())}] ${message}`;
+}
 
 if (!databaseUrl) {
   throw new Error("Configure IMPORT_DATABASE_URL com a URL do banco PostgreSQL do Render.");
@@ -59,16 +68,20 @@ async function importXmlFiles() {
   const todayKey = businessDateKey(new Date());
   const currentYear = todayKey.slice(0, 4);
   const yearDirectory = path.join(xmlBasePath, currentYear);
+  let yearDirectoryStat;
   try {
-    const yearDirectoryStat = await fs.stat(yearDirectory);
-    if (!yearDirectoryStat.isDirectory()) {
-      throw new Error(`A pasta de importação XML não é um diretório: ${yearDirectory}`);
-    }
+    yearDirectoryStat = await fs.stat(yearDirectory);
   } catch (error) {
     if (error.code === "ENOENT") {
-      throw new Error(`Pasta de importação XML não encontrada: ${yearDirectory}`);
+      throw new Error(`Pasta de importação XML não encontrada: ${yearDirectory}`, { cause: error });
     }
-    throw error;
+    throw new Error(
+      `Não foi possível acessar a pasta de importação XML: ${yearDirectory}. Verifique se o compartilhamento de rede está disponível e se esta conta tem permissão de leitura.`,
+      { cause: error },
+    );
+  }
+  if (!yearDirectoryStat.isDirectory()) {
+    throw new Error(`A pasta de importação XML não é um diretório: ${yearDirectory}`);
   }
 
   const client = await pool.connect();
@@ -98,7 +111,7 @@ async function importXmlFiles() {
           entries = [];
         } else {
           importErrors += 1;
-          console.error(`Falha ao listar a pasta ${dateDirectory}:`, error);
+          console.error(timestamped(`Falha ao listar a pasta ${dateDirectory}:`), error);
           entries = [];
         }
       }
@@ -119,7 +132,7 @@ async function importXmlFiles() {
           }
         } catch (error) {
           importErrors += 1;
-          console.error(`Falha ao interpretar o nome do arquivo ${entry.name}:`, error);
+          console.error(timestamped(`Falha ao interpretar o nome do arquivo ${entry.name}:`), error);
         }
       }
       files.sort((first, second) => first.name.localeCompare(second.name, "en"));
@@ -176,11 +189,14 @@ async function importXmlFiles() {
           );
           await client.query("COMMIT");
           importedIds.add(String(idcarga));
-          console.info(`Carga ${descarga.idcarga} importada em descargas.`);
+          console.info(timestamped(`Carga ${descarga.idcarga} importada em descargas.`));
         } catch (error) {
           await client.query("ROLLBACK");
           importErrors += 1;
-          console.error(`Falha ao importar ${entry.name}; nova tentativa no próximo ciclo:`, error);
+          console.error(
+            timestamped(`Falha ao importar ${entry.name}; nova tentativa no próximo ciclo:`),
+            error,
+          );
         }
       }
 
@@ -188,10 +204,12 @@ async function importXmlFiles() {
     }
     if (importErrors) {
       console.warn(
-        `Varredura de XML concluída até ${todayKey} com ${importErrors} erro(s); os itens serão tentados novamente no próximo ciclo.`,
+        timestamped(
+          `Varredura de XML concluída até ${todayKey} com ${importErrors} erro(s); os itens serão tentados novamente no próximo ciclo.`,
+        ),
       );
     } else {
-      console.info(`Varredura completa de XML concluída até ${todayKey}.`);
+      console.info(timestamped(`Varredura completa de XML concluída até ${todayKey}.`));
     }
   } finally {
     client.release();
@@ -205,14 +223,15 @@ async function runXmlImport() {
   }
   importRunning = true;
   try {
+    console.info(timestamped("Iniciando rotina de importação e varredura de XML."));
     await importXmlFiles();
   } catch (error) {
-    console.error("Falha na rotina de importação XML:", error);
+    console.error(timestamped("Falha na rotina de importação XML:"), error);
   } finally {
     importRunning = false;
   }
 }
 
-console.info("Importador local de descargas iniciado.");
+console.info(timestamped("Importador local de descargas iniciado."));
 void runXmlImport();
 setInterval(() => void runXmlImport(), refreshIntervalMs);
