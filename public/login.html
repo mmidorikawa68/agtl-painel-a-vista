@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102d45">
+    <title>Entrar · Painel AGTL</title>
+    <link rel="stylesheet" href="/assets/login.css">
+    <script src="/assets/login.js" defer></script>
+  </head>
+  <body>
+    <main class="login-card">
+      <p class="eyebrow">AGTL · GESTÃO À VISTA</p>
+      <h1>Entrar no painel</h1>
+      <p class="login-description">Informe seu e-mail e sua senha para acessar os dashboards.</p>
+      <p id="login-message" class="login-message" role="alert" hidden></p>
+      <form action="/login" method="post">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="username" required maxlength="254">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="128">
+        <button type="submit">Entrar</button>
+      </form>
+    </main>
+  </body>
+</html>
