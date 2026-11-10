@@ -1,0 +1,6157 @@
+{
+  "atualizadoEm": "2026-11-10T10:46:20.914Z",
+  "ano": 2026,
+  "mes": 0,
+  "turnoAtual": {
+    "turno": "A",
+    "turnoBase": "A",
+    "data": "2026-11-10",
+    "produtos": {
+      "Soja": 0,
+      "Milho": 1
+    },
+    "pesoKg": 36810,
+    "quantidade": 1
+  },
+  "dias": [
+    {
+      "data": "2026-01-01",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-01-02",
+      "turnos": {
+        "A": 9,
+        "B": 12,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 21,
+      "pesoKg": 875220,
+      "produtos": {
+        "Soja": {
+          "quantidade": 21,
+          "pesoKg": 875220
+        }
+      }
+    },
+    {
+      "data": "2026-01-03",
+      "turnos": {
+        "A": 4,
+        "B": 1,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 5,
+      "pesoKg": 207840,
+      "produtos": {
+        "Soja": {
+          "quantidade": 5,
+          "pesoKg": 207840
+        }
+      }
+    },
+    {
+      "data": "2026-01-04",
+      "turnos": {
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 2,
+      "pesoKg": 92320,
+      "produtos": {
+        "Soja": {
+          "quantidade": 2,
+          "pesoKg": 92320
+        }
+      }
+    },
+    {
+      "data": "2026-01-05",
+      "turnos": {
+        "A": 0,
+        "B": 11,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 11,
+      "pesoKg": 399970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 11,
+          "pesoKg": 399970
+        }
+      }
+    },
+    {
+      "data": "2026-01-06",
+      "turnos": {
+        "A": 0,
+        "B": 12,
+        "C": 4,
+        "F": 2
+      },
+      "quantidade": 18,
+      "pesoKg": 719100,
+      "produtos": {
+        "Soja": {
+          "quantidade": 18,
+          "pesoKg": 719100
+        }
+      }
+    },
+    {
+      "data": "2026-01-07",
+      "turnos": {
+        "A": 0,
+        "B": 1,
+        "C": 1,
+        "F": 3
+      },
+      "quantidade": 5,
+      "pesoKg": 206790,
+      "produtos": {
+        "Soja": {
+          "quantidade": 5,
+          "pesoKg": 206790
+        }
+      }
+    },
+    {
+      "data": "2026-01-08",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 1
+      },
+      "quantidade": 1,
+      "pesoKg": 48080,
+      "produtos": {
+        "Soja": {
+          "quantidade": 1,
+          "pesoKg": 48080
+        }
+      }
+    },
+    {
+      "data": "2026-01-09",
+      "turnos": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "F": 1
+      },
+      "quantidade": 2,
+      "pesoKg": 73640,
+      "produtos": {
+        "Soja": {
+          "quantidade": 2,
+          "pesoKg": 73640
+        }
+      }
+    },
+    {
+      "data": "2026-01-10",
+      "turnos": {
+        "A": 6,
+        "B": 6,
+        "C": 0,
+        "F": 5
+      },
+      "quantidade": 17,
+      "pesoKg": 721620,
+      "produtos": {
+        "Soja": {
+          "quantidade": 17,
+          "pesoKg": 721620
+        }
+      }
+    },
+    {
+      "data": "2026-01-11",
+      "turnos": {
+        "A": 6,
+        "B": 17,
+        "C": 0,
+        "F": 5
+      },
+      "quantidade": 28,
+      "pesoKg": 1341370,
+      "produtos": {
+        "Soja": {
+          "quantidade": 28,
+          "pesoKg": 1341370
+        }
+      }
+    },
+    {
+      "data": "2026-01-12",
+      "turnos": {
+        "A": 16,
+        "B": 41,
+        "C": 39,
+        "F": 0
+      },
+      "quantidade": 96,
+      "pesoKg": 4537020,
+      "produtos": {
+        "Soja": {
+          "quantidade": 96,
+          "pesoKg": 4537020
+        }
+      }
+    },
+    {
+      "data": "2026-01-13",
+      "turnos": {
+        "A": 37,
+        "B": 33,
+        "C": 29,
+        "F": 0
+      },
+      "quantidade": 99,
+      "pesoKg": 4620610,
+      "produtos": {
+        "Soja": {
+          "quantidade": 99,
+          "pesoKg": 4620610
+        }
+      }
+    },
+    {
+      "data": "2026-01-14",
+      "turnos": {
+        "A": 0,
+        "B": 44,
+        "C": 41,
+        "F": 53
+      },
+      "quantidade": 138,
+      "pesoKg": 6269400,
+      "produtos": {
+        "Soja": {
+          "quantidade": 138,
+          "pesoKg": 6269400
+        }
+      }
+    },
+    {
+      "data": "2026-01-15",
+      "turnos": {
+        "A": 0,
+        "B": 50,
+        "C": 48,
+        "F": 40
+      },
+      "quantidade": 138,
+      "pesoKg": 6390330,
+      "produtos": {
+        "Soja": {
+          "quantidade": 138,
+          "pesoKg": 6390330
+        }
+      }
+    },
+    {
+      "data": "2026-01-16",
+      "turnos": {
+        "A": 55,
+        "B": 0,
+        "C": 48,
+        "F": 56
+      },
+      "quantidade": 159,
+      "pesoKg": 7340900,
+      "produtos": {
+        "Soja": {
+          "quantidade": 159,
+          "pesoKg": 7340900
+        }
+      }
+    },
+    {
+      "data": "2026-01-17",
+      "turnos": {
+        "A": 48,
+        "B": 0,
+        "C": 37,
+        "F": 60
+      },
+      "quantidade": 145,
+      "pesoKg": 6580510,
+      "produtos": {
+        "Soja": {
+          "quantidade": 145,
+          "pesoKg": 6580510
+        }
+      }
+    },
+    {
+      "data": "2026-01-18",
+      "turnos": {
+        "A": 23,
+        "B": 29,
+        "C": 0,
+        "F": 23
+      },
+      "quantidade": 75,
+      "pesoKg": 3376700,
+      "produtos": {
+        "Soja": {
+          "quantidade": 75,
+          "pesoKg": 3376700
+        }
+      }
+    },
+    {
+      "data": "2026-01-19",
+      "turnos": {
+        "A": 53,
+        "B": 41,
+        "C": 0,
+        "F": 46
+      },
+      "quantidade": 140,
+      "pesoKg": 6416880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 140,
+          "pesoKg": 6416880
+        }
+      }
+    },
+    {
+      "data": "2026-01-20",
+      "turnos": {
+        "A": 63,
+        "B": 49,
+        "C": 46,
+        "F": 0
+      },
+      "quantidade": 158,
+      "pesoKg": 7031720,
+      "produtos": {
+        "Soja": {
+          "quantidade": 158,
+          "pesoKg": 7031720
+        }
+      }
+    },
+    {
+      "data": "2026-01-21",
+      "turnos": {
+        "A": 60,
+        "B": 47,
+        "C": 58,
+        "F": 0
+      },
+      "quantidade": 165,
+      "pesoKg": 7445390,
+      "produtos": {
+        "Soja": {
+          "quantidade": 165,
+          "pesoKg": 7445390
+        }
+      }
+    },
+    {
+      "data": "2026-01-22",
+      "turnos": {
+        "A": 0,
+        "B": 64,
+        "C": 55,
+        "F": 56
+      },
+      "quantidade": 175,
+      "pesoKg": 7571910,
+      "produtos": {
+        "Soja": {
+          "quantidade": 175,
+          "pesoKg": 7571910
+        }
+      }
+    },
+    {
+      "data": "2026-01-23",
+      "turnos": {
+        "A": 0,
+        "B": 50,
+        "C": 57,
+        "F": 61
+      },
+      "quantidade": 168,
+      "pesoKg": 7271870,
+      "produtos": {
+        "Soja": {
+          "quantidade": 168,
+          "pesoKg": 7271870
+        }
+      }
+    },
+    {
+      "data": "2026-01-24",
+      "turnos": {
+        "A": 36,
+        "B": 0,
+        "C": 17,
+        "F": 26
+      },
+      "quantidade": 79,
+      "pesoKg": 3506520,
+      "produtos": {
+        "Soja": {
+          "quantidade": 79,
+          "pesoKg": 3506520
+        }
+      }
+    },
+    {
+      "data": "2026-01-25",
+      "turnos": {
+        "A": 4,
+        "B": 0,
+        "C": 25,
+        "F": 67
+      },
+      "quantidade": 96,
+      "pesoKg": 4268550,
+      "produtos": {
+        "Soja": {
+          "quantidade": 96,
+          "pesoKg": 4268550
+        }
+      }
+    },
+    {
+      "data": "2026-01-26",
+      "turnos": {
+        "A": 40,
+        "B": 62,
+        "C": 0,
+        "F": 51
+      },
+      "quantidade": 153,
+      "pesoKg": 6722370,
+      "produtos": {
+        "Soja": {
+          "quantidade": 153,
+          "pesoKg": 6722370
+        }
+      }
+    },
+    {
+      "data": "2026-01-27",
+      "turnos": {
+        "A": 58,
+        "B": 72,
+        "C": 0,
+        "F": 40
+      },
+      "quantidade": 170,
+      "pesoKg": 7130790,
+      "produtos": {
+        "Soja": {
+          "quantidade": 170,
+          "pesoKg": 7130790
+        }
+      }
+    },
+    {
+      "data": "2026-01-28",
+      "turnos": {
+        "A": 68,
+        "B": 62,
+        "C": 17,
+        "F": 0
+      },
+      "quantidade": 147,
+      "pesoKg": 6205560,
+      "produtos": {
+        "Soja": {
+          "quantidade": 147,
+          "pesoKg": 6205560
+        }
+      }
+    },
+    {
+      "data": "2026-01-29",
+      "turnos": {
+        "A": 12,
+        "B": 26,
+        "C": 9,
+        "F": 0
+      },
+      "quantidade": 47,
+      "pesoKg": 1971560,
+      "produtos": {
+        "Soja": {
+          "quantidade": 47,
+          "pesoKg": 1971560
+        }
+      }
+    },
+    {
+      "data": "2026-01-30",
+      "turnos": {
+        "A": 0,
+        "B": 51,
+        "C": 16,
+        "F": 50
+      },
+      "quantidade": 117,
+      "pesoKg": 4820270,
+      "produtos": {
+        "Soja": {
+          "quantidade": 117,
+          "pesoKg": 4820270
+        }
+      }
+    },
+    {
+      "data": "2026-01-31",
+      "turnos": {
+        "A": 0,
+        "B": 45,
+        "C": 26,
+        "F": 35
+      },
+      "quantidade": 106,
+      "pesoKg": 4541100,
+      "produtos": {
+        "Soja": {
+          "quantidade": 106,
+          "pesoKg": 4541100
+        }
+      }
+    },
+    {
+      "data": "2026-02-01",
+      "turnos": {
+        "A": 37,
+        "B": 0,
+        "C": 18,
+        "F": 46
+      },
+      "quantidade": 101,
+      "pesoKg": 4154760,
+      "produtos": {
+        "Soja": {
+          "quantidade": 101,
+          "pesoKg": 4154760
+        }
+      }
+    },
+    {
+      "data": "2026-02-02",
+      "turnos": {
+        "A": 33,
+        "B": 0,
+        "C": 40,
+        "F": 49
+      },
+      "quantidade": 122,
+      "pesoKg": 5054470,
+      "produtos": {
+        "Soja": {
+          "quantidade": 122,
+          "pesoKg": 5054470
+        }
+      }
+    },
+    {
+      "data": "2026-02-03",
+      "turnos": {
+        "A": 31,
+        "B": 36,
+        "C": 0,
+        "F": 23
+      },
+      "quantidade": 90,
+      "pesoKg": 3744160,
+      "produtos": {
+        "Soja": {
+          "quantidade": 90,
+          "pesoKg": 3744160
+        }
+      }
+    },
+    {
+      "data": "2026-02-04",
+      "turnos": {
+        "A": 38,
+        "B": 50,
+        "C": 0,
+        "F": 23
+      },
+      "quantidade": 111,
+      "pesoKg": 4757070,
+      "produtos": {
+        "Soja": {
+          "quantidade": 111,
+          "pesoKg": 4757070
+        }
+      }
+    },
+    {
+      "data": "2026-02-05",
+      "turnos": {
+        "A": 41,
+        "B": 37,
+        "C": 8,
+        "F": 0
+      },
+      "quantidade": 86,
+      "pesoKg": 3458510,
+      "produtos": {
+        "Soja": {
+          "quantidade": 86,
+          "pesoKg": 3458510
+        }
+      }
+    },
+    {
+      "data": "2026-02-06",
+      "turnos": {
+        "A": 14,
+        "B": 9,
+        "C": 7,
+        "F": 0
+      },
+      "quantidade": 30,
+      "pesoKg": 1231950,
+      "produtos": {
+        "Soja": {
+          "quantidade": 30,
+          "pesoKg": 1231950
+        }
+      }
+    },
+    {
+      "data": "2026-02-07",
+      "turnos": {
+        "A": 0,
+        "B": 2,
+        "C": 1,
+        "F": 7
+      },
+      "quantidade": 10,
+      "pesoKg": 404420,
+      "produtos": {
+        "Soja": {
+          "quantidade": 10,
+          "pesoKg": 404420
+        }
+      }
+    },
+    {
+      "data": "2026-02-08",
+      "turnos": {
+        "A": 0,
+        "B": 5,
+        "C": 7,
+        "F": 9
+      },
+      "quantidade": 21,
+      "pesoKg": 880000,
+      "produtos": {
+        "Soja": {
+          "quantidade": 21,
+          "pesoKg": 880000
+        }
+      }
+    },
+    {
+      "data": "2026-02-09",
+      "turnos": {
+        "A": 13,
+        "B": 0,
+        "C": 11,
+        "F": 14
+      },
+      "quantidade": 38,
+      "pesoKg": 1586510,
+      "produtos": {
+        "Soja": {
+          "quantidade": 38,
+          "pesoKg": 1586510
+        }
+      }
+    },
+    {
+      "data": "2026-02-10",
+      "turnos": {
+        "A": 25,
+        "B": 0,
+        "C": 13,
+        "F": 19
+      },
+      "quantidade": 57,
+      "pesoKg": 2343462,
+      "produtos": {
+        "Soja": {
+          "quantidade": 57,
+          "pesoKg": 2343462
+        }
+      }
+    },
+    {
+      "data": "2026-02-11",
+      "turnos": {
+        "A": 26,
+        "B": 44,
+        "C": 0,
+        "F": 49
+      },
+      "quantidade": 119,
+      "pesoKg": 5139120,
+      "produtos": {
+        "Soja": {
+          "quantidade": 119,
+          "pesoKg": 5139120
+        }
+      }
+    },
+    {
+      "data": "2026-02-12",
+      "turnos": {
+        "A": 39,
+        "B": 38,
+        "C": 0,
+        "F": 37
+      },
+      "quantidade": 114,
+      "pesoKg": 4776760,
+      "produtos": {
+        "Soja": {
+          "quantidade": 114,
+          "pesoKg": 4776760
+        }
+      }
+    },
+    {
+      "data": "2026-02-13",
+      "turnos": {
+        "A": 49,
+        "B": 34,
+        "C": 15,
+        "F": 0
+      },
+      "quantidade": 98,
+      "pesoKg": 3901730,
+      "produtos": {
+        "Soja": {
+          "quantidade": 98,
+          "pesoKg": 3901730
+        }
+      }
+    },
+    {
+      "data": "2026-02-14",
+      "turnos": {
+        "A": 21,
+        "B": 33,
+        "C": 8,
+        "F": 0
+      },
+      "quantidade": 62,
+      "pesoKg": 2591300,
+      "produtos": {
+        "Soja": {
+          "quantidade": 62,
+          "pesoKg": 2591300
+        }
+      }
+    },
+    {
+      "data": "2026-02-15",
+      "turnos": {
+        "A": 0,
+        "B": 13,
+        "C": 18,
+        "F": 16
+      },
+      "quantidade": 47,
+      "pesoKg": 2021380,
+      "produtos": {
+        "Soja": {
+          "quantidade": 47,
+          "pesoKg": 2021380
+        }
+      }
+    },
+    {
+      "data": "2026-02-16",
+      "turnos": {
+        "A": 0,
+        "B": 24,
+        "C": 22,
+        "F": 14
+      },
+      "quantidade": 60,
+      "pesoKg": 2607310,
+      "produtos": {
+        "Soja": {
+          "quantidade": 60,
+          "pesoKg": 2607310
+        }
+      }
+    },
+    {
+      "data": "2026-02-17",
+      "turnos": {
+        "A": 42,
+        "B": 0,
+        "C": 47,
+        "F": 31
+      },
+      "quantidade": 120,
+      "pesoKg": 5163890,
+      "produtos": {
+        "Soja": {
+          "quantidade": 120,
+          "pesoKg": 5163890
+        }
+      }
+    },
+    {
+      "data": "2026-02-18",
+      "turnos": {
+        "A": 63,
+        "B": 0,
+        "C": 40,
+        "F": 51
+      },
+      "quantidade": 154,
+      "pesoKg": 6349080,
+      "produtos": {
+        "Soja": {
+          "quantidade": 154,
+          "pesoKg": 6349080
+        }
+      }
+    },
+    {
+      "data": "2026-02-19",
+      "turnos": {
+        "A": 41,
+        "B": 43,
+        "C": 0,
+        "F": 52
+      },
+      "quantidade": 136,
+      "pesoKg": 5639460,
+      "produtos": {
+        "Soja": {
+          "quantidade": 136,
+          "pesoKg": 5639460
+        }
+      }
+    },
+    {
+      "data": "2026-02-20",
+      "turnos": {
+        "A": 62,
+        "B": 45,
+        "C": 0,
+        "F": 37
+      },
+      "quantidade": 144,
+      "pesoKg": 6110420,
+      "produtos": {
+        "Soja": {
+          "quantidade": 144,
+          "pesoKg": 6110420
+        }
+      }
+    },
+    {
+      "data": "2026-02-21",
+      "turnos": {
+        "A": 53,
+        "B": 48,
+        "C": 50,
+        "F": 0
+      },
+      "quantidade": 151,
+      "pesoKg": 6441970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 151,
+          "pesoKg": 6441970
+        }
+      }
+    },
+    {
+      "data": "2026-02-22",
+      "turnos": {
+        "A": 38,
+        "B": 27,
+        "C": 45,
+        "F": 0
+      },
+      "quantidade": 110,
+      "pesoKg": 4644710,
+      "produtos": {
+        "Soja": {
+          "quantidade": 110,
+          "pesoKg": 4644710
+        }
+      }
+    },
+    {
+      "data": "2026-02-23",
+      "turnos": {
+        "A": 0,
+        "B": 53,
+        "C": 45,
+        "F": 50
+      },
+      "quantidade": 148,
+      "pesoKg": 6113120,
+      "produtos": {
+        "Soja": {
+          "quantidade": 148,
+          "pesoKg": 6113120
+        }
+      }
+    },
+    {
+      "data": "2026-02-24",
+      "turnos": {
+        "A": 0,
+        "B": 36,
+        "C": 32,
+        "F": 53
+      },
+      "quantidade": 121,
+      "pesoKg": 5016260,
+      "produtos": {
+        "Soja": {
+          "quantidade": 121,
+          "pesoKg": 5016260
+        }
+      }
+    },
+    {
+      "data": "2026-02-25",
+      "turnos": {
+        "A": 42,
+        "B": 0,
+        "C": 48,
+        "F": 32
+      },
+      "quantidade": 122,
+      "pesoKg": 4991610,
+      "produtos": {
+        "Soja": {
+          "quantidade": 122,
+          "pesoKg": 4991610
+        }
+      }
+    },
+    {
+      "data": "2026-02-26",
+      "turnos": {
+        "A": 55,
+        "B": 0,
+        "C": 49,
+        "F": 51
+      },
+      "quantidade": 155,
+      "pesoKg": 6370880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 155,
+          "pesoKg": 6370880
+        }
+      }
+    },
+    {
+      "data": "2026-02-27",
+      "turnos": {
+        "A": 68,
+        "B": 56,
+        "C": 0,
+        "F": 22
+      },
+      "quantidade": 146,
+      "pesoKg": 6114710,
+      "produtos": {
+        "Soja": {
+          "quantidade": 146,
+          "pesoKg": 6114710
+        }
+      }
+    },
+    {
+      "data": "2026-02-28",
+      "turnos": {
+        "A": 31,
+        "B": 11,
+        "C": 0,
+        "F": 17
+      },
+      "quantidade": 59,
+      "pesoKg": 2461500,
+      "produtos": {
+        "Soja": {
+          "quantidade": 59,
+          "pesoKg": 2461500
+        }
+      }
+    },
+    {
+      "data": "2026-03-01",
+      "turnos": {
+        "A": 16,
+        "B": 15,
+        "C": 40,
+        "F": 0
+      },
+      "quantidade": 71,
+      "pesoKg": 3008730,
+      "produtos": {
+        "Soja": {
+          "quantidade": 71,
+          "pesoKg": 3008730
+        }
+      }
+    },
+    {
+      "data": "2026-03-02",
+      "turnos": {
+        "A": 53,
+        "B": 41,
+        "C": 25,
+        "F": 0
+      },
+      "quantidade": 119,
+      "pesoKg": 5017050,
+      "produtos": {
+        "Soja": {
+          "quantidade": 119,
+          "pesoKg": 5017050
+        }
+      }
+    },
+    {
+      "data": "2026-03-03",
+      "turnos": {
+        "A": 0,
+        "B": 14,
+        "C": 31,
+        "F": 14
+      },
+      "quantidade": 59,
+      "pesoKg": 2503790,
+      "produtos": {
+        "Soja": {
+          "quantidade": 59,
+          "pesoKg": 2503790
+        }
+      }
+    },
+    {
+      "data": "2026-03-04",
+      "turnos": {
+        "A": 0,
+        "B": 32,
+        "C": 36,
+        "F": 50
+      },
+      "quantidade": 118,
+      "pesoKg": 4989970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 118,
+          "pesoKg": 4989970
+        }
+      }
+    },
+    {
+      "data": "2026-03-05",
+      "turnos": {
+        "A": 59,
+        "B": 0,
+        "C": 17,
+        "F": 38
+      },
+      "quantidade": 114,
+      "pesoKg": 4800900,
+      "produtos": {
+        "Soja": {
+          "quantidade": 114,
+          "pesoKg": 4800900
+        }
+      }
+    },
+    {
+      "data": "2026-03-06",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 58,
+        "F": 10
+      },
+      "quantidade": 68,
+      "pesoKg": 2988740,
+      "produtos": {
+        "Soja": {
+          "quantidade": 68,
+          "pesoKg": 2988740
+        }
+      }
+    },
+    {
+      "data": "2026-03-07",
+      "turnos": {
+        "A": 66,
+        "B": 63,
+        "C": 0,
+        "F": 46
+      },
+      "quantidade": 175,
+      "pesoKg": 7330730,
+      "produtos": {
+        "Soja": {
+          "quantidade": 175,
+          "pesoKg": 7330730
+        }
+      }
+    },
+    {
+      "data": "2026-03-08",
+      "turnos": {
+        "A": 48,
+        "B": 36,
+        "C": 0,
+        "F": 23
+      },
+      "quantidade": 107,
+      "pesoKg": 4437920,
+      "produtos": {
+        "Soja": {
+          "quantidade": 107,
+          "pesoKg": 4437920
+        }
+      }
+    },
+    {
+      "data": "2026-03-09",
+      "turnos": {
+        "A": 52,
+        "B": 30,
+        "C": 29,
+        "F": 0
+      },
+      "quantidade": 111,
+      "pesoKg": 4782220,
+      "produtos": {
+        "Soja": {
+          "quantidade": 111,
+          "pesoKg": 4782220
+        }
+      }
+    },
+    {
+      "data": "2026-03-10",
+      "turnos": {
+        "A": 37,
+        "B": 24,
+        "C": 35,
+        "F": 0
+      },
+      "quantidade": 96,
+      "pesoKg": 3960750,
+      "produtos": {
+        "Soja": {
+          "quantidade": 96,
+          "pesoKg": 3960750
+        }
+      }
+    },
+    {
+      "data": "2026-03-11",
+      "turnos": {
+        "A": 0,
+        "B": 45,
+        "C": 52,
+        "F": 48
+      },
+      "quantidade": 145,
+      "pesoKg": 5933960,
+      "produtos": {
+        "Soja": {
+          "quantidade": 145,
+          "pesoKg": 5933960
+        }
+      }
+    },
+    {
+      "data": "2026-03-12",
+      "turnos": {
+        "A": 0,
+        "B": 47,
+        "C": 40,
+        "F": 46
+      },
+      "quantidade": 133,
+      "pesoKg": 5575260,
+      "produtos": {
+        "Soja": {
+          "quantidade": 133,
+          "pesoKg": 5575260
+        }
+      }
+    },
+    {
+      "data": "2026-03-13",
+      "turnos": {
+        "A": 54,
+        "B": 0,
+        "C": 57,
+        "F": 60
+      },
+      "quantidade": 171,
+      "pesoKg": 7424270,
+      "produtos": {
+        "Soja": {
+          "quantidade": 171,
+          "pesoKg": 7424270
+        }
+      }
+    },
+    {
+      "data": "2026-03-14",
+      "turnos": {
+        "A": 57,
+        "B": 0,
+        "C": 3,
+        "F": 13
+      },
+      "quantidade": 73,
+      "pesoKg": 3052890,
+      "produtos": {
+        "Soja": {
+          "quantidade": 73,
+          "pesoKg": 3052890
+        }
+      }
+    },
+    {
+      "data": "2026-03-15",
+      "turnos": {
+        "A": 5,
+        "B": 16,
+        "C": 0,
+        "F": 24
+      },
+      "quantidade": 45,
+      "pesoKg": 1845940,
+      "produtos": {
+        "Soja": {
+          "quantidade": 45,
+          "pesoKg": 1845940
+        }
+      }
+    },
+    {
+      "data": "2026-03-16",
+      "turnos": {
+        "A": 24,
+        "B": 23,
+        "C": 0,
+        "F": 20
+      },
+      "quantidade": 67,
+      "pesoKg": 2903150,
+      "produtos": {
+        "Soja": {
+          "quantidade": 67,
+          "pesoKg": 2903150
+        }
+      }
+    },
+    {
+      "data": "2026-03-17",
+      "turnos": {
+        "A": 37,
+        "B": 20,
+        "C": 20,
+        "F": 0
+      },
+      "quantidade": 77,
+      "pesoKg": 3442880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 77,
+          "pesoKg": 3442880
+        }
+      }
+    },
+    {
+      "data": "2026-03-18",
+      "turnos": {
+        "A": 25,
+        "B": 18,
+        "C": 29,
+        "F": 0
+      },
+      "quantidade": 72,
+      "pesoKg": 3263570,
+      "produtos": {
+        "Soja": {
+          "quantidade": 72,
+          "pesoKg": 3263570
+        }
+      }
+    },
+    {
+      "data": "2026-03-19",
+      "turnos": {
+        "A": 0,
+        "B": 28,
+        "C": 38,
+        "F": 22
+      },
+      "quantidade": 88,
+      "pesoKg": 3759620,
+      "produtos": {
+        "Soja": {
+          "quantidade": 88,
+          "pesoKg": 3759620
+        }
+      }
+    },
+    {
+      "data": "2026-03-20",
+      "turnos": {
+        "A": 0,
+        "B": 27,
+        "C": 43,
+        "F": 31
+      },
+      "quantidade": 101,
+      "pesoKg": 4515970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 101,
+          "pesoKg": 4515970
+        }
+      }
+    },
+    {
+      "data": "2026-03-21",
+      "turnos": {
+        "A": 33,
+        "B": 0,
+        "C": 23,
+        "F": 31
+      },
+      "quantidade": 87,
+      "pesoKg": 3993240,
+      "produtos": {
+        "Soja": {
+          "quantidade": 87,
+          "pesoKg": 3993240
+        }
+      }
+    },
+    {
+      "data": "2026-03-22",
+      "turnos": {
+        "A": 30,
+        "B": 0,
+        "C": 35,
+        "F": 36
+      },
+      "quantidade": 101,
+      "pesoKg": 4496480,
+      "produtos": {
+        "Soja": {
+          "quantidade": 101,
+          "pesoKg": 4496480
+        }
+      }
+    },
+    {
+      "data": "2026-03-23",
+      "turnos": {
+        "A": 49,
+        "B": 29,
+        "C": 0,
+        "F": 29
+      },
+      "quantidade": 107,
+      "pesoKg": 4821970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 107,
+          "pesoKg": 4821970
+        }
+      }
+    },
+    {
+      "data": "2026-03-24",
+      "turnos": {
+        "A": 54,
+        "B": 49,
+        "C": 0,
+        "F": 41
+      },
+      "quantidade": 144,
+      "pesoKg": 6319400,
+      "produtos": {
+        "Soja": {
+          "quantidade": 144,
+          "pesoKg": 6319400
+        }
+      }
+    },
+    {
+      "data": "2026-03-25",
+      "turnos": {
+        "A": 58,
+        "B": 51,
+        "C": 43,
+        "F": 0
+      },
+      "quantidade": 152,
+      "pesoKg": 6644390,
+      "produtos": {
+        "Soja": {
+          "quantidade": 152,
+          "pesoKg": 6644390
+        }
+      }
+    },
+    {
+      "data": "2026-03-26",
+      "turnos": {
+        "A": 40,
+        "B": 43,
+        "C": 53,
+        "F": 0
+      },
+      "quantidade": 136,
+      "pesoKg": 5946280,
+      "produtos": {
+        "Soja": {
+          "quantidade": 136,
+          "pesoKg": 5946280
+        }
+      }
+    },
+    {
+      "data": "2026-03-27",
+      "turnos": {
+        "A": 0,
+        "B": 43,
+        "C": 60,
+        "F": 47
+      },
+      "quantidade": 150,
+      "pesoKg": 6302760,
+      "produtos": {
+        "Soja": {
+          "quantidade": 150,
+          "pesoKg": 6302760
+        }
+      }
+    },
+    {
+      "data": "2026-03-28",
+      "turnos": {
+        "A": 0,
+        "B": 52,
+        "C": 16,
+        "F": 50
+      },
+      "quantidade": 118,
+      "pesoKg": 5068950,
+      "produtos": {
+        "Soja": {
+          "quantidade": 118,
+          "pesoKg": 5068950
+        }
+      }
+    },
+    {
+      "data": "2026-03-29",
+      "turnos": {
+        "A": 43,
+        "B": 0,
+        "C": 2,
+        "F": 15
+      },
+      "quantidade": 60,
+      "pesoKg": 2800380,
+      "produtos": {
+        "Soja": {
+          "quantidade": 60,
+          "pesoKg": 2800380
+        }
+      }
+    },
+    {
+      "data": "2026-03-30",
+      "turnos": {
+        "A": 61,
+        "B": 0,
+        "C": 15,
+        "F": 32
+      },
+      "quantidade": 108,
+      "pesoKg": 4569530,
+      "produtos": {
+        "Soja": {
+          "quantidade": 108,
+          "pesoKg": 4569530
+        }
+      }
+    },
+    {
+      "data": "2026-03-31",
+      "turnos": {
+        "A": 13,
+        "B": 43,
+        "C": 0,
+        "F": 29
+      },
+      "quantidade": 85,
+      "pesoKg": 3726030,
+      "produtos": {
+        "Soja": {
+          "quantidade": 85,
+          "pesoKg": 3726030
+        }
+      }
+    },
+    {
+      "data": "2026-04-01",
+      "turnos": {
+        "A": 38,
+        "B": 36,
+        "C": 0,
+        "F": 33
+      },
+      "quantidade": 107,
+      "pesoKg": 4545590,
+      "produtos": {
+        "Soja": {
+          "quantidade": 107,
+          "pesoKg": 4545590
+        }
+      }
+    },
+    {
+      "data": "2026-04-02",
+      "turnos": {
+        "A": 29,
+        "B": 42,
+        "C": 52,
+        "F": 0
+      },
+      "quantidade": 123,
+      "pesoKg": 5121960,
+      "produtos": {
+        "Soja": {
+          "quantidade": 123,
+          "pesoKg": 5121960
+        }
+      }
+    },
+    {
+      "data": "2026-04-03",
+      "turnos": {
+        "A": 26,
+        "B": 29,
+        "C": 12,
+        "F": 0
+      },
+      "quantidade": 67,
+      "pesoKg": 2885470,
+      "produtos": {
+        "Soja": {
+          "quantidade": 67,
+          "pesoKg": 2885470
+        }
+      }
+    },
+    {
+      "data": "2026-04-04",
+      "turnos": {
+        "A": 0,
+        "B": 27,
+        "C": 12,
+        "F": 12
+      },
+      "quantidade": 51,
+      "pesoKg": 2136270,
+      "produtos": {
+        "Soja": {
+          "quantidade": 51,
+          "pesoKg": 2136270
+        }
+      }
+    },
+    {
+      "data": "2026-04-05",
+      "turnos": {
+        "A": 0,
+        "B": 11,
+        "C": 19,
+        "F": 7
+      },
+      "quantidade": 37,
+      "pesoKg": 1479040,
+      "produtos": {
+        "Soja": {
+          "quantidade": 37,
+          "pesoKg": 1479040
+        }
+      }
+    },
+    {
+      "data": "2026-04-06",
+      "turnos": {
+        "A": 18,
+        "B": 0,
+        "C": 26,
+        "F": 17
+      },
+      "quantidade": 61,
+      "pesoKg": 2479030,
+      "produtos": {
+        "Soja": {
+          "quantidade": 61,
+          "pesoKg": 2479030
+        }
+      }
+    },
+    {
+      "data": "2026-04-07",
+      "turnos": {
+        "A": 34,
+        "B": 0,
+        "C": 44,
+        "F": 29
+      },
+      "quantidade": 107,
+      "pesoKg": 4438740,
+      "produtos": {
+        "Soja": {
+          "quantidade": 107,
+          "pesoKg": 4438740
+        }
+      }
+    },
+    {
+      "data": "2026-04-08",
+      "turnos": {
+        "A": 39,
+        "B": 47,
+        "C": 0,
+        "F": 60
+      },
+      "quantidade": 146,
+      "pesoKg": 5927810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 146,
+          "pesoKg": 5927810
+        }
+      }
+    },
+    {
+      "data": "2026-04-09",
+      "turnos": {
+        "A": 49,
+        "B": 57,
+        "C": 0,
+        "F": 61
+      },
+      "quantidade": 167,
+      "pesoKg": 7026470,
+      "produtos": {
+        "Soja": {
+          "quantidade": 167,
+          "pesoKg": 7026470
+        }
+      }
+    },
+    {
+      "data": "2026-04-10",
+      "turnos": {
+        "A": 68,
+        "B": 55,
+        "C": 52,
+        "F": 0
+      },
+      "quantidade": 175,
+      "pesoKg": 7205380,
+      "produtos": {
+        "Soja": {
+          "quantidade": 175,
+          "pesoKg": 7205380
+        }
+      }
+    },
+    {
+      "data": "2026-04-11",
+      "turnos": {
+        "A": 69,
+        "B": 47,
+        "C": 21,
+        "F": 0
+      },
+      "quantidade": 137,
+      "pesoKg": 5921870,
+      "produtos": {
+        "Soja": {
+          "quantidade": 137,
+          "pesoKg": 5921870
+        }
+      }
+    },
+    {
+      "data": "2026-04-12",
+      "turnos": {
+        "A": 0,
+        "B": 19,
+        "C": 25,
+        "F": 36
+      },
+      "quantidade": 80,
+      "pesoKg": 3407020,
+      "produtos": {
+        "Soja": {
+          "quantidade": 80,
+          "pesoKg": 3407020
+        }
+      }
+    },
+    {
+      "data": "2026-04-13",
+      "turnos": {
+        "A": 0,
+        "B": 21,
+        "C": 31,
+        "F": 38
+      },
+      "quantidade": 90,
+      "pesoKg": 3738320,
+      "produtos": {
+        "Soja": {
+          "quantidade": 90,
+          "pesoKg": 3738320
+        }
+      }
+    },
+    {
+      "data": "2026-04-14",
+      "turnos": {
+        "A": 64,
+        "B": 0,
+        "C": 0,
+        "F": 42
+      },
+      "quantidade": 106,
+      "pesoKg": 4566750,
+      "produtos": {
+        "Soja": {
+          "quantidade": 106,
+          "pesoKg": 4566750
+        }
+      }
+    },
+    {
+      "data": "2026-04-15",
+      "turnos": {
+        "A": 56,
+        "B": 0,
+        "C": 22,
+        "F": 30
+      },
+      "quantidade": 108,
+      "pesoKg": 4550810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 108,
+          "pesoKg": 4550810
+        }
+      }
+    },
+    {
+      "data": "2026-04-16",
+      "turnos": {
+        "A": 28,
+        "B": 21,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 49,
+      "pesoKg": 1999350,
+      "produtos": {
+        "Soja": {
+          "quantidade": 49,
+          "pesoKg": 1999350
+        }
+      }
+    },
+    {
+      "data": "2026-04-17",
+      "turnos": {
+        "A": 57,
+        "B": 45,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 102,
+      "pesoKg": 4343110,
+      "produtos": {
+        "Soja": {
+          "quantidade": 102,
+          "pesoKg": 4343110
+        }
+      }
+    },
+    {
+      "data": "2026-04-18",
+      "turnos": {
+        "A": 48,
+        "B": 23,
+        "C": 15,
+        "F": 0
+      },
+      "quantidade": 86,
+      "pesoKg": 3669870,
+      "produtos": {
+        "Soja": {
+          "quantidade": 86,
+          "pesoKg": 3669870
+        }
+      }
+    },
+    {
+      "data": "2026-04-19",
+      "turnos": {
+        "A": 22,
+        "B": 14,
+        "C": 17,
+        "F": 0
+      },
+      "quantidade": 53,
+      "pesoKg": 2259820,
+      "produtos": {
+        "Soja": {
+          "quantidade": 53,
+          "pesoKg": 2259820
+        }
+      }
+    },
+    {
+      "data": "2026-04-20",
+      "turnos": {
+        "A": 0,
+        "B": 2,
+        "C": 0,
+        "F": 32
+      },
+      "quantidade": 34,
+      "pesoKg": 1390300,
+      "produtos": {
+        "Soja": {
+          "quantidade": 34,
+          "pesoKg": 1390300
+        }
+      }
+    },
+    {
+      "data": "2026-04-21",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "F": 0
+      },
+      "quantidade": 50,
+      "pesoKg": 2120600,
+      "produtos": {
+        "Soja": {
+          "quantidade": 50,
+          "pesoKg": 2120600
+        }
+      }
+    },
+    {
+      "data": "2026-04-22",
+      "turnos": {
+        "A": 41,
+        "B": 0,
+        "C": 20,
+        "F": 21
+      },
+      "quantidade": 82,
+      "pesoKg": 3755490,
+      "produtos": {
+        "Soja": {
+          "quantidade": 82,
+          "pesoKg": 3755490
+        }
+      }
+    },
+    {
+      "data": "2026-04-23",
+      "turnos": {
+        "A": 62,
+        "B": 0,
+        "C": 36,
+        "F": 47
+      },
+      "quantidade": 145,
+      "pesoKg": 5903080,
+      "produtos": {
+        "Soja": {
+          "quantidade": 145,
+          "pesoKg": 5903080
+        }
+      }
+    },
+    {
+      "data": "2026-04-24",
+      "turnos": {
+        "A": 53,
+        "B": 37,
+        "C": 0,
+        "F": 34
+      },
+      "quantidade": 124,
+      "pesoKg": 5211220,
+      "produtos": {
+        "Soja": {
+          "quantidade": 124,
+          "pesoKg": 5211220
+        }
+      }
+    },
+    {
+      "data": "2026-04-25",
+      "turnos": {
+        "A": 22,
+        "B": 16,
+        "C": 0,
+        "F": 18
+      },
+      "quantidade": 56,
+      "pesoKg": 2456150,
+      "produtos": {
+        "Soja": {
+          "quantidade": 56,
+          "pesoKg": 2456150
+        }
+      }
+    },
+    {
+      "data": "2026-04-26",
+      "turnos": {
+        "A": 11,
+        "B": 12,
+        "C": 15,
+        "F": 0
+      },
+      "quantidade": 38,
+      "pesoKg": 1611350,
+      "produtos": {
+        "Soja": {
+          "quantidade": 38,
+          "pesoKg": 1611350
+        }
+      }
+    },
+    {
+      "data": "2026-04-27",
+      "turnos": {
+        "A": 12,
+        "B": 20,
+        "C": 17,
+        "F": 0
+      },
+      "quantidade": 49,
+      "pesoKg": 2169890,
+      "produtos": {
+        "Soja": {
+          "quantidade": 49,
+          "pesoKg": 2169890
+        }
+      }
+    },
+    {
+      "data": "2026-04-28",
+      "turnos": {
+        "A": 0,
+        "B": 17,
+        "C": 15,
+        "F": 28
+      },
+      "quantidade": 60,
+      "pesoKg": 2577740,
+      "produtos": {
+        "Soja": {
+          "quantidade": 60,
+          "pesoKg": 2577740
+        }
+      }
+    },
+    {
+      "data": "2026-04-29",
+      "turnos": {
+        "A": 0,
+        "B": 32,
+        "C": 30,
+        "F": 1
+      },
+      "quantidade": 63,
+      "pesoKg": 2624250,
+      "produtos": {
+        "Soja": {
+          "quantidade": 63,
+          "pesoKg": 2624250
+        }
+      }
+    },
+    {
+      "data": "2026-04-30",
+      "turnos": {
+        "A": 24,
+        "B": 0,
+        "C": 8,
+        "F": 11
+      },
+      "quantidade": 43,
+      "pesoKg": 1777970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 43,
+          "pesoKg": 1777970
+        }
+      }
+    },
+    {
+      "data": "2026-05-01",
+      "turnos": {
+        "A": 5,
+        "B": 0,
+        "C": 4,
+        "F": 9
+      },
+      "quantidade": 18,
+      "pesoKg": 727310,
+      "produtos": {
+        "Soja": {
+          "quantidade": 18,
+          "pesoKg": 727310
+        }
+      }
+    },
+    {
+      "data": "2026-05-02",
+      "turnos": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 1,
+      "pesoKg": 39300,
+      "produtos": {
+        "Soja": {
+          "quantidade": 1,
+          "pesoKg": 39300
+        }
+      }
+    },
+    {
+      "data": "2026-05-03",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-05-04",
+      "turnos": {
+        "A": 3,
+        "B": 19,
+        "C": 30,
+        "F": 0
+      },
+      "quantidade": 52,
+      "pesoKg": 2059850,
+      "produtos": {
+        "Soja": {
+          "quantidade": 52,
+          "pesoKg": 2059850
+        }
+      }
+    },
+    {
+      "data": "2026-05-05",
+      "turnos": {
+        "A": 42,
+        "B": 34,
+        "C": 41,
+        "F": 0
+      },
+      "quantidade": 117,
+      "pesoKg": 4935800,
+      "produtos": {
+        "Soja": {
+          "quantidade": 117,
+          "pesoKg": 4935800
+        }
+      }
+    },
+    {
+      "data": "2026-05-06",
+      "turnos": {
+        "A": 0,
+        "B": 45,
+        "C": 39,
+        "F": 37
+      },
+      "quantidade": 121,
+      "pesoKg": 5070730,
+      "produtos": {
+        "Soja": {
+          "quantidade": 121,
+          "pesoKg": 5070730
+        }
+      }
+    },
+    {
+      "data": "2026-05-07",
+      "turnos": {
+        "A": 0,
+        "B": 24,
+        "C": 15,
+        "F": 22
+      },
+      "quantidade": 61,
+      "pesoKg": 2650960,
+      "produtos": {
+        "Soja": {
+          "quantidade": 61,
+          "pesoKg": 2650960
+        }
+      }
+    },
+    {
+      "data": "2026-05-08",
+      "turnos": {
+        "A": 6,
+        "B": 0,
+        "C": 11,
+        "F": 11
+      },
+      "quantidade": 28,
+      "pesoKg": 1136280,
+      "produtos": {
+        "Soja": {
+          "quantidade": 28,
+          "pesoKg": 1136280
+        }
+      }
+    },
+    {
+      "data": "2026-05-09",
+      "turnos": {
+        "A": 16,
+        "B": 0,
+        "C": 0,
+        "F": 4
+      },
+      "quantidade": 20,
+      "pesoKg": 834380,
+      "produtos": {
+        "Soja": {
+          "quantidade": 20,
+          "pesoKg": 834380
+        }
+      }
+    },
+    {
+      "data": "2026-05-10",
+      "turnos": {
+        "A": 2,
+        "B": 5,
+        "C": 0,
+        "F": 6
+      },
+      "quantidade": 13,
+      "pesoKg": 584700,
+      "produtos": {
+        "Soja": {
+          "quantidade": 13,
+          "pesoKg": 584700
+        }
+      }
+    },
+    {
+      "data": "2026-05-11",
+      "turnos": {
+        "A": 9,
+        "B": 16,
+        "C": 0,
+        "F": 18
+      },
+      "quantidade": 43,
+      "pesoKg": 1785690,
+      "produtos": {
+        "Soja": {
+          "quantidade": 43,
+          "pesoKg": 1785690
+        }
+      }
+    },
+    {
+      "data": "2026-05-12",
+      "turnos": {
+        "A": 12,
+        "B": 12,
+        "C": 14,
+        "F": 0
+      },
+      "quantidade": 38,
+      "pesoKg": 1660570,
+      "produtos": {
+        "Soja": {
+          "quantidade": 38,
+          "pesoKg": 1660570
+        }
+      }
+    },
+    {
+      "data": "2026-05-13",
+      "turnos": {
+        "A": 28,
+        "B": 23,
+        "C": 24,
+        "F": 0
+      },
+      "quantidade": 75,
+      "pesoKg": 3167460,
+      "produtos": {
+        "Soja": {
+          "quantidade": 75,
+          "pesoKg": 3167460
+        }
+      }
+    },
+    {
+      "data": "2026-05-14",
+      "turnos": {
+        "A": 0,
+        "B": 42,
+        "C": 27,
+        "F": 39
+      },
+      "quantidade": 108,
+      "pesoKg": 4346910,
+      "produtos": {
+        "Soja": {
+          "quantidade": 108,
+          "pesoKg": 4346910
+        }
+      }
+    },
+    {
+      "data": "2026-05-15",
+      "turnos": {
+        "A": 0,
+        "B": 15,
+        "C": 27,
+        "F": 33
+      },
+      "quantidade": 75,
+      "pesoKg": 3173880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 75,
+          "pesoKg": 3173880
+        }
+      }
+    },
+    {
+      "data": "2026-05-16",
+      "turnos": {
+        "A": 42,
+        "B": 0,
+        "C": 2,
+        "F": 11
+      },
+      "quantidade": 55,
+      "pesoKg": 2268860,
+      "produtos": {
+        "Soja": {
+          "quantidade": 55,
+          "pesoKg": 2268860
+        }
+      }
+    },
+    {
+      "data": "2026-05-17",
+      "turnos": {
+        "A": 7,
+        "B": 0,
+        "C": 9,
+        "F": 17
+      },
+      "quantidade": 33,
+      "pesoKg": 1292660,
+      "produtos": {
+        "Soja": {
+          "quantidade": 33,
+          "pesoKg": 1292660
+        }
+      }
+    },
+    {
+      "data": "2026-05-18",
+      "turnos": {
+        "A": 17,
+        "B": 10,
+        "C": 0,
+        "F": 11
+      },
+      "quantidade": 38,
+      "pesoKg": 1470570,
+      "produtos": {
+        "Soja": {
+          "quantidade": 38,
+          "pesoKg": 1470570
+        }
+      }
+    },
+    {
+      "data": "2026-05-19",
+      "turnos": {
+        "A": 33,
+        "B": 4,
+        "C": 0,
+        "F": 16
+      },
+      "quantidade": 53,
+      "pesoKg": 2167260,
+      "produtos": {
+        "Soja": {
+          "quantidade": 53,
+          "pesoKg": 2167260
+        }
+      }
+    },
+    {
+      "data": "2026-05-20",
+      "turnos": {
+        "A": 30,
+        "B": 26,
+        "C": 39,
+        "F": 0
+      },
+      "quantidade": 95,
+      "pesoKg": 3926260,
+      "produtos": {
+        "Soja": {
+          "quantidade": 95,
+          "pesoKg": 3926260
+        }
+      }
+    },
+    {
+      "data": "2026-05-21",
+      "turnos": {
+        "A": 54,
+        "B": 54,
+        "C": 49,
+        "F": 0
+      },
+      "quantidade": 157,
+      "pesoKg": 6600450,
+      "produtos": {
+        "Soja": {
+          "quantidade": 157,
+          "pesoKg": 6600450
+        }
+      }
+    },
+    {
+      "data": "2026-05-22",
+      "turnos": {
+        "A": 0,
+        "B": 63,
+        "C": 43,
+        "F": 55
+      },
+      "quantidade": 161,
+      "pesoKg": 6633880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 161,
+          "pesoKg": 6633880
+        }
+      }
+    },
+    {
+      "data": "2026-05-23",
+      "turnos": {
+        "A": 0,
+        "B": 60,
+        "C": 24,
+        "F": 55
+      },
+      "quantidade": 139,
+      "pesoKg": 5876900,
+      "produtos": {
+        "Soja": {
+          "quantidade": 139,
+          "pesoKg": 5876900
+        }
+      }
+    },
+    {
+      "data": "2026-05-24",
+      "turnos": {
+        "A": 19,
+        "B": 0,
+        "C": 44,
+        "F": 40
+      },
+      "quantidade": 103,
+      "pesoKg": 4494330,
+      "produtos": {
+        "Soja": {
+          "quantidade": 103,
+          "pesoKg": 4494330
+        }
+      }
+    },
+    {
+      "data": "2026-05-25",
+      "turnos": {
+        "A": 23,
+        "B": 0,
+        "C": 25,
+        "F": 27
+      },
+      "quantidade": 75,
+      "pesoKg": 3030980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 75,
+          "pesoKg": 3030980
+        }
+      }
+    },
+    {
+      "data": "2026-05-26",
+      "turnos": {
+        "A": 12,
+        "B": 9,
+        "C": 0,
+        "F": 8
+      },
+      "quantidade": 29,
+      "pesoKg": 1175830,
+      "produtos": {
+        "Soja": {
+          "quantidade": 29,
+          "pesoKg": 1175830
+        }
+      }
+    },
+    {
+      "data": "2026-05-27",
+      "turnos": {
+        "A": 11,
+        "B": 5,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 16,
+      "pesoKg": 601650,
+      "produtos": {
+        "Soja": {
+          "quantidade": 16,
+          "pesoKg": 601650
+        }
+      }
+    },
+    {
+      "data": "2026-05-28",
+      "turnos": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 1,
+      "pesoKg": 28620,
+      "produtos": {
+        "Soja": {
+          "quantidade": 1,
+          "pesoKg": 28620
+        }
+      }
+    },
+    {
+      "data": "2026-05-29",
+      "turnos": {
+        "A": 2,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 2,
+      "pesoKg": 40520,
+      "produtos": {
+        "Soja": {
+          "quantidade": 2,
+          "pesoKg": 40520
+        }
+      }
+    },
+    {
+      "data": "2026-05-30",
+      "turnos": {
+        "A": 0,
+        "B": 36,
+        "C": 2,
+        "F": 0
+      },
+      "quantidade": 38,
+      "pesoKg": 1696390,
+      "produtos": {
+        "Soja": {
+          "quantidade": 38,
+          "pesoKg": 1696390
+        }
+      }
+    },
+    {
+      "data": "2026-05-31",
+      "turnos": {
+        "A": 0,
+        "B": 23,
+        "C": 16,
+        "F": 8
+      },
+      "quantidade": 47,
+      "pesoKg": 1903450,
+      "produtos": {
+        "Soja": {
+          "quantidade": 47,
+          "pesoKg": 1903450
+        }
+      }
+    },
+    {
+      "data": "2026-06-01",
+      "turnos": {
+        "A": 24,
+        "B": 0,
+        "C": 10,
+        "F": 19
+      },
+      "quantidade": 53,
+      "pesoKg": 2280070,
+      "produtos": {
+        "Soja": {
+          "quantidade": 53,
+          "pesoKg": 2280070
+        }
+      }
+    },
+    {
+      "data": "2026-06-02",
+      "turnos": {
+        "A": 41,
+        "B": 0,
+        "C": 28,
+        "F": 21
+      },
+      "quantidade": 90,
+      "pesoKg": 4025980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 90,
+          "pesoKg": 4025980
+        }
+      }
+    },
+    {
+      "data": "2026-06-03",
+      "turnos": {
+        "A": 28,
+        "B": 14,
+        "C": 0,
+        "F": 16
+      },
+      "quantidade": 58,
+      "pesoKg": 2340680,
+      "produtos": {
+        "Soja": {
+          "quantidade": 58,
+          "pesoKg": 2340680
+        }
+      }
+    },
+    {
+      "data": "2026-06-04",
+      "turnos": {
+        "A": 20,
+        "B": 9,
+        "C": 0,
+        "F": 17
+      },
+      "quantidade": 46,
+      "pesoKg": 1763730,
+      "produtos": {
+        "Soja": {
+          "quantidade": 46,
+          "pesoKg": 1763730
+        }
+      }
+    },
+    {
+      "data": "2026-06-05",
+      "turnos": {
+        "A": 11,
+        "B": 9,
+        "C": 5,
+        "F": 0
+      },
+      "quantidade": 25,
+      "pesoKg": 995860,
+      "produtos": {
+        "Soja": {
+          "quantidade": 25,
+          "pesoKg": 995860
+        }
+      }
+    },
+    {
+      "data": "2026-06-06",
+      "turnos": {
+        "A": 0,
+        "B": 2,
+        "C": 1,
+        "F": 0
+      },
+      "quantidade": 3,
+      "pesoKg": 138760,
+      "produtos": {
+        "Soja": {
+          "quantidade": 3,
+          "pesoKg": 138760
+        }
+      }
+    },
+    {
+      "data": "2026-06-07",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 3,
+        "F": 1
+      },
+      "quantidade": 4,
+      "pesoKg": 150220,
+      "produtos": {
+        "Soja": {
+          "quantidade": 4,
+          "pesoKg": 150220
+        }
+      }
+    },
+    {
+      "data": "2026-06-08",
+      "turnos": {
+        "A": 0,
+        "B": 4,
+        "C": 16,
+        "F": 0
+      },
+      "quantidade": 20,
+      "pesoKg": 862610,
+      "produtos": {
+        "Soja": {
+          "quantidade": 20,
+          "pesoKg": 862610
+        }
+      }
+    },
+    {
+      "data": "2026-06-09",
+      "turnos": {
+        "A": 16,
+        "B": 0,
+        "C": 14,
+        "F": 21
+      },
+      "quantidade": 51,
+      "pesoKg": 2061920,
+      "produtos": {
+        "Soja": {
+          "quantidade": 51,
+          "pesoKg": 2061920
+        }
+      }
+    },
+    {
+      "data": "2026-06-10",
+      "turnos": {
+        "A": 19,
+        "B": 0,
+        "C": 0,
+        "F": 14
+      },
+      "quantidade": 33,
+      "pesoKg": 1378250,
+      "produtos": {
+        "Soja": {
+          "quantidade": 33,
+          "pesoKg": 1378250
+        }
+      }
+    },
+    {
+      "data": "2026-06-11",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-12",
+      "turnos": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 1,
+      "pesoKg": 34410,
+      "produtos": {
+        "Soja": {
+          "quantidade": 1,
+          "pesoKg": 34410
+        }
+      }
+    },
+    {
+      "data": "2026-06-13",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-14",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-15",
+      "turnos": {
+        "A": 0,
+        "B": 27,
+        "C": 52,
+        "F": 17
+      },
+      "quantidade": 96,
+      "pesoKg": 3841560,
+      "produtos": {
+        "Soja": {
+          "quantidade": 96,
+          "pesoKg": 3841560
+        }
+      }
+    },
+    {
+      "data": "2026-06-16",
+      "turnos": {
+        "A": 0,
+        "B": 31,
+        "C": 28,
+        "F": 25
+      },
+      "quantidade": 84,
+      "pesoKg": 3399380,
+      "produtos": {
+        "Soja": {
+          "quantidade": 84,
+          "pesoKg": 3399380
+        }
+      }
+    },
+    {
+      "data": "2026-06-17",
+      "turnos": {
+        "A": 22,
+        "B": 0,
+        "C": 0,
+        "F": 7
+      },
+      "quantidade": 29,
+      "pesoKg": 1197710,
+      "produtos": {
+        "Soja": {
+          "quantidade": 29,
+          "pesoKg": 1197710
+        }
+      }
+    },
+    {
+      "data": "2026-06-18",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-19",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-20",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-21",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-06-22",
+      "turnos": {
+        "A": 8,
+        "B": 22,
+        "C": 43,
+        "F": 0
+      },
+      "quantidade": 73,
+      "pesoKg": 2928820,
+      "produtos": {
+        "Soja": {
+          "quantidade": 73,
+          "pesoKg": 2928820
+        }
+      }
+    },
+    {
+      "data": "2026-06-23",
+      "turnos": {
+        "A": 0,
+        "B": 46,
+        "C": 58,
+        "F": 32
+      },
+      "quantidade": 136,
+      "pesoKg": 5570290,
+      "produtos": {
+        "Soja": {
+          "quantidade": 136,
+          "pesoKg": 5570290
+        }
+      }
+    },
+    {
+      "data": "2026-06-24",
+      "turnos": {
+        "A": 0,
+        "B": 23,
+        "C": 54,
+        "F": 43
+      },
+      "quantidade": 120,
+      "pesoKg": 4755770,
+      "produtos": {
+        "Soja": {
+          "quantidade": 120,
+          "pesoKg": 4755770
+        }
+      }
+    },
+    {
+      "data": "2026-06-25",
+      "turnos": {
+        "A": 55,
+        "B": 0,
+        "C": 67,
+        "F": 61
+      },
+      "quantidade": 183,
+      "pesoKg": 7441500,
+      "produtos": {
+        "Soja": {
+          "quantidade": 183,
+          "pesoKg": 7441500
+        }
+      }
+    },
+    {
+      "data": "2026-06-26",
+      "turnos": {
+        "A": 61,
+        "B": 0,
+        "C": 63,
+        "F": 63
+      },
+      "quantidade": 187,
+      "pesoKg": 7556630,
+      "produtos": {
+        "Soja": {
+          "quantidade": 187,
+          "pesoKg": 7556630
+        }
+      }
+    },
+    {
+      "data": "2026-06-27",
+      "turnos": {
+        "A": 17,
+        "B": 23,
+        "C": 0,
+        "F": 9
+      },
+      "quantidade": 49,
+      "pesoKg": 1957340,
+      "produtos": {
+        "Soja": {
+          "quantidade": 49,
+          "pesoKg": 1957340
+        }
+      }
+    },
+    {
+      "data": "2026-06-28",
+      "turnos": {
+        "A": 15,
+        "B": 39,
+        "C": 0,
+        "F": 26
+      },
+      "quantidade": 80,
+      "pesoKg": 3351540,
+      "produtos": {
+        "Soja": {
+          "quantidade": 80,
+          "pesoKg": 3351540
+        }
+      }
+    },
+    {
+      "data": "2026-06-29",
+      "turnos": {
+        "A": 5,
+        "B": 27,
+        "C": 47,
+        "F": 0
+      },
+      "quantidade": 79,
+      "pesoKg": 3017830,
+      "produtos": {
+        "Soja": {
+          "quantidade": 79,
+          "pesoKg": 3017830
+        }
+      }
+    },
+    {
+      "data": "2026-06-30",
+      "turnos": {
+        "A": 30,
+        "B": 19,
+        "C": 32,
+        "F": 0
+      },
+      "quantidade": 81,
+      "pesoKg": 3331530,
+      "produtos": {
+        "Soja": {
+          "quantidade": 81,
+          "pesoKg": 3331530
+        }
+      }
+    },
+    {
+      "data": "2026-07-01",
+      "turnos": {
+        "A": 0,
+        "B": 44,
+        "C": 43,
+        "F": 43
+      },
+      "quantidade": 130,
+      "pesoKg": 5183740,
+      "produtos": {
+        "Soja": {
+          "quantidade": 130,
+          "pesoKg": 5183740
+        }
+      }
+    },
+    {
+      "data": "2026-07-02",
+      "turnos": {
+        "A": 0,
+        "B": 4,
+        "C": 13,
+        "F": 21
+      },
+      "quantidade": 38,
+      "pesoKg": 1520950,
+      "produtos": {
+        "Soja": {
+          "quantidade": 38,
+          "pesoKg": 1520950
+        }
+      }
+    },
+    {
+      "data": "2026-07-03",
+      "turnos": {
+        "A": 3,
+        "B": 0,
+        "C": 6,
+        "F": 2
+      },
+      "quantidade": 11,
+      "pesoKg": 406770,
+      "produtos": {
+        "Soja": {
+          "quantidade": 11,
+          "pesoKg": 406770
+        }
+      }
+    },
+    {
+      "data": "2026-07-04",
+      "turnos": {
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "F": 5
+      },
+      "quantidade": 7,
+      "pesoKg": 258090,
+      "produtos": {
+        "Soja": {
+          "quantidade": 7,
+          "pesoKg": 258090
+        }
+      }
+    },
+    {
+      "data": "2026-07-05",
+      "turnos": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "F": 41
+      },
+      "quantidade": 42,
+      "pesoKg": 1604920,
+      "produtos": {
+        "Soja": {
+          "quantidade": 42,
+          "pesoKg": 1604920
+        }
+      }
+    },
+    {
+      "data": "2026-07-06",
+      "turnos": {
+        "A": 20,
+        "B": 32,
+        "C": 0,
+        "F": 18
+      },
+      "quantidade": 70,
+      "pesoKg": 2720490,
+      "produtos": {
+        "Soja": {
+          "quantidade": 70,
+          "pesoKg": 2720490
+        }
+      }
+    },
+    {
+      "data": "2026-07-07",
+      "turnos": {
+        "A": 23,
+        "B": 32,
+        "C": 29,
+        "F": 0
+      },
+      "quantidade": 84,
+      "pesoKg": 3473700,
+      "produtos": {
+        "Soja": {
+          "quantidade": 84,
+          "pesoKg": 3473700
+        }
+      }
+    },
+    {
+      "data": "2026-07-08",
+      "turnos": {
+        "A": 47,
+        "B": 50,
+        "C": 51,
+        "F": 0
+      },
+      "quantidade": 148,
+      "pesoKg": 6168430,
+      "produtos": {
+        "Soja": {
+          "quantidade": 148,
+          "pesoKg": 6168430
+        }
+      }
+    },
+    {
+      "data": "2026-07-09",
+      "turnos": {
+        "A": 0,
+        "B": 23,
+        "C": 25,
+        "F": 39
+      },
+      "quantidade": 87,
+      "pesoKg": 3570810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 87,
+          "pesoKg": 3570810
+        }
+      }
+    },
+    {
+      "data": "2026-07-10",
+      "turnos": {
+        "A": 0,
+        "B": 23,
+        "C": 30,
+        "F": 40
+      },
+      "quantidade": 93,
+      "pesoKg": 3691190,
+      "produtos": {
+        "Soja": {
+          "quantidade": 93,
+          "pesoKg": 3691190
+        }
+      }
+    },
+    {
+      "data": "2026-07-11",
+      "turnos": {
+        "A": 46,
+        "B": 0,
+        "C": 5,
+        "F": 12
+      },
+      "quantidade": 63,
+      "pesoKg": 2648470,
+      "produtos": {
+        "Soja": {
+          "quantidade": 63,
+          "pesoKg": 2648470
+        }
+      }
+    },
+    {
+      "data": "2026-07-12",
+      "turnos": {
+        "A": 14,
+        "B": 0,
+        "C": 46,
+        "F": 41
+      },
+      "quantidade": 101,
+      "pesoKg": 4131930,
+      "produtos": {
+        "Soja": {
+          "quantidade": 101,
+          "pesoKg": 4131930
+        }
+      }
+    },
+    {
+      "data": "2026-07-13",
+      "turnos": {
+        "A": 58,
+        "B": 46,
+        "C": 0,
+        "F": 49
+      },
+      "quantidade": 153,
+      "pesoKg": 6376340,
+      "produtos": {
+        "Soja": {
+          "quantidade": 153,
+          "pesoKg": 6376340
+        }
+      }
+    },
+    {
+      "data": "2026-07-14",
+      "turnos": {
+        "A": 60,
+        "B": 32,
+        "C": 0,
+        "F": 23
+      },
+      "quantidade": 115,
+      "pesoKg": 4588290,
+      "produtos": {
+        "Soja": {
+          "quantidade": 115,
+          "pesoKg": 4588290
+        }
+      }
+    },
+    {
+      "data": "2026-07-15",
+      "turnos": {
+        "A": 27,
+        "B": 36,
+        "C": 19,
+        "F": 0
+      },
+      "quantidade": 82,
+      "pesoKg": 3544520,
+      "produtos": {
+        "Soja": {
+          "quantidade": 82,
+          "pesoKg": 3544520
+        }
+      }
+    },
+    {
+      "data": "2026-07-16",
+      "turnos": {
+        "A": 41,
+        "B": 12,
+        "C": 13,
+        "F": 0
+      },
+      "quantidade": 66,
+      "pesoKg": 2839280,
+      "produtos": {
+        "Soja": {
+          "quantidade": 66,
+          "pesoKg": 2839280
+        }
+      }
+    },
+    {
+      "data": "2026-07-17",
+      "turnos": {
+        "A": 0,
+        "B": 14,
+        "C": 9,
+        "F": 16
+      },
+      "quantidade": 39,
+      "pesoKg": 1638750,
+      "produtos": {
+        "Soja": {
+          "quantidade": 39,
+          "pesoKg": 1638750
+        }
+      }
+    },
+    {
+      "data": "2026-07-18",
+      "turnos": {
+        "A": 0,
+        "B": 7,
+        "C": 8,
+        "F": 10
+      },
+      "quantidade": 25,
+      "pesoKg": 1062970,
+      "produtos": {
+        "Soja": {
+          "quantidade": 25,
+          "pesoKg": 1062970
+        }
+      }
+    },
+    {
+      "data": "2026-07-19",
+      "turnos": {
+        "A": 9,
+        "B": 0,
+        "C": 10,
+        "F": 4
+      },
+      "quantidade": 23,
+      "pesoKg": 975880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 23,
+          "pesoKg": 975880
+        }
+      }
+    },
+    {
+      "data": "2026-07-20",
+      "turnos": {
+        "A": 6,
+        "B": 0,
+        "C": 19,
+        "F": 7
+      },
+      "quantidade": 32,
+      "pesoKg": 1342090,
+      "produtos": {
+        "Soja": {
+          "quantidade": 32,
+          "pesoKg": 1342090
+        }
+      }
+    },
+    {
+      "data": "2026-07-21",
+      "turnos": {
+        "A": 8,
+        "B": 12,
+        "C": 0,
+        "F": 31
+      },
+      "quantidade": 51,
+      "pesoKg": 1987560,
+      "produtos": {
+        "Soja": {
+          "quantidade": 51,
+          "pesoKg": 1987560
+        }
+      }
+    },
+    {
+      "data": "2026-07-22",
+      "turnos": {
+        "A": 21,
+        "B": 31,
+        "C": 0,
+        "F": 37
+      },
+      "quantidade": 89,
+      "pesoKg": 3585810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 89,
+          "pesoKg": 3585810
+        }
+      }
+    },
+    {
+      "data": "2026-07-23",
+      "turnos": {
+        "A": 39,
+        "B": 35,
+        "C": 34,
+        "F": 0
+      },
+      "quantidade": 108,
+      "pesoKg": 4279570,
+      "produtos": {
+        "Soja": {
+          "quantidade": 108,
+          "pesoKg": 4279570
+        }
+      }
+    },
+    {
+      "data": "2026-07-24",
+      "turnos": {
+        "A": 30,
+        "B": 33,
+        "C": 21,
+        "F": 0
+      },
+      "quantidade": 84,
+      "pesoKg": 3436440,
+      "produtos": {
+        "Soja": {
+          "quantidade": 84,
+          "pesoKg": 3436440
+        }
+      }
+    },
+    {
+      "data": "2026-07-25",
+      "turnos": {
+        "A": 0,
+        "B": 18,
+        "C": 16,
+        "F": 11
+      },
+      "quantidade": 45,
+      "pesoKg": 1886150,
+      "produtos": {
+        "Soja": {
+          "quantidade": 45,
+          "pesoKg": 1886150
+        }
+      }
+    },
+    {
+      "data": "2026-07-26",
+      "turnos": {
+        "A": 0,
+        "B": 25,
+        "C": 39,
+        "F": 11
+      },
+      "quantidade": 75,
+      "pesoKg": 2986980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 75,
+          "pesoKg": 2986980
+        }
+      }
+    },
+    {
+      "data": "2026-07-27",
+      "turnos": {
+        "A": 21,
+        "B": 0,
+        "C": 33,
+        "F": 31
+      },
+      "quantidade": 85,
+      "pesoKg": 3421520,
+      "produtos": {
+        "Soja": {
+          "quantidade": 85,
+          "pesoKg": 3421520
+        }
+      }
+    },
+    {
+      "data": "2026-07-28",
+      "turnos": {
+        "A": 42,
+        "B": 0,
+        "C": 24,
+        "F": 25
+      },
+      "quantidade": 91,
+      "pesoKg": 3599240,
+      "produtos": {
+        "Soja": {
+          "quantidade": 91,
+          "pesoKg": 3599240
+        }
+      }
+    },
+    {
+      "data": "2026-07-29",
+      "turnos": {
+        "A": 20,
+        "B": 37,
+        "C": 0,
+        "F": 23
+      },
+      "quantidade": 80,
+      "pesoKg": 3226980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 80,
+          "pesoKg": 3226980
+        }
+      }
+    },
+    {
+      "data": "2026-07-30",
+      "turnos": {
+        "A": 13,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 13,
+      "pesoKg": 501910,
+      "produtos": {
+        "Soja": {
+          "quantidade": 13,
+          "pesoKg": 501910
+        }
+      }
+    },
+    {
+      "data": "2026-07-31",
+      "turnos": {
+        "A": 18,
+        "B": 34,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 52,
+      "pesoKg": 2055890,
+      "produtos": {
+        "Soja": {
+          "quantidade": 52,
+          "pesoKg": 2055890
+        }
+      }
+    },
+    {
+      "data": "2026-08-01",
+      "turnos": {
+        "A": 30,
+        "B": 7,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 37,
+      "pesoKg": 1468310,
+      "produtos": {
+        "Soja": {
+          "quantidade": 37,
+          "pesoKg": 1468310
+        }
+      }
+    },
+    {
+      "data": "2026-08-02",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 21,
+        "F": 15
+      },
+      "quantidade": 36,
+      "pesoKg": 1417370,
+      "produtos": {
+        "Soja": {
+          "quantidade": 36,
+          "pesoKg": 1417370
+        }
+      }
+    },
+    {
+      "data": "2026-08-03",
+      "turnos": {
+        "A": 0,
+        "B": 17,
+        "C": 24,
+        "F": 11
+      },
+      "quantidade": 52,
+      "pesoKg": 2024270,
+      "produtos": {
+        "Soja": {
+          "quantidade": 52,
+          "pesoKg": 2024270
+        }
+      }
+    },
+    {
+      "data": "2026-08-04",
+      "turnos": {
+        "A": 12,
+        "B": 0,
+        "C": 22,
+        "F": 13
+      },
+      "quantidade": 47,
+      "pesoKg": 1877010,
+      "produtos": {
+        "Soja": {
+          "quantidade": 47,
+          "pesoKg": 1877010
+        }
+      }
+    },
+    {
+      "data": "2026-08-05",
+      "turnos": {
+        "A": 7,
+        "B": 0,
+        "C": 25,
+        "F": 19
+      },
+      "quantidade": 51,
+      "pesoKg": 2006040,
+      "produtos": {
+        "Soja": {
+          "quantidade": 51,
+          "pesoKg": 2006040
+        }
+      }
+    },
+    {
+      "data": "2026-08-06",
+      "turnos": {
+        "A": 43,
+        "B": 42,
+        "C": 0,
+        "F": 35
+      },
+      "quantidade": 120,
+      "pesoKg": 4748230,
+      "produtos": {
+        "Soja": {
+          "quantidade": 120,
+          "pesoKg": 4748230
+        }
+      }
+    },
+    {
+      "data": "2026-08-07",
+      "turnos": {
+        "A": 29,
+        "B": 39,
+        "C": 0,
+        "F": 20
+      },
+      "quantidade": 88,
+      "pesoKg": 3533380,
+      "produtos": {
+        "Soja": {
+          "quantidade": 88,
+          "pesoKg": 3533380
+        }
+      }
+    },
+    {
+      "data": "2026-08-08",
+      "turnos": {
+        "A": 20,
+        "B": 5,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 25,
+      "pesoKg": 1001920,
+      "produtos": {
+        "Soja": {
+          "quantidade": 25,
+          "pesoKg": 1001920
+        }
+      }
+    },
+    {
+      "data": "2026-08-09",
+      "turnos": {
+        "A": 0,
+        "B": 25,
+        "C": 18,
+        "F": 0
+      },
+      "quantidade": 43,
+      "pesoKg": 1681370,
+      "produtos": {
+        "Soja": {
+          "quantidade": 43,
+          "pesoKg": 1681370
+        }
+      }
+    },
+    {
+      "data": "2026-08-10",
+      "turnos": {
+        "A": 0,
+        "B": 41,
+        "C": 46,
+        "F": 28
+      },
+      "quantidade": 115,
+      "pesoKg": 4507260,
+      "produtos": {
+        "Soja": {
+          "quantidade": 115,
+          "pesoKg": 4507260
+        }
+      }
+    },
+    {
+      "data": "2026-08-11",
+      "turnos": {
+        "A": 0,
+        "B": 18,
+        "C": 23,
+        "F": 31
+      },
+      "quantidade": 72,
+      "pesoKg": 2953860,
+      "produtos": {
+        "Soja": {
+          "quantidade": 72,
+          "pesoKg": 2953860
+        }
+      }
+    },
+    {
+      "data": "2026-08-12",
+      "turnos": {
+        "A": 11,
+        "B": 0,
+        "C": 40,
+        "F": 24
+      },
+      "quantidade": 75,
+      "pesoKg": 2975870,
+      "produtos": {
+        "Soja": {
+          "quantidade": 75,
+          "pesoKg": 2975870
+        }
+      }
+    },
+    {
+      "data": "2026-08-13",
+      "turnos": {
+        "A": 25,
+        "B": 0,
+        "C": 15,
+        "F": 22
+      },
+      "quantidade": 62,
+      "pesoKg": 2509810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 62,
+          "pesoKg": 2509810
+        }
+      }
+    },
+    {
+      "data": "2026-08-14",
+      "turnos": {
+        "A": 13,
+        "B": 33,
+        "C": 0,
+        "F": 14
+      },
+      "quantidade": 60,
+      "pesoKg": 2420810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 60,
+          "pesoKg": 2420810
+        }
+      }
+    },
+    {
+      "data": "2026-08-15",
+      "turnos": {
+        "A": 22,
+        "B": 7,
+        "C": 0,
+        "F": 4
+      },
+      "quantidade": 33,
+      "pesoKg": 1431810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 33,
+          "pesoKg": 1431810
+        }
+      }
+    },
+    {
+      "data": "2026-08-16",
+      "turnos": {
+        "A": 9,
+        "B": 11,
+        "C": 3,
+        "F": 0
+      },
+      "quantidade": 23,
+      "pesoKg": 938810,
+      "produtos": {
+        "Soja": {
+          "quantidade": 23,
+          "pesoKg": 938810
+        }
+      }
+    },
+    {
+      "data": "2026-08-17",
+      "turnos": {
+        "A": 5,
+        "B": 10,
+        "C": 21,
+        "F": 0
+      },
+      "quantidade": 36,
+      "pesoKg": 1521700,
+      "produtos": {
+        "Soja": {
+          "quantidade": 36,
+          "pesoKg": 1521700
+        }
+      }
+    },
+    {
+      "data": "2026-08-18",
+      "turnos": {
+        "A": 0,
+        "B": 2,
+        "C": 21,
+        "F": 14
+      },
+      "quantidade": 37,
+      "pesoKg": 1450030,
+      "produtos": {
+        "Soja": {
+          "quantidade": 37,
+          "pesoKg": 1450030
+        }
+      }
+    },
+    {
+      "data": "2026-08-19",
+      "turnos": {
+        "A": 0,
+        "B": 15,
+        "C": 15,
+        "F": 25
+      },
+      "quantidade": 55,
+      "pesoKg": 2133430,
+      "produtos": {
+        "Soja": {
+          "quantidade": 55,
+          "pesoKg": 2133430
+        }
+      }
+    },
+    {
+      "data": "2026-08-20",
+      "turnos": {
+        "A": 6,
+        "B": 0,
+        "C": 19,
+        "F": 21
+      },
+      "quantidade": 46,
+      "pesoKg": 1801310,
+      "produtos": {
+        "Soja": {
+          "quantidade": 46,
+          "pesoKg": 1801310
+        }
+      }
+    },
+    {
+      "data": "2026-08-21",
+      "turnos": {
+        "A": 10,
+        "B": 0,
+        "C": 26,
+        "F": 34
+      },
+      "quantidade": 70,
+      "pesoKg": 2692460,
+      "produtos": {
+        "Soja": {
+          "quantidade": 70,
+          "pesoKg": 2692460
+        }
+      }
+    },
+    {
+      "data": "2026-08-22",
+      "turnos": {
+        "A": 39,
+        "B": 14,
+        "C": 0,
+        "F": 8
+      },
+      "quantidade": 61,
+      "pesoKg": 2504040,
+      "produtos": {
+        "Milho": {
+          "quantidade": 36,
+          "pesoKg": 1503680
+        },
+        "Soja": {
+          "quantidade": 25,
+          "pesoKg": 1000360
+        }
+      }
+    },
+    {
+      "data": "2026-08-23",
+      "turnos": {
+        "A": 21,
+        "B": 21,
+        "C": 0,
+        "F": 14
+      },
+      "quantidade": 56,
+      "pesoKg": 2315330,
+      "produtos": {
+        "Milho": {
+          "quantidade": 48,
+          "pesoKg": 1997980
+        },
+        "Soja": {
+          "quantidade": 8,
+          "pesoKg": 317350
+        }
+      }
+    },
+    {
+      "data": "2026-08-24",
+      "turnos": {
+        "A": 35,
+        "B": 31,
+        "C": 20,
+        "F": 0
+      },
+      "quantidade": 86,
+      "pesoKg": 3477860,
+      "produtos": {
+        "Milho": {
+          "quantidade": 47,
+          "pesoKg": 1935310
+        },
+        "Soja": {
+          "quantidade": 39,
+          "pesoKg": 1542550
+        }
+      }
+    },
+    {
+      "data": "2026-08-25",
+      "turnos": {
+        "A": 25,
+        "B": 24,
+        "C": 35,
+        "F": 0
+      },
+      "quantidade": 84,
+      "pesoKg": 3367110,
+      "produtos": {
+        "Milho": {
+          "quantidade": 53,
+          "pesoKg": 2118540
+        },
+        "Soja": {
+          "quantidade": 31,
+          "pesoKg": 1248570
+        }
+      }
+    },
+    {
+      "data": "2026-08-26",
+      "turnos": {
+        "A": 0,
+        "B": 31,
+        "C": 36,
+        "F": 25
+      },
+      "quantidade": 92,
+      "pesoKg": 3603090,
+      "produtos": {
+        "Soja": {
+          "quantidade": 47,
+          "pesoKg": 1863100
+        },
+        "Milho": {
+          "quantidade": 45,
+          "pesoKg": 1739990
+        }
+      }
+    },
+    {
+      "data": "2026-08-27",
+      "turnos": {
+        "A": 0,
+        "B": 43,
+        "C": 55,
+        "F": 37
+      },
+      "quantidade": 135,
+      "pesoKg": 5415710,
+      "produtos": {
+        "Soja": {
+          "quantidade": 76,
+          "pesoKg": 3002440
+        },
+        "Milho": {
+          "quantidade": 59,
+          "pesoKg": 2413270
+        }
+      }
+    },
+    {
+      "data": "2026-08-28",
+      "turnos": {
+        "A": 84,
+        "B": 0,
+        "C": 48,
+        "F": 45
+      },
+      "quantidade": 177,
+      "pesoKg": 7275330,
+      "produtos": {
+        "Soja": {
+          "quantidade": 113,
+          "pesoKg": 4520400
+        },
+        "Milho": {
+          "quantidade": 64,
+          "pesoKg": 2754930
+        }
+      }
+    },
+    {
+      "data": "2026-08-29",
+      "turnos": {
+        "A": 74,
+        "B": 0,
+        "C": 13,
+        "F": 30
+      },
+      "quantidade": 117,
+      "pesoKg": 4848090,
+      "produtos": {
+        "Soja": {
+          "quantidade": 85,
+          "pesoKg": 3467140
+        },
+        "Milho": {
+          "quantidade": 32,
+          "pesoKg": 1380950
+        }
+      }
+    },
+    {
+      "data": "2026-08-30",
+      "turnos": {
+        "A": 14,
+        "B": 37,
+        "C": 0,
+        "F": 17
+      },
+      "quantidade": 68,
+      "pesoKg": 2907180,
+      "produtos": {
+        "Soja": {
+          "quantidade": 39,
+          "pesoKg": 1654830
+        },
+        "Milho": {
+          "quantidade": 29,
+          "pesoKg": 1252350
+        }
+      }
+    },
+    {
+      "data": "2026-08-31",
+      "turnos": {
+        "A": 27,
+        "B": 29,
+        "C": 0,
+        "F": 13
+      },
+      "quantidade": 69,
+      "pesoKg": 2793560,
+      "produtos": {
+        "Soja": {
+          "quantidade": 37,
+          "pesoKg": 1447500
+        },
+        "Milho": {
+          "quantidade": 32,
+          "pesoKg": 1346060
+        }
+      }
+    },
+    {
+      "data": "2026-09-01",
+      "turnos": {
+        "A": 45,
+        "B": 46,
+        "C": 49,
+        "F": 0
+      },
+      "quantidade": 140,
+      "pesoKg": 5716070,
+      "produtos": {
+        "Soja": {
+          "quantidade": 95,
+          "pesoKg": 3805950
+        },
+        "Milho": {
+          "quantidade": 45,
+          "pesoKg": 1910120
+        }
+      }
+    },
+    {
+      "data": "2026-09-02",
+      "turnos": {
+        "A": 50,
+        "B": 29,
+        "C": 35,
+        "F": 0
+      },
+      "quantidade": 114,
+      "pesoKg": 4587350,
+      "produtos": {
+        "Soja": {
+          "quantidade": 94,
+          "pesoKg": 3744920
+        },
+        "Milho": {
+          "quantidade": 20,
+          "pesoKg": 842430
+        }
+      }
+    },
+    {
+      "data": "2026-09-03",
+      "turnos": {
+        "A": 0,
+        "B": 13,
+        "C": 10,
+        "F": 27
+      },
+      "quantidade": 50,
+      "pesoKg": 2036570,
+      "produtos": {
+        "Soja": {
+          "quantidade": 32,
+          "pesoKg": 1269300
+        },
+        "Milho": {
+          "quantidade": 18,
+          "pesoKg": 767270
+        }
+      }
+    },
+    {
+      "data": "2026-09-04",
+      "turnos": {
+        "A": 0,
+        "B": 22,
+        "C": 14,
+        "F": 45
+      },
+      "quantidade": 81,
+      "pesoKg": 3304320,
+      "produtos": {
+        "Soja": {
+          "quantidade": 37,
+          "pesoKg": 1488770
+        },
+        "Milho": {
+          "quantidade": 44,
+          "pesoKg": 1815550
+        }
+      }
+    },
+    {
+      "data": "2026-09-05",
+      "turnos": {
+        "A": 16,
+        "B": 0,
+        "C": 4,
+        "F": 11
+      },
+      "quantidade": 31,
+      "pesoKg": 1244670,
+      "produtos": {
+        "Soja": {
+          "quantidade": 13,
+          "pesoKg": 491400
+        },
+        "Milho": {
+          "quantidade": 18,
+          "pesoKg": 753270
+        }
+      }
+    },
+    {
+      "data": "2026-09-06",
+      "turnos": {
+        "A": 16,
+        "B": 0,
+        "C": 5,
+        "F": 12
+      },
+      "quantidade": 33,
+      "pesoKg": 1327430,
+      "produtos": {
+        "Soja": {
+          "quantidade": 14,
+          "pesoKg": 572570
+        },
+        "Milho": {
+          "quantidade": 19,
+          "pesoKg": 754860
+        }
+      }
+    },
+    {
+      "data": "2026-09-07",
+      "turnos": {
+        "A": 16,
+        "B": 25,
+        "C": 0,
+        "F": 13
+      },
+      "quantidade": 54,
+      "pesoKg": 2096770,
+      "produtos": {
+        "Soja": {
+          "quantidade": 20,
+          "pesoKg": 772780
+        },
+        "Milho": {
+          "quantidade": 34,
+          "pesoKg": 1323990
+        }
+      }
+    },
+    {
+      "data": "2026-09-08",
+      "turnos": {
+        "A": 16,
+        "B": 13,
+        "C": 0,
+        "F": 12
+      },
+      "quantidade": 41,
+      "pesoKg": 1655010,
+      "produtos": {
+        "Milho": {
+          "quantidade": 38,
+          "pesoKg": 1543450
+        },
+        "Soja": {
+          "quantidade": 3,
+          "pesoKg": 111560
+        }
+      }
+    },
+    {
+      "data": "2026-09-09",
+      "turnos": {
+        "A": 12,
+        "B": 8,
+        "C": 5,
+        "F": 0
+      },
+      "quantidade": 25,
+      "pesoKg": 1052190,
+      "produtos": {
+        "Milho": {
+          "quantidade": 25,
+          "pesoKg": 1052190
+        }
+      }
+    },
+    {
+      "data": "2026-09-10",
+      "turnos": {
+        "A": 7,
+        "B": 14,
+        "C": 22,
+        "F": 0
+      },
+      "quantidade": 43,
+      "pesoKg": 1790270,
+      "produtos": {
+        "Milho": {
+          "quantidade": 43,
+          "pesoKg": 1790270
+        }
+      }
+    },
+    {
+      "data": "2026-09-11",
+      "turnos": {
+        "A": 0,
+        "B": 25,
+        "C": 7,
+        "F": 26
+      },
+      "quantidade": 58,
+      "pesoKg": 2491010,
+      "produtos": {
+        "Milho": {
+          "quantidade": 57,
+          "pesoKg": 2468270
+        },
+        "Soja": {
+          "quantidade": 1,
+          "pesoKg": 22740
+        }
+      }
+    },
+    {
+      "data": "2026-09-12",
+      "turnos": {
+        "A": 0,
+        "B": 14,
+        "C": 9,
+        "F": 12
+      },
+      "quantidade": 35,
+      "pesoKg": 1519060,
+      "produtos": {
+        "Milho": {
+          "quantidade": 35,
+          "pesoKg": 1519060
+        }
+      }
+    },
+    {
+      "data": "2026-09-13",
+      "turnos": {
+        "A": 14,
+        "B": 0,
+        "C": 47,
+        "F": 25
+      },
+      "quantidade": 86,
+      "pesoKg": 3643490,
+      "produtos": {
+        "Milho": {
+          "quantidade": 86,
+          "pesoKg": 3643490
+        }
+      }
+    },
+    {
+      "data": "2026-09-14",
+      "turnos": {
+        "A": 32,
+        "B": 0,
+        "C": 45,
+        "F": 29
+      },
+      "quantidade": 106,
+      "pesoKg": 4526710,
+      "produtos": {
+        "Milho": {
+          "quantidade": 86,
+          "pesoKg": 3680760
+        },
+        "Soja": {
+          "quantidade": 20,
+          "pesoKg": 845950
+        }
+      }
+    },
+    {
+      "data": "2026-09-15",
+      "turnos": {
+        "A": 34,
+        "B": 39,
+        "C": 0,
+        "F": 36
+      },
+      "quantidade": 109,
+      "pesoKg": 4536560,
+      "produtos": {
+        "Milho": {
+          "quantidade": 69,
+          "pesoKg": 2922770
+        },
+        "Soja": {
+          "quantidade": 40,
+          "pesoKg": 1613790
+        }
+      }
+    },
+    {
+      "data": "2026-09-16",
+      "turnos": {
+        "A": 54,
+        "B": 54,
+        "C": 0,
+        "F": 45
+      },
+      "quantidade": 153,
+      "pesoKg": 6084110,
+      "produtos": {
+        "Soja": {
+          "quantidade": 89,
+          "pesoKg": 3380860
+        },
+        "Milho": {
+          "quantidade": 64,
+          "pesoKg": 2703250
+        }
+      }
+    },
+    {
+      "data": "2026-09-17",
+      "turnos": {
+        "A": 60,
+        "B": 49,
+        "C": 27,
+        "F": 0
+      },
+      "quantidade": 136,
+      "pesoKg": 5623590,
+      "produtos": {
+        "Soja": {
+          "quantidade": 70,
+          "pesoKg": 2945630
+        },
+        "Milho": {
+          "quantidade": 66,
+          "pesoKg": 2677960
+        }
+      }
+    },
+    {
+      "data": "2026-09-18",
+      "turnos": {
+        "A": 62,
+        "B": 43,
+        "C": 60,
+        "F": 0
+      },
+      "quantidade": 165,
+      "pesoKg": 7016700,
+      "produtos": {
+        "Soja": {
+          "quantidade": 115,
+          "pesoKg": 4750740
+        },
+        "Milho": {
+          "quantidade": 50,
+          "pesoKg": 2265960
+        }
+      }
+    },
+    {
+      "data": "2026-09-19",
+      "turnos": {
+        "A": 0,
+        "B": 43,
+        "C": 57,
+        "F": 47
+      },
+      "quantidade": 147,
+      "pesoKg": 6139310,
+      "produtos": {
+        "Soja": {
+          "quantidade": 142,
+          "pesoKg": 5920920
+        },
+        "Milho": {
+          "quantidade": 5,
+          "pesoKg": 218390
+        }
+      }
+    },
+    {
+      "data": "2026-09-20",
+      "turnos": {
+        "A": 0,
+        "B": 21,
+        "C": 27,
+        "F": 10
+      },
+      "quantidade": 58,
+      "pesoKg": 2411470,
+      "produtos": {
+        "Soja": {
+          "quantidade": 58,
+          "pesoKg": 2411470
+        }
+      }
+    },
+    {
+      "data": "2026-09-21",
+      "turnos": {
+        "A": 32,
+        "B": 0,
+        "C": 39,
+        "F": 37
+      },
+      "quantidade": 108,
+      "pesoKg": 4453120,
+      "produtos": {
+        "Soja": {
+          "quantidade": 108,
+          "pesoKg": 4453120
+        }
+      }
+    },
+    {
+      "data": "2026-09-22",
+      "turnos": {
+        "A": 31,
+        "B": 0,
+        "C": 18,
+        "F": 33
+      },
+      "quantidade": 82,
+      "pesoKg": 3388950,
+      "produtos": {
+        "Soja": {
+          "quantidade": 80,
+          "pesoKg": 3288760
+        },
+        "Milho": {
+          "quantidade": 2,
+          "pesoKg": 100190
+        }
+      }
+    },
+    {
+      "data": "2026-09-23",
+      "turnos": {
+        "A": 15,
+        "B": 40,
+        "C": 0,
+        "F": 17
+      },
+      "quantidade": 72,
+      "pesoKg": 3017040,
+      "produtos": {
+        "Soja": {
+          "quantidade": 64,
+          "pesoKg": 2632650
+        },
+        "Milho": {
+          "quantidade": 8,
+          "pesoKg": 384390
+        }
+      }
+    },
+    {
+      "data": "2026-09-24",
+      "turnos": {
+        "A": 10,
+        "B": 11,
+        "C": 0,
+        "F": 14
+      },
+      "quantidade": 35,
+      "pesoKg": 1494980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 35,
+          "pesoKg": 1494980
+        }
+      }
+    },
+    {
+      "data": "2026-09-25",
+      "turnos": {
+        "A": 19,
+        "B": 10,
+        "C": 10,
+        "F": 0
+      },
+      "quantidade": 39,
+      "pesoKg": 1696930,
+      "produtos": {
+        "Soja": {
+          "quantidade": 39,
+          "pesoKg": 1696930
+        }
+      }
+    },
+    {
+      "data": "2026-09-26",
+      "turnos": {
+        "A": 12,
+        "B": 6,
+        "C": 9,
+        "F": 0
+      },
+      "quantidade": 27,
+      "pesoKg": 1106320,
+      "produtos": {
+        "Soja": {
+          "quantidade": 27,
+          "pesoKg": 1106320
+        }
+      }
+    },
+    {
+      "data": "2026-09-27",
+      "turnos": {
+        "A": 0,
+        "B": 6,
+        "C": 11,
+        "F": 6
+      },
+      "quantidade": 23,
+      "pesoKg": 969980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 23,
+          "pesoKg": 969980
+        }
+      }
+    },
+    {
+      "data": "2026-09-28",
+      "turnos": {
+        "A": 0,
+        "B": 37,
+        "C": 35,
+        "F": 20
+      },
+      "quantidade": 92,
+      "pesoKg": 3843950,
+      "produtos": {
+        "Soja": {
+          "quantidade": 92,
+          "pesoKg": 3843950
+        }
+      }
+    },
+    {
+      "data": "2026-09-29",
+      "turnos": {
+        "A": 39,
+        "B": 0,
+        "C": 23,
+        "F": 28
+      },
+      "quantidade": 90,
+      "pesoKg": 3627040,
+      "produtos": {
+        "Soja": {
+          "quantidade": 90,
+          "pesoKg": 3627040
+        }
+      }
+    },
+    {
+      "data": "2026-09-30",
+      "turnos": {
+        "A": 21,
+        "B": 0,
+        "C": 16,
+        "F": 23
+      },
+      "quantidade": 60,
+      "pesoKg": 2418870,
+      "produtos": {
+        "Soja": {
+          "quantidade": 60,
+          "pesoKg": 2418870
+        }
+      }
+    },
+    {
+      "data": "2026-10-01",
+      "turnos": {
+        "A": 17,
+        "B": 16,
+        "C": 0,
+        "F": 15
+      },
+      "quantidade": 48,
+      "pesoKg": 1914500,
+      "produtos": {
+        "Soja": {
+          "quantidade": 48,
+          "pesoKg": 1914500
+        }
+      }
+    },
+    {
+      "data": "2026-10-02",
+      "turnos": {
+        "A": 15,
+        "B": 18,
+        "C": 0,
+        "F": 22
+      },
+      "quantidade": 55,
+      "pesoKg": 2292980,
+      "produtos": {
+        "Soja": {
+          "quantidade": 55,
+          "pesoKg": 2292980
+        }
+      }
+    },
+    {
+      "data": "2026-10-03",
+      "turnos": {
+        "A": 13,
+        "B": 11,
+        "C": 4,
+        "F": 0
+      },
+      "quantidade": 28,
+      "pesoKg": 1148890,
+      "produtos": {
+        "Soja": {
+          "quantidade": 28,
+          "pesoKg": 1148890
+        }
+      }
+    },
+    {
+      "data": "2026-10-04",
+      "turnos": {
+        "A": 5,
+        "B": 7,
+        "C": 22,
+        "F": 0
+      },
+      "quantidade": 34,
+      "pesoKg": 1391080,
+      "produtos": {
+        "Soja": {
+          "quantidade": 34,
+          "pesoKg": 1391080
+        }
+      }
+    },
+    {
+      "data": "2026-10-05",
+      "turnos": {
+        "A": 0,
+        "B": 28,
+        "C": 5,
+        "F": 14
+      },
+      "quantidade": 47,
+      "pesoKg": 1838030,
+      "produtos": {
+        "Soja": {
+          "quantidade": 47,
+          "pesoKg": 1838030
+        }
+      }
+    },
+    {
+      "data": "2026-10-06",
+      "turnos": {
+        "A": 0,
+        "B": 20,
+        "C": 11,
+        "F": 14
+      },
+      "quantidade": 45,
+      "pesoKg": 1839510,
+      "produtos": {
+        "Milho": {
+          "quantidade": 13,
+          "pesoKg": 512630
+        },
+        "Soja": {
+          "quantidade": 32,
+          "pesoKg": 1326880
+        }
+      }
+    },
+    {
+      "data": "2026-10-07",
+      "turnos": {
+        "A": 12,
+        "B": 0,
+        "C": 24,
+        "F": 20
+      },
+      "quantidade": 56,
+      "pesoKg": 2186850,
+      "produtos": {
+        "Milho": {
+          "quantidade": 51,
+          "pesoKg": 1991040
+        },
+        "Soja": {
+          "quantidade": 5,
+          "pesoKg": 195810
+        }
+      }
+    },
+    {
+      "data": "2026-10-08",
+      "turnos": {
+        "A": 34,
+        "B": 0,
+        "C": 59,
+        "F": 39
+      },
+      "quantidade": 132,
+      "pesoKg": 5388220,
+      "produtos": {
+        "Milho": {
+          "quantidade": 131,
+          "pesoKg": 5350180
+        },
+        "Soja": {
+          "quantidade": 1,
+          "pesoKg": 38040
+        }
+      }
+    },
+    {
+      "data": "2026-10-09",
+      "turnos": {
+        "A": 55,
+        "B": 50,
+        "C": 0,
+        "F": 40
+      },
+      "quantidade": 145,
+      "pesoKg": 5998310,
+      "produtos": {
+        "Milho": {
+          "quantidade": 117,
+          "pesoKg": 4854140
+        },
+        "Soja": {
+          "quantidade": 28,
+          "pesoKg": 1144170
+        }
+      }
+    },
+    {
+      "data": "2026-10-10",
+      "turnos": {
+        "A": 34,
+        "B": 17,
+        "C": 0,
+        "F": 12
+      },
+      "quantidade": 63,
+      "pesoKg": 2559260,
+      "produtos": {
+        "Milho": {
+          "quantidade": 61,
+          "pesoKg": 2470870
+        },
+        "Soja": {
+          "quantidade": 2,
+          "pesoKg": 88390
+        }
+      }
+    },
+    {
+      "data": "2026-10-11",
+      "turnos": {
+        "A": 22,
+        "B": 21,
+        "C": 16,
+        "F": 0
+      },
+      "quantidade": 59,
+      "pesoKg": 2208570,
+      "produtos": {
+        "Milho": {
+          "quantidade": 44,
+          "pesoKg": 1664650
+        },
+        "Soja": {
+          "quantidade": 15,
+          "pesoKg": 543920
+        }
+      }
+    },
+    {
+      "data": "2026-10-12",
+      "turnos": {
+        "A": 33,
+        "B": 33,
+        "C": 29,
+        "F": 0
+      },
+      "quantidade": 95,
+      "pesoKg": 3790820,
+      "produtos": {
+        "Milho": {
+          "quantidade": 80,
+          "pesoKg": 3233300
+        },
+        "Soja": {
+          "quantidade": 15,
+          "pesoKg": 557520
+        }
+      }
+    },
+    {
+      "data": "2026-10-13",
+      "turnos": {
+        "A": 0,
+        "B": 26,
+        "C": 29,
+        "F": 40
+      },
+      "quantidade": 95,
+      "pesoKg": 3622700,
+      "produtos": {
+        "Milho": {
+          "quantidade": 66,
+          "pesoKg": 2515240
+        },
+        "Soja": {
+          "quantidade": 29,
+          "pesoKg": 1107460
+        }
+      }
+    },
+    {
+      "data": "2026-10-14",
+      "turnos": {
+        "A": 0,
+        "B": 42,
+        "C": 42,
+        "F": 32
+      },
+      "quantidade": 116,
+      "pesoKg": 4593010,
+      "produtos": {
+        "Milho": {
+          "quantidade": 51,
+          "pesoKg": 2008580
+        },
+        "Soja": {
+          "quantidade": 65,
+          "pesoKg": 2584430
+        }
+      }
+    },
+    {
+      "data": "2026-10-15",
+      "turnos": {
+        "A": 47,
+        "B": 0,
+        "C": 43,
+        "F": 46
+      },
+      "quantidade": 136,
+      "pesoKg": 5404070,
+      "produtos": {
+        "Soja": {
+          "quantidade": 113,
+          "pesoKg": 4487660
+        },
+        "Milho": {
+          "quantidade": 23,
+          "pesoKg": 916410
+        }
+      }
+    },
+    {
+      "data": "2026-10-16",
+      "turnos": {
+        "A": 45,
+        "B": 0,
+        "C": 26,
+        "F": 17
+      },
+      "quantidade": 88,
+      "pesoKg": 3687220,
+      "produtos": {
+        "Soja": {
+          "quantidade": 79,
+          "pesoKg": 3318330
+        },
+        "Milho": {
+          "quantidade": 9,
+          "pesoKg": 368890
+        }
+      }
+    },
+    {
+      "data": "2026-10-17",
+      "turnos": {
+        "A": 41,
+        "B": 18,
+        "C": 0,
+        "F": 8
+      },
+      "quantidade": 67,
+      "pesoKg": 2724430,
+      "produtos": {
+        "Soja": {
+          "quantidade": 52,
+          "pesoKg": 2140840
+        },
+        "Milho": {
+          "quantidade": 15,
+          "pesoKg": 583590
+        }
+      }
+    },
+    {
+      "data": "2026-10-18",
+      "turnos": {
+        "A": 33,
+        "B": 35,
+        "C": 0,
+        "F": 36
+      },
+      "quantidade": 104,
+      "pesoKg": 4349920,
+      "produtos": {
+        "Milho": {
+          "quantidade": 14,
+          "pesoKg": 598250
+        },
+        "Soja": {
+          "quantidade": 90,
+          "pesoKg": 3751670
+        }
+      }
+    },
+    {
+      "data": "2026-10-19",
+      "turnos": {
+        "A": 25,
+        "B": 21,
+        "C": 7,
+        "F": 0
+      },
+      "quantidade": 53,
+      "pesoKg": 2165860,
+      "produtos": {
+        "Soja": {
+          "quantidade": 49,
+          "pesoKg": 2000730
+        },
+        "Milho": {
+          "quantidade": 4,
+          "pesoKg": 165130
+        }
+      }
+    },
+    {
+      "data": "2026-10-20",
+      "turnos": {
+        "A": 19,
+        "B": 29,
+        "C": 26,
+        "F": 0
+      },
+      "quantidade": 74,
+      "pesoKg": 3041270,
+      "produtos": {
+        "Soja": {
+          "quantidade": 50,
+          "pesoKg": 2022330
+        },
+        "Milho": {
+          "quantidade": 24,
+          "pesoKg": 1018940
+        }
+      }
+    },
+    {
+      "data": "2026-10-21",
+      "turnos": {
+        "A": 0,
+        "B": 18,
+        "C": 5,
+        "F": 36
+      },
+      "quantidade": 59,
+      "pesoKg": 2383880,
+      "produtos": {
+        "Soja": {
+          "quantidade": 48,
+          "pesoKg": 1970480
+        },
+        "Milho": {
+          "quantidade": 11,
+          "pesoKg": 413400
+        }
+      }
+    },
+    {
+      "data": "2026-10-22",
+      "turnos": {
+        "A": 0,
+        "B": 19,
+        "C": 16,
+        "F": 9
+      },
+      "quantidade": 44,
+      "pesoKg": 1821380,
+      "produtos": {
+        "Milho": {
+          "quantidade": 8,
+          "pesoKg": 299200
+        },
+        "Soja": {
+          "quantidade": 36,
+          "pesoKg": 1522180
+        }
+      }
+    },
+    {
+      "data": "2026-10-23",
+      "turnos": {
+        "A": 7,
+        "B": 0,
+        "C": 3,
+        "F": 7
+      },
+      "quantidade": 17,
+      "pesoKg": 655000,
+      "produtos": {
+        "Soja": {
+          "quantidade": 17,
+          "pesoKg": 655000
+        }
+      }
+    },
+    {
+      "data": "2026-10-24",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-10-25",
+      "turnos": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "F": 2
+      },
+      "quantidade": 3,
+      "pesoKg": 105410,
+      "produtos": {
+        "Milho": {
+          "quantidade": 3,
+          "pesoKg": 105410
+        }
+      }
+    },
+    {
+      "data": "2026-10-26",
+      "turnos": {
+        "A": 9,
+        "B": 23,
+        "C": 0,
+        "F": 21
+      },
+      "quantidade": 53,
+      "pesoKg": 2232540,
+      "produtos": {
+        "Soja": {
+          "quantidade": 49,
+          "pesoKg": 2061960
+        },
+        "Milho": {
+          "quantidade": 4,
+          "pesoKg": 170580
+        }
+      }
+    },
+    {
+      "data": "2026-10-27",
+      "turnos": {
+        "A": 3,
+        "B": 19,
+        "C": 51,
+        "F": 0
+      },
+      "quantidade": 73,
+      "pesoKg": 2755960,
+      "produtos": {
+        "Soja": {
+          "quantidade": 72,
+          "pesoKg": 2718150
+        },
+        "Milho": {
+          "quantidade": 1,
+          "pesoKg": 37810
+        }
+      }
+    },
+    {
+      "data": "2026-10-28",
+      "turnos": {
+        "A": 22,
+        "B": 23,
+        "C": 18,
+        "F": 0
+      },
+      "quantidade": 63,
+      "pesoKg": 2490800,
+      "produtos": {
+        "Soja": {
+          "quantidade": 59,
+          "pesoKg": 2328520
+        },
+        "Milho": {
+          "quantidade": 4,
+          "pesoKg": 162280
+        }
+      }
+    },
+    {
+      "data": "2026-10-29",
+      "turnos": {
+        "A": 0,
+        "B": 32,
+        "C": 35,
+        "F": 21
+      },
+      "quantidade": 88,
+      "pesoKg": 3536310,
+      "produtos": {
+        "Soja": {
+          "quantidade": 85,
+          "pesoKg": 3406020
+        },
+        "Milho": {
+          "quantidade": 3,
+          "pesoKg": 130290
+        }
+      }
+    },
+    {
+      "data": "2026-10-30",
+      "turnos": {
+        "A": 0,
+        "B": 20,
+        "C": 5,
+        "F": 0
+      },
+      "quantidade": 25,
+      "pesoKg": 1058320,
+      "produtos": {
+        "Soja": {
+          "quantidade": 24,
+          "pesoKg": 1019020
+        },
+        "Milho": {
+          "quantidade": 1,
+          "pesoKg": 39300
+        }
+      }
+    },
+    {
+      "data": "2026-10-31",
+      "turnos": {
+        "A": 4,
+        "B": 0,
+        "C": 2,
+        "F": 1
+      },
+      "quantidade": 7,
+      "pesoKg": 298680,
+      "produtos": {
+        "Soja": {
+          "quantidade": 7,
+          "pesoKg": 298680
+        }
+      }
+    },
+    {
+      "data": "2026-11-01",
+      "turnos": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "F": 4
+      },
+      "quantidade": 5,
+      "pesoKg": 231070,
+      "produtos": {
+        "Soja": {
+          "quantidade": 5,
+          "pesoKg": 231070
+        }
+      }
+    },
+    {
+      "data": "2026-11-02",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-03",
+      "turnos": {
+        "A": 12,
+        "B": 27,
+        "C": 0,
+        "F": 31
+      },
+      "quantidade": 70,
+      "pesoKg": 2724770,
+      "produtos": {
+        "Soja": {
+          "quantidade": 68,
+          "pesoKg": 2645130
+        },
+        "Milho": {
+          "quantidade": 2,
+          "pesoKg": 79640
+        }
+      }
+    },
+    {
+      "data": "2026-11-04",
+      "turnos": {
+        "A": 20,
+        "B": 30,
+        "C": 35,
+        "F": 0
+      },
+      "quantidade": 85,
+      "pesoKg": 3416740,
+      "produtos": {
+        "Soja": {
+          "quantidade": 73,
+          "pesoKg": 2930060
+        },
+        "Milho": {
+          "quantidade": 12,
+          "pesoKg": 486680
+        }
+      }
+    },
+    {
+      "data": "2026-11-05",
+      "turnos": {
+        "A": 28,
+        "B": 45,
+        "C": 52,
+        "F": 0
+      },
+      "quantidade": 125,
+      "pesoKg": 4943160,
+      "produtos": {
+        "Soja": {
+          "quantidade": 121,
+          "pesoKg": 4779860
+        },
+        "Milho": {
+          "quantidade": 4,
+          "pesoKg": 163300
+        }
+      }
+    },
+    {
+      "data": "2026-11-06",
+      "turnos": {
+        "A": 0,
+        "B": 64,
+        "C": 44,
+        "F": 47
+      },
+      "quantidade": 155,
+      "pesoKg": 6341240,
+      "produtos": {
+        "Milho": {
+          "quantidade": 8,
+          "pesoKg": 339000
+        },
+        "Soja": {
+          "quantidade": 147,
+          "pesoKg": 6002240
+        }
+      }
+    },
+    {
+      "data": "2026-11-07",
+      "turnos": {
+        "A": 0,
+        "B": 26,
+        "C": 10,
+        "F": 21
+      },
+      "quantidade": 57,
+      "pesoKg": 2417050,
+      "produtos": {
+        "Milho": {
+          "quantidade": 11,
+          "pesoKg": 487300
+        },
+        "Soja": {
+          "quantidade": 46,
+          "pesoKg": 1929750
+        }
+      }
+    },
+    {
+      "data": "2026-11-08",
+      "turnos": {
+        "A": 16,
+        "B": 0,
+        "C": 31,
+        "F": 36
+      },
+      "quantidade": 83,
+      "pesoKg": 3441550,
+      "produtos": {
+        "Soja": {
+          "quantidade": 64,
+          "pesoKg": 2678460
+        },
+        "Milho": {
+          "quantidade": 19,
+          "pesoKg": 763090
+        }
+      }
+    },
+    {
+      "data": "2026-11-09",
+      "turnos": {
+        "A": 28,
+        "B": 0,
+        "C": 8,
+        "F": 33
+      },
+      "quantidade": 69,
+      "pesoKg": 2911740,
+      "produtos": {
+        "Soja": {
+          "quantidade": 31,
+          "pesoKg": 1268410
+        },
+        "Milho": {
+          "quantidade": 38,
+          "pesoKg": 1643330
+        }
+      }
+    },
+    {
+      "data": "2026-11-10",
+      "turnos": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 1,
+      "pesoKg": 36810,
+      "produtos": {
+        "Milho": {
+          "quantidade": 1,
+          "pesoKg": 36810
+        }
+      }
+    },
+    {
+      "data": "2026-11-11",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-12",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-13",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-14",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-15",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-16",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-17",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-18",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-19",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-20",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-21",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-22",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-23",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-24",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-25",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-26",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-27",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-28",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-29",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-11-30",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-01",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-02",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-03",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-04",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-05",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-06",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-07",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-08",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-09",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-10",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-11",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-12",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-13",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-14",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-15",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-16",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-17",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-18",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-19",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-20",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-21",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-22",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-23",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-24",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-25",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-26",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-27",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-28",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-29",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-30",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    },
+    {
+      "data": "2026-12-31",
+      "turnos": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "F": 0
+      },
+      "quantidade": 0,
+      "pesoKg": null,
+      "produtos": {}
+    }
+  ],
+  "totais": {
+    "turnos": {
+      "A": 6335,
+      "B": 6101,
+      "C": 5724,
+      "F": 5725
+    },
+    "quantidade": 23885,
+    "pesoKg": 997155462,
+    "produtos": {
+      "Soja": {
+        "quantidade": 21775,
+        "pesoKg": 909965252
+      },
+      "Milho": {
+        "quantidade": 2110,
+        "pesoKg": 87190210
+      }
+    }
+  }
+}

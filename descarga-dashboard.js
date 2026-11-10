@@ -74,6 +74,78 @@ function addProductMetric(products, product, weight) {
   }
 }
 
+function summarizeDays(days) {
+  const totals = {
+    turnos: { A: 0, B: 0, C: 0, F: 0 },
+    quantidade: 0,
+    pesoKg: null,
+    produtos: {},
+  };
+
+  for (const day of days) {
+    for (const shift of ["A", "B", "C", "F"]) {
+      totals.turnos[shift] += day.turnos[shift];
+    }
+    totals.quantidade += day.quantidade;
+    if (day.pesoKg !== null) {
+      totals.pesoKg = (totals.pesoKg ?? 0) + day.pesoKg;
+    }
+    for (const [product, metric] of Object.entries(day.produtos)) {
+      if (!totals.produtos[product]) {
+        totals.produtos[product] = { quantidade: 0, pesoKg: null };
+      }
+      totals.produtos[product].quantidade += metric.quantidade;
+      if (metric.pesoKg !== null) {
+        totals.produtos[product].pesoKg =
+          (totals.produtos[product].pesoKg ?? 0) + metric.pesoKg;
+      }
+    }
+  }
+
+  return totals;
+}
+
+function selectDescargasDashboardForPeriod(annualData, year, month) {
+  if (
+    !annualData ||
+    annualData.ano !== year ||
+    !Array.isArray(annualData.dias) ||
+    !annualData.turnoAtual
+  ) {
+    throw new Error(`Arquivo anual de descargas inválido para ${year}.`);
+  }
+
+  const monthPrefix = month === 0 ? null : `${year}-${String(month).padStart(2, "0")}-`;
+  const days = monthPrefix
+    ? annualData.dias.filter((day) => day.data.startsWith(monthPrefix))
+    : annualData.dias;
+
+  return {
+    atualizadoEm: annualData.atualizadoEm,
+    ano: year,
+    mes: month,
+    turnoAtual: annualData.turnoAtual,
+    dias: days,
+    totais: summarizeDays(days),
+  };
+}
+
+function mergeAnnualDescargasDashboard(existingData, refreshedData, startDate, throughDate) {
+  const existingDays = new Map((existingData?.dias || []).map((day) => [day.data, day]));
+  const days = refreshedData.dias.map((day) => {
+    if (day.data < startDate || day.data > throughDate) {
+      return existingDays.get(day.data) || day;
+    }
+    return day;
+  });
+
+  return {
+    ...refreshedData,
+    dias: days,
+    totais: summarizeDays(days),
+  };
+}
+
 function buildDescargasDashboard(rows, year, month, now = new Date(), currentTurnofolga) {
   const firstMonth = month === 0 ? 0 : month - 1;
   const dayCount = month === 0
@@ -147,5 +219,19 @@ function buildDescargasDashboard(rows, year, month, now = new Date(), currentTur
   };
 }
 
-module.exports = { buildDescargasDashboard, getOperationalShift };
-const { getBusinessDateParts } = require("./business-time");
+function getOperationalDateFromTimestamp(timestamp) {
+  const match = /^(\d{4}-\d{2}-\d{2})[ T](\d{2}):(\d{2})/.exec(String(timestamp));
+  if (!match) {
+    throw new Error(`Data de saída inválida para determinar o turno: ${timestamp}.`);
+  }
+  return Number(match[2]) < 7 ? addDaysToDateKey(match[1], -1) : match[1];
+}
+
+module.exports = {
+  buildDescargasDashboard,
+  getOperationalDateFromTimestamp,
+  getOperationalShift,
+  mergeAnnualDescargasDashboard,
+  selectDescargasDashboardForPeriod,
+};
+const { addDaysToDateKey, getBusinessDateParts } = require("./business-time");

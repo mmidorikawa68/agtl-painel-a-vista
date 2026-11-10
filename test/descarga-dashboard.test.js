@@ -1,6 +1,12 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
-const { buildDescargasDashboard, getOperationalShift } = require("../descarga-dashboard");
+const {
+  buildDescargasDashboard,
+  getOperationalDateFromTimestamp,
+  getOperationalShift,
+  mergeAnnualDescargasDashboard,
+  selectDescargasDashboardForPeriod,
+} = require("../descarga-dashboard");
 
 test("classifica horários nos turnos e vincula a madrugada à data operacional anterior", () => {
   assert.deepEqual(getOperationalShift(new Date("2026-10-09T09:59:00.000Z")), {
@@ -133,4 +139,98 @@ test("contabiliza no turno A usando horário de São Paulo quando o servidor est
   assert.equal(result.turnoAtual.turno, "A");
   assert.equal(result.turnoAtual.quantidade, 1);
   assert.equal(result.turnoAtual.produtos.Soja, 1);
+});
+
+test("classifica a data operacional da descarga antes das 07:00 como o dia anterior", () => {
+  assert.equal(getOperationalDateFromTimestamp("2026-10-09 06:59:00"), "2026-10-08");
+  assert.equal(getOperationalDateFromTimestamp("2026-10-09 07:00:00"), "2026-10-09");
+  assert.throws(
+    () => getOperationalDateFromTimestamp("data inválida"),
+    /Data de saída inválida/,
+  );
+});
+
+test("seleciona um mês do JSON anual e recompõe os totais do período", () => {
+  const annual = buildDescargasDashboard(
+    [
+      {
+        data_turno: "2026-10-09",
+        turno_base: "A",
+        turnofolga: null,
+        produto: "Soja",
+        pesoliquido: 1200,
+      },
+      {
+        data_turno: "2026-11-02",
+        turno_base: "B",
+        turnofolga: null,
+        produto: "Milho",
+        pesoliquido: 800,
+      },
+    ],
+    2026,
+    0,
+    new Date("2026-11-09T13:00:00.000Z"),
+  );
+
+  const november = selectDescargasDashboardForPeriod(annual, 2026, 11);
+
+  assert.equal(november.dias.length, 30);
+  assert.equal(november.totais.quantidade, 1);
+  assert.equal(november.totais.pesoKg, 800);
+  assert.deepEqual(november.totais.produtos.Milho, { quantidade: 1, pesoKg: 800 });
+  assert.equal(november.totais.produtos.Soja, undefined);
+});
+
+test("reconstrói a partir do checkpoint e preserva os dias anteriores do JSON anual", () => {
+  const now = new Date("2026-11-09T13:00:00.000Z");
+  const original = buildDescargasDashboard(
+    [
+      {
+        data_turno: "2026-10-08",
+        turno_base: "A",
+        turnofolga: null,
+        produto: "Soja",
+        pesoliquido: 1000,
+      },
+      {
+        data_turno: "2026-10-09",
+        turno_base: "A",
+        turnofolga: null,
+        produto: "Milho",
+        pesoliquido: 500,
+      },
+    ],
+    2026,
+    0,
+    now,
+  );
+  const refreshed = buildDescargasDashboard(
+    [
+      {
+        data_turno: "2026-10-09",
+        turno_base: "A",
+        turnofolga: null,
+        produto: "Milho",
+        pesoliquido: 700,
+      },
+    ],
+    2026,
+    0,
+    now,
+  );
+
+  const merged = mergeAnnualDescargasDashboard(
+    original,
+    refreshed,
+    "2026-10-09",
+    "2026-11-09",
+  );
+  const dayBeforeCheckpoint = merged.dias.find(({ data }) => data === "2026-10-08");
+  const changedDay = merged.dias.find(({ data }) => data === "2026-10-09");
+
+  assert.equal(dayBeforeCheckpoint.pesoKg, 1000);
+  assert.equal(changedDay.pesoKg, 700);
+  assert.equal(merged.totais.quantidade, 2);
+  assert.equal(merged.totais.pesoKg, 1700);
 });

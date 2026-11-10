@@ -3,12 +3,14 @@ const path = require("path");
 const { Pool } = require("pg");
 const { parseCargaFileName, parseDescargaXml } = require("./xml-import");
 const { businessDateKey } = require("./business-time");
+const {
+  invalidateAnnualDescargasJson,
+  writeAnnualDescargasJson,
+} = require("./descarga-json");
 
 const xmlBasePath = process.env.XML_BASE_PATH || "\\\\srvportal";
-const initialXmlScanDate = "2026-01-01";
 const ignoredXmlCargaIds = new Set([381006]);
 const refreshIntervalMs = 15 * 60 * 1000;
-const databaseUrl = process.env.IMPORT_DATABASE_URL;
 const eventTimestampFormatter = new Intl.DateTimeFormat("pt-BR", {
   timeZone: "America/Sao_Paulo",
   dateStyle: "short",
@@ -19,13 +21,12 @@ function timestamped(message) {
   return `[${eventTimestampFormatter.format(new Date())}] ${message}`;
 }
 
-if (!databaseUrl) {
-  throw new Error("Configure IMPORT_DATABASE_URL com a URL do banco PostgreSQL do Render.");
-}
-
 const pool = new Pool({
-  connectionString: databaseUrl,
-  ssl: { rejectUnauthorized: process.env.PGSSL_REJECT_UNAUTHORIZED !== "false" },
+  user: process.env.PGUSER || "postgres",
+  host: process.env.PGHOST || "localhost",
+  database: process.env.PGDATABASE || "agtl_painel_a_vista",
+  password: process.env.PGPASSWORD,
+  port: Number(process.env.PGPORT || 5432),
 });
 
 async function synchronizeDescargaIdSequence(client) {
@@ -64,6 +65,24 @@ async function synchronizeDescargaIdSequence(client) {
   }
 }
 
+async function getInitialXmlScanDate(client) {
+  const result = await client.query(
+    `SELECT ultima_data_processada::text AS ultima_data_processada
+     FROM public.painel_importacao_controle
+     WHERE fonte = 'descargas_reconciliacao_inicial'`,
+  );
+  const date = result.rows[0]?.ultima_data_processada;
+  if (
+    result.rowCount !== 1 ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(date || "")
+  ) {
+    throw new Error(
+      "O checkpoint descargas_reconciliacao_inicial está ausente, duplicado ou contém uma data inválida.",
+    );
+  }
+  return date;
+}
+
 async function importXmlFiles() {
   const todayKey = businessDateKey(new Date());
   const currentYear = todayKey.slice(0, 4);
@@ -87,8 +106,15 @@ async function importXmlFiles() {
   const client = await pool.connect();
   try {
     await synchronizeDescargaIdSequence(client);
-    const importedIds = new Set(
-      (await client.query("SELECT idcarga FROM descargas")).rows.map(({ idcarga }) => String(idcarga)),
+    const initialXmlScanDate = await getInitialXmlScanDate(client);
+    const existingRows = (await client.query(
+      "SELECT idcarga, cnpjexportador FROM descargas",
+    )).rows;
+    const importedIds = new Set(existingRows.map(({ idcarga }) => String(idcarga)));
+    const missingCnpjIds = new Set(
+      existingRows
+        .filter(({ cnpjexportador }) => cnpjexportador == null || !String(cnpjexportador).trim())
+        .map(({ idcarga }) => String(idcarga)),
     );
     const [startYear, startMonth, startDay] = initialXmlScanDate.split("-").map(Number);
     const [endYear, endMonth, endDay] = todayKey.split("-").map(Number);
@@ -126,7 +152,7 @@ async function importXmlFiles() {
           if (
             idcarga !== null &&
             !ignoredXmlCargaIds.has(idcarga) &&
-            !importedIds.has(String(idcarga))
+            (!importedIds.has(String(idcarga)) || missingCnpjIds.has(String(idcarga)))
           ) {
             files.push(entry);
           }
@@ -147,13 +173,20 @@ async function importXmlFiles() {
             [idcarga],
           );
           const existing = await client.query(
-            "SELECT 1 FROM descargas WHERE idcarga = $1 LIMIT 1",
+            `SELECT cnpjexportador, to_char(datasaida, 'YYYY-MM-DD HH24:MI:SS') AS datasaida
+             FROM descargas
+             WHERE idcarga = $1
+             LIMIT 1`,
             [idcarga],
           );
           if (existing.rowCount > 0) {
             importedIds.add(String(idcarga));
-            await client.query("COMMIT");
-            continue;
+            const existingCnpj = existing.rows[0].cnpjexportador;
+            if (existingCnpj != null && String(existingCnpj).trim()) {
+              missingCnpjIds.delete(String(idcarga));
+              await client.query("COMMIT");
+              continue;
+            }
           }
 
           const stat = await fs.stat(filePath);
@@ -167,11 +200,33 @@ async function importXmlFiles() {
               `ID do XML (${descarga.idcarga}) difere do ID no nome do arquivo (${idcarga}).`,
             );
           }
+          if (existing.rowCount > 0) {
+            missingCnpjIds.delete(String(idcarga));
+            if (descarga.cnpjexportador) {
+              const updated = await client.query(
+                `UPDATE descargas
+                 SET cnpjexportador = $2
+                 WHERE idcarga = $1
+                   AND NULLIF(BTRIM(cnpjexportador::text), '') IS NULL`,
+                [idcarga, descarga.cnpjexportador],
+              );
+              if (updated.rowCount > 0) {
+                console.info(timestamped(`CNPJ da carga ${idcarga} preenchido a partir do XML.`));
+                if (existing.rows[0].datasaida) {
+                  await invalidateAnnualDescargasJson(client, existing.rows[0].datasaida);
+                }
+              }
+            } else {
+              console.warn(timestamped(`Campo cnpjExportador ausente no XML da carga ${idcarga}.`));
+            }
+            await client.query("COMMIT");
+            continue;
+          }
           await client.query(
             `INSERT INTO descargas (
                idcarga, dataentrada, pesoentrada, datasaida, pesosaida, pesoliquido,
-               produto, cliente, placacavalo, placacarreta1, placacarreta2, placacarreta3
-             ) VALUES ($1, $2::timestamp, $3, $4::timestamp, $5, $6, $7, $8, $9, $10, $11, $12)`,
+               produto, cliente, cnpjexportador, placacavalo, placacarreta1, placacarreta2, placacarreta3
+             ) VALUES ($1, $2::timestamp, $3, $4::timestamp, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,
             [
               descarga.idcarga,
               descarga.dataentrada,
@@ -181,12 +236,14 @@ async function importXmlFiles() {
               descarga.pesoliquido,
               descarga.produto,
               descarga.cliente,
+              descarga.cnpjexportador,
               descarga.placacavalo,
               descarga.placacarreta1,
               descarga.placacarreta2,
               descarga.placacarreta3,
             ],
           );
+          await invalidateAnnualDescargasJson(client, descarga.datasaida);
           await client.query("COMMIT");
           importedIds.add(String(idcarga));
           console.info(timestamped(`Carga ${descarga.idcarga} importada em descargas.`));
@@ -202,6 +259,12 @@ async function importXmlFiles() {
 
       scanDate.setUTCDate(scanDate.getUTCDate() + 1);
     }
+    const generatedJson = await writeAnnualDescargasJson(client);
+    console.info(
+      timestamped(
+        `JSON ${path.basename(generatedJson.filePath)} atualizado desde ${generatedJson.rebuiltFrom}.`,
+      ),
+    );
     if (importErrors) {
       console.warn(
         timestamped(

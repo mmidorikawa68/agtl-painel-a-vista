@@ -1,30 +1,88 @@
 const express = require("express");
 const fs = require("fs/promises");
 const path = require("path");
-const { Pool } = require("pg");
 const { FilaXmlError, parseFilaResponse } = require("./fila-dashboard");
-const { buildDescargasDashboard, getOperationalShift } = require("./descarga-dashboard");
+const { selectDescargasDashboardForPeriod } = require("./descarga-dashboard");
+const { businessDateKey } = require("./business-time");
+const {
+  authenticateUser,
+  createSessionToken,
+  findEnabledUser,
+  readSessionEmail,
+} = require("./auth");
 
 const app = express();
 const port = Number(process.env.PORT || 3000);
-const databaseUrl = process.env.DATABASE_URL;
+const sessionSecret = process.env.SESSION_SECRET;
 const descargaEventClients = new Set();
 const publicDirectory = path.join(__dirname, "public");
 const dashboardDirectory = path.join(publicDirectory, "dashboards");
+const dashboardDataDirectory = path.join(publicDirectory, "data");
 const dashboardsFile = path.join(__dirname, "dashboards.json");
+const usersFile = process.env.USERS_FILE || path.join(__dirname, "usuarios.json");
+const sessionCookieName = "agtl_session";
 
-const pool = databaseUrl
-  ? new Pool({
-      connectionString: databaseUrl,
-      ssl: { rejectUnauthorized: process.env.PGSSL_REJECT_UNAUTHORIZED !== "false" },
-    })
-  : new Pool({
-      user: process.env.PGUSER || "postgres",
-      host: process.env.PGHOST || "localhost",
-      database: process.env.PGDATABASE || "agtl_painel_a_vista",
-      password: process.env.PGPASSWORD,
-      port: Number(process.env.PGPORT || 5432),
-    });
+if (!sessionSecret || Buffer.byteLength(sessionSecret, "utf8") < 32) {
+  throw new Error("Configure SESSION_SECRET com pelo menos 32 bytes aleatórios.");
+}
+
+app.use(express.urlencoded({ extended: false, limit: "10kb" }));
+
+function getSessionToken(request) {
+  const cookies = request.headers.cookie?.split(";") || [];
+  for (const cookie of cookies) {
+    const separator = cookie.indexOf("=");
+    if (separator < 0 || cookie.slice(0, separator).trim() !== sessionCookieName) {
+      continue;
+    }
+    return cookie.slice(separator + 1).trim();
+  }
+  return null;
+}
+
+function setSessionCookie(response, token) {
+  const secure = process.env.NODE_ENV === "development" ? "" : "; Secure";
+  response.setHeader(
+    "Set-Cookie",
+    `${sessionCookieName}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=28800${secure}`,
+  );
+}
+
+function clearSessionCookie(response) {
+  const secure = process.env.NODE_ENV === "development" ? "" : "; Secure";
+  response.setHeader(
+    "Set-Cookie",
+    `${sessionCookieName}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure}`,
+  );
+}
+
+async function requireAuth(request, response, next) {
+  response.set("Cache-Control", "no-store");
+  const email = readSessionEmail(getSessionToken(request), sessionSecret);
+  if (!email) {
+    clearSessionCookie(response);
+    if (request.path === "/" || request.path.endsWith("/content")) {
+      return response.redirect("/login?expirada=1");
+    }
+    return response.status(401).json({ erro: "É necessário entrar para acessar este recurso." });
+  }
+
+  try {
+    const user = await findEnabledUser(email, usersFile);
+    if (!user) {
+      clearSessionCookie(response);
+      if (request.path === "/" || request.path.endsWith("/content")) {
+        return response.redirect("/login?expirada=1");
+      }
+      return response.status(401).json({ erro: "É necessário entrar para acessar este recurso." });
+    }
+    response.set("Cache-Control", "no-store");
+    request.user = user;
+    return next();
+  } catch (error) {
+    return next(error);
+  }
+}
 
 function notifyDescargasUpdated() {
   for (const response of descargaEventClients) {
@@ -36,7 +94,7 @@ function notifyDescargasUpdated() {
   }
 }
 
-let latestDescargaId;
+let latestDescargaFileModified;
 let checkingDescargas = false;
 async function checkForNewDescargas() {
   if (checkingDescargas) {
@@ -44,14 +102,20 @@ async function checkForNewDescargas() {
   }
   checkingDescargas = true;
   try {
-    const result = await pool.query("SELECT MAX(iddescarga) AS ultima_id FROM descargas");
-    const currentId = result.rows[0].ultima_id;
-    if (latestDescargaId !== undefined && currentId !== latestDescargaId) {
+    const year = businessDateKey(new Date()).slice(0, 4);
+    const filePath = path.join(dashboardDataDirectory, `descarga_por_turno_${year}.json`);
+    const fileStat = await fs.stat(filePath);
+    if (
+      latestDescargaFileModified !== undefined &&
+      fileStat.mtimeMs !== latestDescargaFileModified
+    ) {
       notifyDescargasUpdated();
     }
-    latestDescargaId = currentId;
+    latestDescargaFileModified = fileStat.mtimeMs;
   } catch (error) {
-    console.error("Falha ao verificar novas descargas:", error);
+    if (error.code !== "ENOENT") {
+      console.error("Falha ao verificar atualização do JSON de descargas:", error);
+    }
   } finally {
     checkingDescargas = false;
   }
@@ -94,6 +158,48 @@ async function loadDashboards() {
     };
   });
 }
+
+app.get("/login", async (req, res, next) => {
+  const email = readSessionEmail(getSessionToken(req), sessionSecret);
+  if (email) {
+    try {
+      if (await findEnabledUser(email, usersFile)) {
+        return res.redirect("/");
+      }
+      clearSessionCookie(res);
+    } catch (error) {
+      return next(error);
+    }
+  }
+  res.set("Cache-Control", "no-store");
+  return res.sendFile(path.join(publicDirectory, "login.html"));
+});
+
+app.post("/login", async (req, res, next) => {
+  const email = typeof req.body.email === "string" ? req.body.email.trim() : "";
+  const password = typeof req.body.password === "string" ? req.body.password : "";
+  if (!email || email.length > 254 || !password || password.length > 128) {
+    return res.redirect(303, "/login?erro=1");
+  }
+
+  try {
+    const user = await authenticateUser(email, password, usersFile);
+    if (!user) {
+      return res.redirect(303, "/login?erro=1");
+    }
+    setSessionCookie(res, createSessionToken(user.Email, sessionSecret));
+    return res.redirect(303, "/");
+  } catch (error) {
+    return next(error);
+  }
+});
+
+app.post("/logout", (req, res) => {
+  clearSessionCookie(res);
+  return res.redirect(303, "/login");
+});
+
+app.use("/api", requireAuth);
 
 app.get("/api/dashboards", async (req, res, next) => {
   try {
@@ -186,80 +292,33 @@ app.get("/api/descargas-dashboard", async (req, res, next) => {
   }
 
   try {
-    const now = new Date();
-    const currentShiftDate = getOperationalShift(now).data;
-    const monthStart = month === 0
-      ? `${year}-01-01`
-      : `${year}-${String(month).padStart(2, "0")}-01`;
-    const monthEndDate = month === 0 ? new Date(year + 1, 0, 1) : new Date(year, month, 1);
-    const monthEnd = `${monthEndDate.getFullYear()}-${String(monthEndDate.getMonth() + 1).padStart(2, "0")}-01`;
-    const result = await pool.query(
-      `WITH descarga_com_turno AS (
-         SELECT
-           CASE
-             WHEN d.datasaida::time < TIME '07:00'
-               THEN d.datasaida::date - 1
-             ELSE d.datasaida::date
-           END AS data_turno,
-           CASE
-             WHEN d.datasaida::time >= TIME '07:00'
-               AND d.datasaida::time < TIME '15:20' THEN 'A'
-             WHEN d.datasaida::time >= TIME '15:20'
-               AND d.datasaida::time < TIME '23:28' THEN 'B'
-             ELSE 'C'
-           END AS turno_base,
-           d.produto,
-           d.pesoliquido,
-           n.produto AS produto_mapeado,
-           td.turnofolga
-         FROM descargas d
-         LEFT JOIN public.ncm n ON n.codigo::text = d.produto::text
-         LEFT JOIN LATERAL (
-           SELECT turnofolga
-           FROM public.turnodescarga
-           WHERE dataturno = CASE
-             WHEN d.datasaida::time < TIME '07:00'
-               THEN d.datasaida::date - 1
-             ELSE d.datasaida::date
-           END
-           ORDER BY idturno DESC
-           LIMIT 1
-         ) td ON TRUE
-       )
-       SELECT
-         to_char(data_turno, 'YYYY-MM-DD') AS data_turno,
-         turno_base,
-         turnofolga,
-         COALESCE(NULLIF(BTRIM(produto_mapeado), ''), produto::text) AS produto,
-         pesoliquido
-       FROM descarga_com_turno
-       WHERE (data_turno >= $1::date AND data_turno < $2::date)
-          OR data_turno = $3::date`,
-      [monthStart, monthEnd, currentShiftDate],
-    );
-    const schedule = await pool.query(
-       `SELECT turnofolga
-        FROM public.turnodescarga
-        WHERE dataturno = $1::date
-        ORDER BY idturno DESC
-        LIMIT 1`,
-       [currentShiftDate],
-    );
-    return res.json(
-       buildDescargasDashboard(
-         result.rows,
-         year,
-         month,
-         now,
-         schedule.rows[0]?.turnofolga ?? null,
-       ),
-    );
+    const filePath = path.join(dashboardDataDirectory, `descarga_por_turno_${year}.json`);
+    let contents;
+    try {
+      contents = await fs.readFile(filePath, "utf8");
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        return res.status(503).json({
+          erro: `Os dados de descargas para ${year} ainda não foram publicados.`,
+        });
+      }
+      throw error;
+    }
+
+    let annualData;
+    try {
+      annualData = JSON.parse(contents);
+    } catch (error) {
+      return next(new Error(`JSON anual de descargas inválido: ${filePath}.`, { cause: error }));
+    }
+    return res.json(selectDescargasDashboardForPeriod(annualData, year, month));
   } catch (error) {
     return next(error);
   }
 });
 
-app.get("/", (req, res) => {
+app.get("/", requireAuth, (req, res) => {
+  res.set("Cache-Control", "no-store");
   res.sendFile(path.join(publicDirectory, "index.html"));
 });
 app.use("/assets", express.static(path.join(publicDirectory, "assets")));
