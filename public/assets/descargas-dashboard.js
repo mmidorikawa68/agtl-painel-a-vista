@@ -18,6 +18,7 @@ const yearInput = document.querySelector("#year");
 const monthInput = document.querySelector("#month");
 const form = document.querySelector("#period-filter");
 const errorElement = document.querySelector("#load-error");
+const firebaseDatabaseUrl = "https://agtl-painel-a-vista-default-rtdb.firebaseio.com";
 
 function formatQuantity(value) {
   return value > 0 ? numberFormat.format(value) : "---";
@@ -33,6 +34,59 @@ function formatMonth(year, month) {
   }
   const name = monthNames[month - 1];
   return `${name.charAt(0).toLocaleUpperCase("pt-BR")}${name.slice(1)} ${year}`;
+}
+
+function summarizeDays(days) {
+  const totals = {
+    turnos: { A: 0, B: 0, C: 0, F: 0 },
+    quantidade: 0,
+    pesoKg: null,
+    produtos: {},
+  };
+
+  for (const day of days) {
+    for (const shift of ["A", "B", "C", "F"]) {
+      totals.turnos[shift] += day.turnos[shift];
+    }
+    totals.quantidade += day.quantidade;
+    if (day.pesoKg !== null) {
+      totals.pesoKg = (totals.pesoKg ?? 0) + day.pesoKg;
+    }
+    for (const [product, metric] of Object.entries(day.produtos)) {
+      if (!totals.produtos[product]) {
+        totals.produtos[product] = { quantidade: 0, pesoKg: null };
+      }
+      totals.produtos[product].quantidade += metric.quantidade;
+      if (metric.pesoKg !== null) {
+        totals.produtos[product].pesoKg =
+          (totals.produtos[product].pesoKg ?? 0) + metric.pesoKg;
+      }
+    }
+  }
+  return totals;
+}
+
+function selectPeriod(annualData, year, month) {
+  if (
+    !annualData ||
+    annualData.ano !== year ||
+    !Array.isArray(annualData.dias) ||
+    !annualData.turnoAtual
+  ) {
+    throw new Error(`O JSON de descargas para ${year} está inválido.`);
+  }
+  const monthPrefix = month === 0 ? null : `${year}-${String(month).padStart(2, "0")}-`;
+  const days = monthPrefix
+    ? annualData.dias.filter((day) => day.data.startsWith(monthPrefix))
+    : annualData.dias;
+  return {
+    atualizadoEm: annualData.atualizadoEm,
+    ano: year,
+    mes: month,
+    turnoAtual: annualData.turnoAtual,
+    dias,
+    totais: summarizeDays(days),
+  };
 }
 
 function keepCurrentDateVisible() {
@@ -156,17 +210,19 @@ function render(data) {
 
 async function loadData() {
   errorElement.hidden = true;
-  const params = new URLSearchParams({
-    ano: yearInput.value,
-    mes: monthInput.value,
-  });
+  const year = Number(yearInput.value);
+  const month = Number(monthInput.value);
+  const url =
+    `${firebaseDatabaseUrl}/dashboards/descarga_por_turno_${year}.json`;
   try {
-    const response = await fetch(`/api/descargas-dashboard?${params}`);
-    const data = await response.json();
+    const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) {
-      throw new Error(data.erro || "Não foi possível consultar as descargas.");
+      throw new Error(
+        `Não foi possível consultar os dados de descargas no Firebase (HTTP ${response.status}).`,
+      );
     }
-    render(data);
+    const annualData = await response.json();
+    render(selectPeriod(annualData, year, month));
   } catch (error) {
     errorElement.textContent = error.message;
     errorElement.hidden = false;
@@ -185,7 +241,5 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   void loadData();
 });
-const descargaEvents = new EventSource("/api/descargas-events");
-descargaEvents.addEventListener("descargas-atualizadas", () => void loadData());
 window.setInterval(() => void loadData(), 15 * 60 * 1000);
 void loadData();
