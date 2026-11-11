@@ -84,7 +84,7 @@ function selectPeriod(annualData, year, month) {
     ano: year,
     mes: month,
     turnoAtual: annualData.turnoAtual,
-    dias,
+    dias: days,
     totais: summarizeDays(days),
   };
 }
@@ -222,6 +222,11 @@ async function loadData() {
       );
     }
     const annualData = await response.json();
+    if (annualData === null) {
+      throw new Error(
+        `Não há JSON de descargas publicado em /dashboards/descarga_por_turno_${year}. Confira o upload do importador.`,
+      );
+    }
     render(selectPeriod(annualData, year, month));
   } catch (error) {
     errorElement.textContent = error.message;
