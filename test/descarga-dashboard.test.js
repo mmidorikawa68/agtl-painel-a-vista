@@ -182,6 +182,35 @@ test("seleciona um mês do JSON anual e recompõe os totais do período", () => 
   assert.equal(november.totais.produtos.Soja, undefined);
 });
 
+test("agrega JSON do Firebase que omite propriedades nulas e objetos vazios", () => {
+  const annual = {
+    ano: 2026,
+    atualizadoEm: "2026-11-09T13:00:00.000Z",
+    turnoAtual: { turno: "A", produtos: { Soja: 1, Milho: 0 } },
+    dias: [
+      {
+        data: "2026-11-01",
+        turnos: { A: 0, B: 0, C: 0, F: 0 },
+        quantidade: 0,
+      },
+      {
+        data: "2026-11-02",
+        turnos: { A: 1, B: 0, C: 0, F: 0 },
+        quantidade: 1,
+        pesoKg: 1000,
+        produtos: { Soja: { quantidade: 1, pesoKg: 1000 } },
+      },
+    ],
+  };
+
+  const result = selectDescargasDashboardForPeriod(annual, 2026, 11);
+
+  assert.equal(result.dias.length, 2);
+  assert.equal(result.totais.quantidade, 1);
+  assert.equal(result.totais.pesoKg, 1000);
+  assert.deepEqual(result.totais.produtos.Soja, { quantidade: 1, pesoKg: 1000 });
+});
+
 test("reconstrói a partir do checkpoint e preserva os dias anteriores do JSON anual", () => {
   const now = new Date("2026-11-09T13:00:00.000Z");
   const original = buildDescargasDashboard(

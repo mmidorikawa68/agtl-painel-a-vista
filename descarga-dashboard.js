@@ -87,15 +87,15 @@ function summarizeDays(days) {
       totals.turnos[shift] += day.turnos[shift];
     }
     totals.quantidade += day.quantidade;
-    if (day.pesoKg !== null) {
+    if (day.pesoKg != null) {
       totals.pesoKg = (totals.pesoKg ?? 0) + day.pesoKg;
     }
-    for (const [product, metric] of Object.entries(day.produtos)) {
+    for (const [product, metric] of Object.entries(day.produtos ?? {})) {
       if (!totals.produtos[product]) {
         totals.produtos[product] = { quantidade: 0, pesoKg: null };
       }
       totals.produtos[product].quantidade += metric.quantidade;
-      if (metric.pesoKg !== null) {
+      if (metric.pesoKg != null) {
         totals.produtos[product].pesoKg =
           (totals.produtos[product].pesoKg ?? 0) + metric.pesoKg;
       }
