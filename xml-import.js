@@ -145,6 +145,7 @@ async function parseDescargaXml(xml) {
     pesoliquido: pesoentrada === null || pesosaida === null ? null : pesoentrada - pesosaida,
     produto: optionalField(payload, "ncmProduto"),
     cliente: optionalField(payload, "nomeCliente"),
+    cnpjexportador: optionalField(payload, "cnpjExportador"),
     placacavalo: optionalField(payload, "placaCavalo"),
     placacarreta1: optionalField(payload, "placaCarreta"),
     placacarreta2: optionalField(payload, "placaCarreta2"),

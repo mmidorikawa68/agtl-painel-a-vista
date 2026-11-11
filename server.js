@@ -4,85 +4,14 @@ const path = require("path");
 const { FilaXmlError, parseFilaResponse } = require("./fila-dashboard");
 const { selectDescargasDashboardForPeriod } = require("./descarga-dashboard");
 const { businessDateKey } = require("./business-time");
-const {
-  authenticateUser,
-  createSessionToken,
-  findEnabledUser,
-  readSessionEmail,
-} = require("./auth");
 
 const app = express();
 const port = Number(process.env.PORT || 3000);
-const sessionSecret = process.env.SESSION_SECRET;
 const descargaEventClients = new Set();
 const publicDirectory = path.join(__dirname, "public");
 const dashboardDirectory = path.join(publicDirectory, "dashboards");
 const dashboardDataDirectory = path.join(publicDirectory, "data");
 const dashboardsFile = path.join(__dirname, "dashboards.json");
-const usersFile = process.env.USERS_FILE || path.join(__dirname, "usuarios.json");
-const sessionCookieName = "agtl_session";
-
-if (!sessionSecret || Buffer.byteLength(sessionSecret, "utf8") < 32) {
-  throw new Error("Configure SESSION_SECRET com pelo menos 32 bytes aleatórios.");
-}
-
-app.use(express.urlencoded({ extended: false, limit: "10kb" }));
-
-function getSessionToken(request) {
-  const cookies = request.headers.cookie?.split(";") || [];
-  for (const cookie of cookies) {
-    const separator = cookie.indexOf("=");
-    if (separator < 0 || cookie.slice(0, separator).trim() !== sessionCookieName) {
-      continue;
-    }
-    return cookie.slice(separator + 1).trim();
-  }
-  return null;
-}
-
-function setSessionCookie(response, token) {
-  const secure = process.env.NODE_ENV === "development" ? "" : "; Secure";
-  response.setHeader(
-    "Set-Cookie",
-    `${sessionCookieName}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=28800${secure}`,
-  );
-}
-
-function clearSessionCookie(response) {
-  const secure = process.env.NODE_ENV === "development" ? "" : "; Secure";
-  response.setHeader(
-    "Set-Cookie",
-    `${sessionCookieName}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure}`,
-  );
-}
-
-async function requireAuth(request, response, next) {
-  response.set("Cache-Control", "no-store");
-  const email = readSessionEmail(getSessionToken(request), sessionSecret);
-  if (!email) {
-    clearSessionCookie(response);
-    if (request.path === "/" || request.path.endsWith("/content")) {
-      return response.redirect("/login?expirada=1");
-    }
-    return response.status(401).json({ erro: "É necessário entrar para acessar este recurso." });
-  }
-
-  try {
-    const user = await findEnabledUser(email, usersFile);
-    if (!user) {
-      clearSessionCookie(response);
-      if (request.path === "/" || request.path.endsWith("/content")) {
-        return response.redirect("/login?expirada=1");
-      }
-      return response.status(401).json({ erro: "É necessário entrar para acessar este recurso." });
-    }
-    response.set("Cache-Control", "no-store");
-    request.user = user;
-    return next();
-  } catch (error) {
-    return next(error);
-  }
-}
 
 function notifyDescargasUpdated() {
   for (const response of descargaEventClients) {
@@ -158,48 +87,6 @@ async function loadDashboards() {
     };
   });
 }
-
-app.get("/login", async (req, res, next) => {
-  const email = readSessionEmail(getSessionToken(req), sessionSecret);
-  if (email) {
-    try {
-      if (await findEnabledUser(email, usersFile)) {
-        return res.redirect("/");
-      }
-      clearSessionCookie(res);
-    } catch (error) {
-      return next(error);
-    }
-  }
-  res.set("Cache-Control", "no-store");
-  return res.sendFile(path.join(publicDirectory, "login.html"));
-});
-
-app.post("/login", async (req, res, next) => {
-  const email = typeof req.body.email === "string" ? req.body.email.trim() : "";
-  const password = typeof req.body.password === "string" ? req.body.password : "";
-  if (!email || email.length > 254 || !password || password.length > 128) {
-    return res.redirect(303, "/login?erro=1");
-  }
-
-  try {
-    const user = await authenticateUser(email, password, usersFile);
-    if (!user) {
-      return res.redirect(303, "/login?erro=1");
-    }
-    setSessionCookie(res, createSessionToken(user.Email, sessionSecret));
-    return res.redirect(303, "/");
-  } catch (error) {
-    return next(error);
-  }
-});
-
-app.post("/logout", (req, res) => {
-  clearSessionCookie(res);
-  return res.redirect(303, "/login");
-});
-
-app.use("/api", requireAuth);
 
 app.get("/api/dashboards", async (req, res, next) => {
   try {
@@ -317,8 +204,7 @@ app.get("/api/descargas-dashboard", async (req, res, next) => {
   }
 });
 
-app.get("/", requireAuth, (req, res) => {
-  res.set("Cache-Control", "no-store");
+app.get("/", (req, res) => {
   res.sendFile(path.join(publicDirectory, "index.html"));
 });
 app.use("/assets", express.static(path.join(publicDirectory, "assets")));
