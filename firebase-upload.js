@@ -2,7 +2,10 @@ const crypto = require("crypto");
 const fs = require("fs/promises");
 const path = require("path");
 
-const tokenScope = "https://www.googleapis.com/auth/firebase.database";
+const tokenScope = [
+  "https://www.googleapis.com/auth/firebase.database",
+  "https://www.googleapis.com/auth/userinfo.email",
+].join(" ");
 
 function encodeBase64Url(value) {
   return Buffer.from(value).toString("base64url");

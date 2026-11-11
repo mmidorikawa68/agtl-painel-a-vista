@@ -50,7 +50,10 @@ test("autentica com service account e substitui o nó do Realtime Database", asy
       );
       const claims = JSON.parse(Buffer.from(encodedClaims, "base64url").toString("utf8"));
       assert.equal(claims.iss, "firebase-uploader@example.test");
-      assert.equal(claims.scope, "https://www.googleapis.com/auth/firebase.database");
+      assert.equal(
+        claims.scope,
+        "https://www.googleapis.com/auth/firebase.database https://www.googleapis.com/auth/userinfo.email",
+      );
       return new Response(JSON.stringify({ access_token: "test-access-token" }), {
         status: 200,
         headers: { "content-type": "application/json" },

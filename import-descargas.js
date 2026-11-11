@@ -7,6 +7,7 @@ const {
   invalidateAnnualDescargasJson,
   writeAnnualDescargasJson,
 } = require("./descarga-json");
+const { uploadAnnualDescargasJson } = require("./firebase-upload");
 
 const xmlBasePath = process.env.XML_BASE_PATH || "\\\\srvportal";
 const ignoredXmlCargaIds = new Set([381006]);
@@ -263,6 +264,15 @@ async function importXmlFiles() {
     console.info(
       timestamped(
         `JSON ${path.basename(generatedJson.filePath)} atualizado desde ${generatedJson.rebuiltFrom}.`,
+      ),
+    );
+    const uploadResult = await uploadAnnualDescargasJson(
+      generatedJson.filePath,
+      generatedJson.year,
+    );
+    console.info(
+      timestamped(
+        `${uploadResult.fileName} enviado ao Firebase em ${uploadResult.databasePath}.`,
       ),
     );
     if (importErrors) {
